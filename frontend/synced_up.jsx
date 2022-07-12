@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ReactDOM.render(<Root store={store} />, root);
-    ReactDOM.render(<h1>The website is under construction</h1>, root);
+    ReactDOM.render(<Root store={store}/>, root);
 
     window.signup = signup;
     window.login = login;

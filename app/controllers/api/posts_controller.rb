@@ -3,13 +3,31 @@ class Api::PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         if @post.save
-            render "api/users/show"
+            render :show
+        else
+            render json: @post.errors.full_messages, status: 422
         end
     end
 
-    def delete
-        
+    def update
+        @post = Post.find_by(id: params[:id])
+        if @post.update(post_params)
+            render :show
+        else 
+            render json: @post.errors.full_messages, status: 422
+        end
     end
+
+    def destroy
+        @post = Post.find_by(id: params[:id])
+
+        if @post.destroy
+            render :show
+        else
+            render json: @post.errors.full_messages, status: 422
+        end
+    end
+
 
     def post_params
         params.require(:post).permit(:body, :author_id)
