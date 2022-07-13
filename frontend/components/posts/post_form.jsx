@@ -1,12 +1,9 @@
 import React from "react";
 
-class CreatePost extends React.Component{
+class PostForm extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            body: "",
-            author_id: this.props.author.id
-        }
+        this.state = this.props.post
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -17,21 +14,24 @@ class CreatePost extends React.Component{
     handleSubmit(e){
         console.log("submit")
         console.log(this.props.creatPost)
-        this.props.createPost(this.state)
+        this.props.processForm(this.state).then(this.props.closeModal)
     }
 
     render(){
+        console.log("create or update post")
+        console.log(this.props)
         return (
             <div>
-                <h2>Create a post</h2>
-                <p>{this.props.author.firstName}</p>
-                <p>{this.props.author.headline}</p>
+                <h2>{this.props.formType}</h2>
+                <div onClick={this.props.closeModal} className="close-x">X</div>
+                <p>{this.props.currentUser.firstName}</p>
+                <p>{this.props.currentUser.headline}</p>
                 <form onSubmit={this.handleSubmit}>
                     <label>post body
                         <textarea value={this.state.body}
                             onChange={this.handleUpdate("body")}></textarea>
                     </label>
-                    <button type="submit">Post</button>
+                    <button type="submit">{this.props.formType}</button>
                 </form>
             </div>
 
@@ -39,4 +39,4 @@ class CreatePost extends React.Component{
     }
 }
 
-export default CreatePost
+export default PostForm; 

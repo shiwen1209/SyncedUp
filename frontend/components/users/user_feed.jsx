@@ -1,6 +1,5 @@
 import React from "react";
-import PostIndex from "../posts/post_index";
-import CreatePost from "../posts/create_post";
+import PostIndexContainer from "../posts/post_index_container";
 
 class UserFeed extends React.Component{
     constructor(props){
@@ -11,10 +10,6 @@ class UserFeed extends React.Component{
     componentDidMount(){
         this.props.fetchUser(this.props.users.id)
     }
-
-    // componentDidUpdate(){
-    //     // this.props.fetchUser(this.props.users.id)
-    // }
 
     render(){
         console.log("props");
@@ -31,10 +26,9 @@ class UserFeed extends React.Component{
                     <p>{this.props.users.lastName}</p>
                 </div>
 
-                <CreatePost author={this.props.users} 
-                            createPost ={this.props.createPost} />
 
-                <PostIndex posts={this.props.posts} />
+
+                <PostIndexContainer posts={this.props.posts} />
 
             </div>
         )

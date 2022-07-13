@@ -1,7 +1,7 @@
 import { connect} from "react-redux";
 import UserFeed from "./user_feed";
 import {fetchUser} from "../../actions/session_actions";
-import { createPost } from "../../actions/post_actions";
+
 
 
 const mstp = (state, ownProps)=>{
@@ -15,8 +15,7 @@ const mstp = (state, ownProps)=>{
 
 const mdtp = (dispatch)=>{
     return {
-        fetchUser: (id)=>dispatch(fetchUser(id)),
-        createPost: (postForm)=>dispatch(createPost(postForm))
+        fetchUser: (id)=>dispatch(fetchUser(id))
     }
 }
 

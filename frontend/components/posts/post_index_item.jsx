@@ -1,27 +1,39 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 
-export default (props)=>{
-    return(
-        <li>
-            <div>
-                <p>{props.post.authorName}</p>
-                <p>{props.post.authorHeadline}</p>
-            </div>
+class PostIndexItem extends React.Component {
 
-            <p>{props.post.body}</p>
-            <button>Like</button>
-            <button>Comment</button>
+    render(){
 
-            {props.currentUserId === props.post.authorId ?
+        const simplePost = this.props.post
+        return (
+            <li>
                 <div>
-                    <button onClick={(e) => props.deletePost(props.post.id)}>
-                        Delete</button>
-                    <button>Edit</button>
-                </div> :
-                <div></div>
-            }
-        </li>
-    )
+                    <p>{this.props.post.authorName}</p>
+                    <p>{this.props.post.authorHeadline}</p>
+                </div>
+
+                <p>{this.props.post.body}</p>
+                <button>Like</button>
+                <button>Comment</button>
+
+                {this.props.currentUserId === this.props.post.authorId ?
+                    <div>
+                        <button onClick={(e) => this.props.deletePost(this.props.post.id)}>
+                            Delete</button>
+                        <button onClick={(e) => this.props.openModalPayload({ modal: 'updatePost', payload: this.props.post })}>
+                            Update Post
+                        </button>
+                    </div> :
+                    <div></div>
+                }
+            </li>
+        )
+    }
+
 }
+
+
+export default PostIndexItem
