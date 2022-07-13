@@ -22,6 +22,4 @@ class Post < ApplicationRecord
     
     has_many :likes, as: :likable
 
-    
-
 end

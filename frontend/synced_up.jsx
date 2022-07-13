@@ -6,6 +6,7 @@ import Root from "./components/root";
 // for testing purpose
 import { signup, login, logout } from "./actions/session_actions";
 import {createPost, updatePost, deletePost} from "./actions/post_actions"
+import {createComment, updateComment, deleteComment} from "./actions/comment_actions"
 
 document.addEventListener("DOMContentLoaded", () => {
     // console.log("entry file")
@@ -35,4 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.createPost = createPost;
     window.updatePost = updatePost;
     window.deletePost = deletePost;
+    window.createComment= createComment;
+    window.updateComment= updateComment;
+    window.deleteComment= deleteComment;
 });

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CommentIndexContainer from "../comments/comment_index_container"
 
 
 
@@ -8,6 +9,15 @@ class PostIndexItem extends React.Component {
         super(props);
         this.state = {
             displayComments: false
+        }
+        this.toggleComments = this.toggleComments.bind(this)
+    }
+
+    toggleComments(e){
+        if(this.state.displayComments){
+            this.setState({ displayComments: false })
+        } else {
+            this.setState({ displayComments: true })
         }
     }
 
@@ -20,11 +30,11 @@ class PostIndexItem extends React.Component {
                     <p>{this.props.post.authorHeadline}</p>
                 </div>
                 <p>{this.props.post.body}</p>
-                <p onClick={(e) => this.setState({ displayComments: true })}>
+                <p onClick={this.toggleComments}>
                     See comments
                 </p>
                 <button>Like</button>
-                <button onClick={(e) => this.setState({ displayComments: true })}>
+                <button onClick={this.toggleComments}>
                     Comment
                 </button>
 
@@ -42,8 +52,7 @@ class PostIndexItem extends React.Component {
 
                 {this.state.displayComments ?
                     <div>
-                        <div>Comment BOX here</div>
-                        <div>Comments are displayed here</div>
+                        <CommentIndexContainer post={this.props.post}/>
                     </div> :
                     <div></div>
                 }
