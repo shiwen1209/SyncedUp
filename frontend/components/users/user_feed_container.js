@@ -9,7 +9,7 @@ const mstp = (state, ownProps)=>{
     console.log(state.entities.users)
     return {
         users: state.entities.users[state.session.id],
-        posts: Object.values(state.entities.posts)
+        posts: Object.values(state.entities.posts).sort(((b, a) => a.id - b.id))
     }
 }
 
