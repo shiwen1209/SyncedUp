@@ -27,12 +27,13 @@ class SessionForm extends React.Component {
 
 
     render() {
+        let errs;
         if (this.props.errors) {
-            const errs = this.props.errors.map((err, idx) => (
+            errs = this.props.errors.map((err, idx) => (
                 <li key={idx}>{err}</li>
             ))
         } else {
-            const errs = <div></div>
+            errs = <div></div>
         }
 
         return (
