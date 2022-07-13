@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id                :bigint           not null, primary key
+#  body              :string           not null
+#  post_id           :integer          not null
+#  commenter_id      :integer          not null
+#  parent_comment_id :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+one:
+  body: MyString
+  post_id: 1
+  commenter_id: MyString
+  integer: MyString
+  parent_comment_id: MyString
+  integer: MyString
+
+two:
+  body: MyString
+  post_id: 1
+  commenter_id: MyString
+  integer: MyString
+  parent_comment_id: MyString
+  integer: MyString

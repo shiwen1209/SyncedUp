@@ -11,12 +11,15 @@ const receiveCurrentUser = (payload) => {
     console.log(payload)
 
     let posts = {};
+    let comments = {};
     if (payload.posts){posts = payload.posts}
+    if (payload.comments) { comments = payload.comments }
 
     return {
         type: RECEIVE_CURRENT_USER,
         currentUser: payload.users,
-        posts: posts
+        posts: posts,
+        comments
     }
 }
 

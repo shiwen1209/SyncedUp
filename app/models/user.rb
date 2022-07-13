@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                :bigint           not null, primary key
+#  email             :string           not null
+#  pronouns          :string
+#  headline          :string
+#  about             :string
+#  industry          :string
+#  location_country  :string
+#  location_postcode :string
+#  location_city     :string
+#  password_digest   :string           not null
+#  session_token     :string           not null
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  first_name        :string
+#  last_name         :string
+#
 class User < ApplicationRecord
     validates :email, :session_token, presence: true, uniqueness: true
     validates :password_digest, presence: true
@@ -7,9 +27,18 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
       has_many :posts,
-        primary_key: :id,
         foreign_key: :author_id,
         class_name: :Post,
+        dependent: :destroy
+      
+      has_many :comments, 
+        foreign_key: :commenter_id,
+        class_name: :Comment,
+        dependent: :destroy
+
+      has_many :likes,
+        foreign_key: :user_id,
+        class_name: :Like,
         dependent: :destroy
 
   def self.find_by_credentials(email, password)

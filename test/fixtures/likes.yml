@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: likes
+#
+#  id           :bigint           not null, primary key
+#  user_id      :integer
+#  likable_type :string
+#  likable_id   :bigint
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  user_id: 1
+  likable: one
+
+two:
+  user_id: 1
+  likable: two

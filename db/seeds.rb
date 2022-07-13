@@ -43,3 +43,10 @@ post1 = Post.create!("author_id": user1.id, "body": "today has been a hard day")
 post2 = Post.create!("author_id": user1.id, "body": "another hard day at work")
 post3 = Post.create!("author_id": user1.id, "body": "I need a vacation...")
 post4 = Post.create!("author_id": user2.id, "body": "Our company is doing well")
+
+
+comment1 = Comment.create!("body": "ditto", "post_id": post1.id, "commenter_id": user2.id)
+comment2 = Comment.create!("body": "I like it", "post_id": post1.id, "commenter_id": user3.id)
+comment3 = Comment.create!("body": "lolll", "post_id": post2.id, "commenter_id": user2.id)
+comment4 = Comment.create!("body": "way to go", "post_id": post2.id, "commenter_id": user3.id)
+comment5 = Comment.create!("body": "thanks!", "post_id": post2.id, "commenter_id": user1.id, "parent_comment_id": comment4.id)
