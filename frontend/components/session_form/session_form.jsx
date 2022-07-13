@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
 
 
     render() {
-        debugger
+        // debugger
         let errs;
         if (this.props.errors.length > 0) {
             errs = this.props.errors.map((err, idx) => (
