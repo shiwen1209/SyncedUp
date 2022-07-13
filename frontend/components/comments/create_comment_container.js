@@ -3,7 +3,7 @@ import { createComment } from "../../actions/comment_actions";
 import CommentForm from "./comment_form";
 
 
-const mstp = (state, ownProps)=>{
+const mstp = (state)=>{
     // debugger
     return{
         currentUserId: state.session.id

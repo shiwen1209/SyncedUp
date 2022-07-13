@@ -12,14 +12,14 @@ class CommentIndex extends React.Component {
         console.log(this.props)
 
         const commentsList = this.props.comments.map((comment, idx) => (
-            <CommentIndexItemContainer comment={comment} key={idx} />
+            <CommentIndexItemContainer comment={comment} postId={this.props.post.id} key={idx} />
         ))
 
 
 
         return (
             <div>
-                <CreateCommentContainer postId={this.props.post.id} />
+                <CreateCommentContainer parentCommentId={null} postId={this.props.post.id} formType="Add a comment..." />
                 <h3>List of comments</h3>
                 <ul>
                     {commentsList}
