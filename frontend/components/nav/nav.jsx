@@ -13,27 +13,52 @@ class Nav extends React.Component {
     }
 
     render() {
-        return (
-            <nav>
-                <Link id="logo" to="/"><span className="logo">Synced</span><span className="logo" id="up">up</span></Link> 
-
-                
-                {this.props.currentUser ?
+        if(this.props.currentUser){
+            return (
+                <nav>
                     <div>
-                        <h1>Welcome, {this.props.currentUser.firstName}</h1>
-                        &nbsp;&nbsp;
-                        <button class="session-button" onClick={this.handleClick}>logout</button>
-                    </div> :
+                        <Link id="logo" to="/"><span className="logo" id="up">up</span></Link>
+                        <input className="comment-button" type="text" value="search" />
+                    </div>
+                    <div>
+                        <div className="icon">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home</span>
+                        </div>
+                        <div className="icon">
+                            <i class="fa-solid fa-circle-user"></i>
+                            <span>My profile</span>
+                        </div >
+                        <div className="icon">
+                            <i class="fa-solid fa-user-group"></i>
+                            <span>My network</span>
+                        </div>
 
+                        <div className="icon">
+                            <i class="fa-solid fa-comment-dots"></i>
+                            <span>messaging</span>
+                        </div>
+                        <div className="icon" onClick={this.handleClick}>
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span>Logout</span>
+                        </div>
+                    </div>
+                </nav>
+            )
+        } else {
+            return(
+                <nav>
+                    <Link id="logo" to="/"><span className="logo">Synced</span><span className="logo" id="up">up</span></Link>
                     <div>
                         <Link to="/signup" id="join-now">Join now</Link>
                         &nbsp;&nbsp;
                         <Link to="/login" id="sign-in">Sign in</Link>
                     </div>
-                }
-            </nav>
+                </nav>
+                
+            )
+        }
 
-        )
     }
 }
 export default Nav;

@@ -1,5 +1,10 @@
 header {
-    // background-color: white;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
 }
 
 nav {
@@ -7,20 +12,22 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: 70px;
     width: 1100px;
+    // background-color: aqua;
+    // position: fixed;
     // background-color: white;
 }
 
 #logo {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .logo {
-    color: #B3402E;
-    ;
-    font-size: 35px;
+    color: #B3402E;;
+    font-size: 28px;
     padding: 3px;
     font-family: 'Arial';
     font-weight: bolder;
@@ -35,14 +42,14 @@ nav {
     border-radius: 5px;
     color: white;
     padding: 2px;
-    height: 41px;
-    width: 41px;
+    height: 38px;
+    width: 38px;
 }
 
 #join-now, #sign-in {
     font-family: 'Arial';
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     text-decoration: none;
     padding: 10px;
     color: rgba(72, 68, 68, 0.832);
@@ -67,4 +74,37 @@ nav > div {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-around;
+}
+
+nav .comment-button {
+    border-radius: 6px;
+    width: 270px;
+    height: 20px;
+    background-color: rgba(212, 205, 205, 0.239);
+    border: none;
+}
+
+
+nav i {
+    font-size: 20px;
+    margin: 5px;
+    // color: rgba(106, 103, 103, 0.971);
+}
+
+nav .icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(106, 103, 103, 0.971);
+    height: 50px;
+    width: 80px;
+    &:hover {
+                color: rgba(77, 74, 74, 0.971);
+            }
+
+
+    // border: 1px solid black;
 }

@@ -24,7 +24,7 @@ class PostIndexItem extends React.Component {
     render(){
 
         return (
-            <li className="component">
+            <li className="component" id="post">
                 <div>
                     <p>{this.props.post.authorName}</p>
                     <p>{this.props.post.authorHeadline}</p>

@@ -4,12 +4,14 @@
 
 
 .session-form {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 600px;
     padding: 20px;
     border-radius: 10px;
+    
 }
 
 .session-form>div {
@@ -29,6 +31,7 @@
     width: 400px;
     display: flex;
     flex-direction: column;
+    color: rgba(106, 103, 103, 0.971);
 
 }
 
@@ -40,6 +43,7 @@
 .session-form>div>div {
     display: flex;
     flex-direction: row;
+    margin: 10px;
 }
 
 .session-label {
@@ -52,7 +56,8 @@
     height: 20px;
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid grey;
+    border: 1px solid rgba(106, 103, 103, 0.971);;
+    margin-top: 5px;
 }
 
 .session-button {
@@ -65,6 +70,8 @@
     &:hover {
                 background-color: #61342F;
     }
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 :link {
@@ -78,6 +85,6 @@
 }
 
 .session-form h1 {
-    font-weight: lighter;
+    font-weight: normal;
 
 }

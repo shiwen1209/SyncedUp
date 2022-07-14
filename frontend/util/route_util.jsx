@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
     userId: state.session.id
 })
 
-// <AuthRoute path = "" component={} />
+
 const Auth = ({ userId, path, component: Component }) => (
     <Route
         path={path}
@@ -24,7 +24,7 @@ const Protected = ({ userId, path, component: Component }) => (
     <Route
         path={path}
         render={props => (
-            userId ? <Component {...props} /> : <Redirect to="/signup" />
+            userId ? <Component {...props} /> : <Redirect to="/login" />
         )}
     />
 )

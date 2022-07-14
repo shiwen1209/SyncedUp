@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
                                 value={this.state.email}
                                 onChange={this.update("email")} />
                         </label>
-                        <label className="session-label">Password
+                        <label className="session-label">Password (6 or more characters)
                             <input className="session-box" type="password"
                                 value={this.state.password}
                                 onChange={this.update("password")} />
