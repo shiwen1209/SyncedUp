@@ -13,11 +13,18 @@ class PostIndex extends React.Component{
 
         return(
             <div>
-                <h1>{this.props.createPostForm}</h1>
-                <h1>List of posts</h1>
-                <ul>
-                    {postsList}
-                </ul>
+                <div id="create-post" className="component">
+                    <div>
+                        img
+                    </div>
+                    {this.props.createPostForm}
+                </div>
+                <div>
+                    <h1>List of posts</h1>
+                    <ul>
+                        {postsList}
+                    </ul>
+                </div>
             </div>
         )
     }

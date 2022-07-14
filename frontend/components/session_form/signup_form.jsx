@@ -39,41 +39,48 @@ class SignupForm extends React.Component {
 
 
         return (
-            <div>
-                {this.props.formType === "signup" ?
-                    <Link to="/login">Login</Link> :
-                    <Link to="/signup">Sign Up</Link>
-                }
+            <div className="session-form">
 
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <Link to="/">Home</Link>
+                <h1>Sync up with all your coworkers</h1>
+                
+                {/* &nbsp;&nbsp;&nbsp;&nbsp;
+                <Link to="/">Home</Link> */}
+                <div>
+                    <form onSubmit={this.handleSubmit}>
+                        <label className="session-label">Email
+                            <input className="session-box" type="text"
+                                value={this.state.email}
+                                onChange={this.update("email")} />
+                        </label>
+                        <label className="session-label">Password
+                            <input className="session-box" type="password"
+                                value={this.state.password}
+                                onChange={this.update("password")} />
+                        </label>
+                        <label className="session-label">First name
+                            <input className="session-box" type="text"
+                                value={this.state.first_name}
+                                onChange={this.update("first_name")} />
+                        </label >
+                        <label className="session-label">Last name
+                            <input className="session-box" type="text"
+                                value={this.state.last_name}
+                                onChange={this.update("last_name")} />
+                        </label>
+                        <p>By clicking Agree & Join, you agree to the Syncedup Agreement and Policy</p>
+                        <button className="session-button">Agree and Join</button>
+                    </form>
 
-                <ul>{errs}</ul>
+                    <ul>{errs}</ul>
 
-                <form onSubmit={this.handleSubmit}>
-                    <label>Email:
-                        <input type="text"
-                            value={this.state.email}
-                            onChange={this.update("email")} />
-                    </label>
-                    <label>Password:
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update("password")} />
-                    </label>
-                    <label>First Name:
-                        <input type="text"
-                            value={this.state.first_name}
-                            onChange={this.update("first_name")} />
-                    </label>
-                    <label>Last Name:
-                        <input type="text"
-                            value={this.state.last_name}
-                            onChange={this.update("last_name")} />
-                    </label>
-                    <button>{this.props.formType}</button>
-                </form>
+                    
 
+
+                    <div>
+                        <span>Already on Syncedup?</span>&nbsp;<Link className="link" to="/login">Sign in</Link>
+                    </div>
+
+                </div>
 
             </div>
         )

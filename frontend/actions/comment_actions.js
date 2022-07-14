@@ -11,7 +11,7 @@ export const receiveComment = (comment) => {
 }
 
 export const removeComment = (commentId) => {
-    debugger
+    // debugger
     return {
         type: DELETE_COMMENT,
         commentId
@@ -31,11 +31,11 @@ export const updateComment = (commentForm) => dispatch => (
 )
 
 export const deleteComment = (commentId) => {  
-    debugger
+    // debugger
     return dispatch => (
         CommentApiUtil.deleteComment(commentId)
             .then((payload) => {
-                debugger
+                // debugger
                 return dispatch(removeComment(payload.comment.id))
             })
     )

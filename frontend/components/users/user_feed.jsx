@@ -15,20 +15,33 @@ class UserFeed extends React.Component{
         console.log("props");
         console.log(this.props);
         return(
-            <div>
-                <h1>User Feed page</h1>
-
-                <div>
-                    <h2>User Info</h2>
-                    <p>{this.props.users.id}</p>
-                    <p>{this.props.users.email}</p>
-                    <p>{this.props.users.firstName}</p>
-                    <p>{this.props.users.lastName}</p>
+            <div id="user-feed">
+                <div id="user-feed-profile">
+                    <div className="component">
+                        <h1>{this.props.users.firstName} {this.props.users.lastName}</h1>
+                        <h2>User Info</h2>
+                        <p>{this.props.users.id}</p>
+                        <p>{this.props.users.email}</p>
+                        <p>{this.props.users.firstName}</p>
+                        <p>{this.props.users.lastName}</p>
+                    </div>
+                    <div className="component">
+                        user tags
+                    </div >
                 </div>
 
-
-
-                <PostIndexContainer posts={this.props.posts} />
+                <div id="user-feed-posts">
+                    <PostIndexContainer posts={this.props.posts} />
+                </div>
+         
+                <div id="user-feed-other">
+                    <div className="component">
+                        SyncedUp News
+                    </div>
+                    <div className="component">
+                        Promotions
+                    </div>
+                </div>
 
             </div>
         )

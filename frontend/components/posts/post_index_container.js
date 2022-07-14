@@ -7,8 +7,9 @@ import React from 'react';
 const mdtp = dispatch => {
     return {
         createPostForm: (
-            <button onClick={() => dispatch(openModalPayload({modal: 'createPost', payload: null}))}>
-                Create Post
+            <button className="comment-button"
+            onClick={() => dispatch(openModalPayload({modal: 'createPost', payload: null}))}>
+                Start a post
             </button>
         ),
         closeModal: () => dispatch(closeModal())

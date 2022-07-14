@@ -1,4 +1,5 @@
 import React from "react";
+import Homepage from "./homepage";
 import NavContainer from "./nav/nav_container";
 import { Route, Switch } from "react-router-dom";
 import LoginFormContainer from "./session_form/login_form_container";
@@ -10,10 +11,9 @@ import Modal from "./modal/modal"
 const App = () => {
     console.log("App")
     return (
-        <div>
+        <div id="app">
             <Modal />
             <header>
-                <h1>Syncedup</h1>
                 <NavContainer />
             </header>
 
@@ -21,6 +21,7 @@ const App = () => {
                 <AuthRoute path="/signup" component={SignupFormContainer} />
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <ProtectedRoute path="/feed" component={UserFeedContainer} />
+                <Route exact path="/" component={Homepage} />
             </Switch>
         </div>
     )

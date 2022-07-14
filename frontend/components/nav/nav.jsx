@@ -15,16 +15,20 @@ class Nav extends React.Component {
     render() {
         return (
             <nav>
+                <Link id="logo" to="/"><span className="logo">Synced</span><span className="logo" id="up">up</span></Link> 
+
+                
                 {this.props.currentUser ?
                     <div>
-                        <h1>Welcome, {this.props.currentUser.first_name}</h1>
-                        <button onClick={this.handleClick}>logout</button>
+                        <h1>Welcome, {this.props.currentUser.firstName}</h1>
+                        &nbsp;&nbsp;
+                        <button class="session-button" onClick={this.handleClick}>logout</button>
                     </div> :
 
                     <div>
-                        <Link to="/signup">Sign Up</Link>
-                        &nbsp;or&nbsp;
-                        <Link to="/login">Login</Link>
+                        <Link to="/signup" id="join-now">Join now</Link>
+                        &nbsp;&nbsp;
+                        <Link to="/login" id="sign-in">Sign in</Link>
                     </div>
                 }
             </nav>
