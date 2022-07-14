@@ -17,7 +17,7 @@ const receiveCurrentUser = (payload) => {
 
     return {
         type: RECEIVE_CURRENT_USER,
-        currentUser: payload.users,
+        users: payload.users,
         posts: posts,
         comments
     }

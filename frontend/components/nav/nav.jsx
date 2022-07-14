@@ -18,28 +18,30 @@ class Nav extends React.Component {
                 <nav>
                     <div>
                         <Link id="logo" to="/"><span className="logo" id="up">up</span></Link>
-                        <input className="comment-button" type="text" value="search" />
+                        <input onChange = {(e)=>e.currentTarget.value} // to be updated later
+                        className="comment-button" type="text" value="search" />
                     </div>
                     <div>
-                        <div className="icon">
-                            <i class="fa-solid fa-house"></i>
+                        <Link className="icon" to="/feed">
+                            <i className="fa-solid fa-house"></i>
                             <span>Home</span>
-                        </div>
-                        <div className="icon">
-                            <i class="fa-solid fa-circle-user"></i>
+                        </Link>
+                        <Link className="icon" to={`/${this.props.currentUser.firstName}-${this.props.currentUser.lastName}/${this.props.currentUser.id}`}>
+                            <i className="fa-solid fa-circle-user"></i>
                             <span>My profile</span>
-                        </div >
+                        </Link>
+
                         <div className="icon">
-                            <i class="fa-solid fa-user-group"></i>
+                            <i className="fa-solid fa-user-group"></i>
                             <span>My network</span>
                         </div>
 
                         <div className="icon">
-                            <i class="fa-solid fa-comment-dots"></i>
+                            <i className="fa-solid fa-comment-dots"></i>
                             <span>messaging</span>
                         </div>
                         <div className="icon" onClick={this.handleClick}>
-                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <i className="fa-solid fa-right-from-bracket"></i>
                             <span>Logout</span>
                         </div>
                     </div>

@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Like.delete_all
+Comment.delete_all
 Post.delete_all
 User.delete_all
 
@@ -17,7 +19,11 @@ user1 = User.create!(
                     "last_name": "Nana", 
                     "pronouns": "He/him",
                     "headline": "I'm a banana entrepreneur",
-                    "about": "I produce and sell the best bananas"
+                    "about": "I produce and sell the best bananas",
+                    "industry": "Agriculture",
+                    "location_country": "United States",
+                    "location_city": "Bakersfield"
+
                     )
 user2 = User.create!(
                     "email": "orange", 
@@ -26,7 +32,10 @@ user2 = User.create!(
                     "last_name": "O", 
                     "pronouns": "She/her",
                     "headline": "I'm a Orange entrepreneur",
-                    "about": "I produce and sell the best Oranges"
+                    "about": "I produce and sell the best Oranges",
+                    "industry": "Agriculture",
+                    "location_country": "United States",
+                    "location_city": "Bakersfield"
                     )
 
 user3 = User.create!(
@@ -36,7 +45,10 @@ user3 = User.create!(
                     "last_name": "K", 
                     "pronouns": "He/him",
                     "headline": "I'm a kiwi entrepreneur",
-                    "about": "I produce and sell the best kiwis"
+                    "about": "I produce and sell the best kiwis",
+                    "industry": "Agriculture",
+                    "location_country": "United States",
+                    "location_city": "Bakersfield"
                     )
 
 post1 = Post.create!("author_id": user1.id, "body": "today has been a hard day")

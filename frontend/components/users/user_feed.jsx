@@ -1,14 +1,15 @@
 import React from "react";
 import PostIndexContainer from "../posts/post_index_container";
+import { Link } from "react-router-dom";
+
 
 class UserFeed extends React.Component{
     constructor(props){
         super(props)
-
     }
 
     componentDidMount(){
-        this.props.fetchUser(this.props.users.id)
+        this.props.fetchUser(this.props.user.id)
     }
 
     render(){
@@ -18,12 +19,14 @@ class UserFeed extends React.Component{
             <div id="user-feed">
                 <div id="user-feed-profile">
                     <div className="component">
-                        <h1>{this.props.users.firstName} {this.props.users.lastName}</h1>
+                        <Link to={`/${this.props.user.firstName}-${this.props.user.lastName}/${this.props.user.id}`}>
+                            <h1>{this.props.user.firstName} {this.props.user.lastName}</h1>
+                        </Link>
                         <h2>User Info</h2>
-                        <p>{this.props.users.id}</p>
-                        <p>{this.props.users.email}</p>
-                        <p>{this.props.users.firstName}</p>
-                        <p>{this.props.users.lastName}</p>
+                        <p>{this.props.user.id}</p>
+                        <p>{this.props.user.email}</p>
+                        <p>{this.props.user.firstName}</p>
+                        <p>{this.props.user.lastName}</p>
                     </div>
                     <div className="component">
                         user tags

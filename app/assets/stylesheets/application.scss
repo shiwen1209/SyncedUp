@@ -20,6 +20,7 @@
  @import './api/sessions.scss';
  @import './nav.scss';
  @import './api/user_feed.scss';
+  @import './api/user_profile.scss';
  
 
 
@@ -56,7 +57,6 @@
 
  h1 {
    font-size: 30px;
-   margin: 20px;
    font-weight: 700;
 
  }

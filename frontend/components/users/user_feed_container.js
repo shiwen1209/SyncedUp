@@ -5,10 +5,8 @@ import {fetchUser} from "../../actions/session_actions";
 
 
 const mstp = (state, ownProps)=>{
-    console.log("mstp")
-    console.log(state.entities.users)
     return {
-        users: state.entities.users[state.session.id],
+        user: state.entities.users[state.session.id],
         posts: Object.values(state.entities.posts).sort(((b, a) => a.id - b.id))
     }
 }
