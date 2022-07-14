@@ -53,7 +53,7 @@ class SessionForm extends React.Component {
                             onChange={this.update("password")} />
                     </label>
                     <br />
-                        <button className="session-button" >{this.props.formType}</button>
+                        <button className="session-button" >Sign in</button>
                 </form>
 
                 <ul>{errs}</ul>
