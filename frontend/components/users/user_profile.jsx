@@ -1,9 +1,11 @@
 import React from "react";
-import ExpIndexContainer from "../experiences/exp_index_container"
+import ExpIndexContainer from "../experiences/exp_index_container";
+import EduIndexContainer from "../experiences/edu_index_container";
 
 class UserProfile extends React.Component {
     constructor(props){
         super(props);
+        this.props.fetchUser(this.props.match.params.userId);
     }
 
     componentDidMount(){
@@ -70,10 +72,7 @@ class UserProfile extends React.Component {
 
 
                     <ExpIndexContainer />
-
-                    <div id="user-profile-education" className="component">
-
-                    </div>
+                    <EduIndexContainer />
 
                 </div>
                 <div id="user-profile-other">
