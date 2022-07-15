@@ -55,11 +55,11 @@ class UserProfile extends React.Component {
 
                     {user.about ? 
                         <div id="user-profile-about" className="component">
-                            <div>
+                            <div className="component-title">
                                 <h1>About</h1>
                                 {user.id === currentUserId ?
                                         <i className="fa-solid fa-pen"></i>
-                                    : <div></div>}
+                                : <div></div>}
                             </div>
                             <p>
                                 {user.about}
@@ -71,8 +71,8 @@ class UserProfile extends React.Component {
                     
 
 
-                    <ExpIndexContainer />
-                    <EduIndexContainer />
+                    <ExpIndexContainer user={user} currentUserId={currentUserId}/>
+                    <EduIndexContainer user={user} currentUserId={currentUserId} />
 
                 </div>
                 <div id="user-profile-other">
