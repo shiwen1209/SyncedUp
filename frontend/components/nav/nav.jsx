@@ -26,7 +26,7 @@ class Nav extends React.Component {
                             <i className="fa-solid fa-house"></i>
                             <span>Home</span>
                         </Link>
-                        <Link className="icon" to={`/${this.props.currentUser.firstName}-${this.props.currentUser.lastName}/${this.props.currentUser.id}`}>
+                        <Link className="icon" to={`/users/${this.props.currentUser.id}`}>
                             <i className="fa-solid fa-circle-user"></i>
                             <span>My profile</span>
                         </Link>

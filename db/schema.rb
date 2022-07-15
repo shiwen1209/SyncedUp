@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_14_222352) do
+ActiveRecord::Schema.define(version: 2022_07_15_024009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 2022_07_14_222352) do
     t.index ["body"], name: "index_comments_on_body"
     t.index ["commenter_id"], name: "index_comments_on_commenter_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "title", null: false
+    t.string "company_name", null: false
+    t.string "employment_type"
+    t.string "location"
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "current_job"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "exp_type", null: false
+    t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -59,6 +74,7 @@ ActiveRecord::Schema.define(version: 2022_07_14_222352) do
     t.datetime "updated_at", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
+    t.string "location_state"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end

@@ -17,6 +17,7 @@
 #  updated_at        :datetime         not null
 #  first_name        :string           not null
 #  last_name         :string           not null
+#  location_state    :string
 #
 class User < ApplicationRecord
     validates :email, :session_token, presence: true, uniqueness: true
@@ -39,6 +40,11 @@ class User < ApplicationRecord
       has_many :likes,
         foreign_key: :user_id,
         class_name: :Like,
+        dependent: :destroy
+
+      has_many :experiences,
+        foreign_key: :user_id,
+        class_name: :Experience,
         dependent: :destroy
 
   def self.find_by_credentials(email, password)

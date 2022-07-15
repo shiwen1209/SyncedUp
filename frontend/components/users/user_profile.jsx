@@ -1,4 +1,5 @@
-import React, { useReducer } from "react";
+import React from "react";
+import ExpIndexContainer from "../experiences/exp_index_container"
 
 class UserProfile extends React.Component {
     constructor(props){
@@ -10,14 +11,10 @@ class UserProfile extends React.Component {
     }
 
     render(){
-        // debugger
         const { user, currentUserId } = this.props
-        // console.log("USER PROFILE PAGE")
-        // console.log(this.props)
-        // console.log(this.props.user)
-        // console.log(this.props.user.firstName)
 
-        
+        if(!user){return}
+
         return(
             <div id="user-profile">
                 <div id="user-profile-main">
@@ -27,36 +24,52 @@ class UserProfile extends React.Component {
                         </div>
                         <div>
                             <div>
-                                <span>{user.firstName} {user.lastName}</span><span>({user.pronouns})</span>
+                                <div>
+                                    <span>{user.firstName} {user.lastName}</span><span>({user.pronouns})</span>
+                                </div>
+
                                 <h3>{user.headline} </h3>
                                 <h4>{user.locationCity}, {user.locationCountry} </h4>
                                 <h4>500 connections</h4>
-                                <div>
-                                    <button className="session-button">Connect</button>
-                                    <button className="session-button">Message</button>
-                                </div>
-
+                                {user.id === currentUserId ? 
+                                    <div>
+                                        <button className="session-button">Add Profile Section</button>
+                                        <button className="session-button">More</button>
+                                    </div> :
+                                    <div>
+                                        <button className="session-button">Connect</button>
+                                        <button className="session-button">Message</button>
+                                    </div>
+                                    }
                             </div>
-
                             {user.id === currentUserId ? 
                             <div>
                                     <i className="fa-solid fa-pen"></i>
                             </div> : <div></div>
                             }
-            
-
-
                         </div>
 
                     </div>
 
-                    <div id="user-profile-about" className="component">
+                    {user.about ? 
+                        <div id="user-profile-about" className="component">
+                            <div>
+                                <h1>About</h1>
+                                {user.id === currentUserId ?
+                                        <i className="fa-solid fa-pen"></i>
+                                    : <div></div>}
+                            </div>
+                            <p>
+                                {user.about}
+                            </p>
+                        </div> :
+                        
+                        <div></div>
+                    }
+                    
 
-                    </div>
 
-                    <div id="user-profile-experience" className="component">
-
-                    </div>
+                    <ExpIndexContainer />
 
                     <div id="user-profile-education" className="component">
 

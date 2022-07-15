@@ -3,9 +3,13 @@ import * as UserApiUtil from "../util/user_api_util"
 export const RECEIVE_USER = "RECEIVE_USER"
 
 const receiveUser = (payload)=>{
+    let experiences = {};
+    if (payload.experiences) { experiences = payload.experiences }
+
     return {
         type: RECEIVE_USER,
-        user: payload.users
+        user: payload.users,
+        experiences
     }
 }
 

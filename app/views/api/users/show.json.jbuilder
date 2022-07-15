@@ -27,3 +27,13 @@ json.comments do
     end
 end
 
+
+json.experiences do 
+    @user.experiences.each do |exp|
+        json.set! exp.id do 
+            json.extract! exp, :id, :user_id, :title, :company_name, :employment_type,
+            :location, :start_date, :end_date, :current_job, :exp_type,
+            :created_at, :updated_at
+        end
+    end
+end

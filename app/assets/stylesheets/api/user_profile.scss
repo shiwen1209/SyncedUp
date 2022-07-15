@@ -18,28 +18,28 @@
 
 #user-profile-main {
     width: 700px;
-    border: 1px solid black;
+    border: 1px solid yellow;
 }
 
 #user-profile-other {
     width: 350px;
-    border: 1px solid black;
+    border: 1px solid green;
 }
 
 #user-profile-backgroundpic {
     height: 150px;
-        border: 1px solid black;
+        border: 1px solid blue;
 }
 
 #user-profile-backgroundpic+div {
-    height: 200px;
+    height: 220px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
 }
 
-#user-profile-backgroundpic+div div:nth-child(1){
+#user-profile-backgroundpic+div > div:nth-child(1){
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -47,31 +47,95 @@
     padding-left: 10px;
     width: 300px;
     align-items: baseline;
-    border: 1px solid black;
+    border: 1px solid  red;
 }
 
-#user-profile-backgroundpic+div div:nth-child(2){
-    // text-align: right;
-    // background-color: red;
+#user-profile-backgroundpic+div >  div:nth-child(2){
     padding-top: 10px;
     padding-right: 10px;
-    border: 1px solid black;
+    border: 1px solid blueviolet;
+    display: flex;
+    align-items: flex-start;
 
+}
+
+//first and last name and pronouns
+#user-profile-backgroundpic+div div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 2px;
+
+}
+
+#user-profile-backgroundpic+div div > span:nth-child(1) {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#user-profile-backgroundpic+div div>span:nth-child(2) {
+    padding-left: 3px;
+}
+
+//headlines and location 
+#user-profile-summary h3 {
+    font-size: 20px;
+    font-weight: lighter;
+    padding-bottom: 2px;
+    
+}
+
+#user-profile-summary h4 {
+    font-size: 15px;
+    font-weight: lighter;
+    padding-bottom: 5px;
+}
+
+#user-profile-summary h4:nth-of-type(2){
+    font-weight: bold;
+    color: #B3402E;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 //two buttons 
-#user-profile-backgroundpic+div div:nth-child(1) div {
-        display: flex;
-        flex-direction: row;
-            justify-content: space-around;
+#user-profile-backgroundpic+div>div:nth-child(1)>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 #user-profile-main button {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 100px;
     height: 30px;
     padding: 10px;
     font-size: 15px;
     margin: 5px;
+    font-weight: bold;
+}
+
+#user-profile-main button:nth-child(2){
+    background-color: white;
+    color: #B3402E;
+    
+    border: 2px solid #B3402E;;
+}
+
+
+//about
+#user-profile-about > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid blueviolet;
+}
+
+#user-profile-about p {
+    padding: 10px;
+    border: 1px solid green;
+
 }

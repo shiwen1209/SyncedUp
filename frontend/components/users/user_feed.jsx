@@ -19,7 +19,7 @@ class UserFeed extends React.Component{
             <div id="user-feed">
                 <div id="user-feed-profile">
                     <div className="component">
-                        <Link to={`/${this.props.user.firstName}-${this.props.user.lastName}/${this.props.user.id}`}>
+                        <Link to={`/users/${this.props.user.id}`}>
                             <h1>{this.props.user.firstName} {this.props.user.lastName}</h1>
                         </Link>
                         <h2>User Info</h2>

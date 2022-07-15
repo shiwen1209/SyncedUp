@@ -17,6 +17,7 @@
 #  updated_at        :datetime         not null
 #  first_name        :string           not null
 #  last_name         :string           not null
+#  location_state    :string
 #
 require 'test_helper'
 

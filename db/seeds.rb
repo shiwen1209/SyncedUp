@@ -9,6 +9,7 @@
 Like.delete_all
 Comment.delete_all
 Post.delete_all
+Experience.delete_all
 User.delete_all
 
 
@@ -62,3 +63,15 @@ comment2 = Comment.create!("body": "I like it", "post_id": post1.id, "commenter_
 comment3 = Comment.create!("body": "lolll", "post_id": post2.id, "commenter_id": user2.id)
 comment4 = Comment.create!("body": "way to go", "post_id": post2.id, "commenter_id": user3.id)
 comment5 = Comment.create!("body": "thanks!", "post_id": post2.id, "commenter_id": user1.id, "parent_comment_id": comment4.id)
+
+exp1 = Experience.create!("user_id": user1.id, "title": "CEO", "company_name": "Banana Corp",
+                        "start_date": "2017-11-03", "end_date": "2022-11-03", "exp_type": "work")
+
+exp2 = Experience.create!("user_id": user1.id, "title": "VP of Strategy", "company_name": "Banana Corp",
+                        "start_date": "2015-11-03", "end_date": "2017-11-03", "exp_type": "work")
+
+exp3 = Experience.create!("user_id": user1.id, "title": "Analyst", "company_name": "Banana Corp",
+                        "start_date": "2014-11-03", "end_date": "2015-11-03", "exp_type": "work")
+
+exp4 = Experience.create!("user_id": user1.id, "title": "Master of Accounting", "company_name": "University of California, Davis",
+                        "start_date": "2010-11-03", "end_date": "2014-11-03", "exp_type": "school")
