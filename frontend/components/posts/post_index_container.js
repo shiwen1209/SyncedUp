@@ -11,8 +11,8 @@ const mdtp = dispatch => {
             onClick={() => dispatch(openModalPayload({modal: 'createPost', payload: null}))}>
                 Start a post
             </button>
-        ),
-        closeModal: () => dispatch(closeModal())
+        )
+        // closeModal: () => dispatch(closeModal())
     }
 }
 

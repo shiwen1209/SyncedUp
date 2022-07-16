@@ -3,7 +3,7 @@ import React from "react";
 class ExpIndexItem extends React.Component{
 
     render(){
-        const { exp, exp_type, editState } = this.props
+        const { exp, exp_type, editState, openModalPayload } = this.props
         const start = new Date(exp.startDate)
         const start_year = start.getFullYear()
         const start_date = start.toLocaleString('default', { month: 'short' })
@@ -18,7 +18,9 @@ class ExpIndexItem extends React.Component{
                 <li>
                     <div className="component-subtitle">
                         <h3>{exp.title}</h3>
-                        {editState ? <i className="fa-solid fa-pen"></i> : <div></div>}
+                        {editState ? <i className="fa-solid fa-pen"
+                            onClick={(e) => openModalPayload({ modal: 'updateExp', payload: exp })}
+                            ></i> : <div></div>}
                     </div>
                     <div className="component-body">
                         <p>{exp.companyName}</p>
@@ -33,7 +35,9 @@ class ExpIndexItem extends React.Component{
                 <li>
                     <div className="component-subtitle">
                         <h3>{exp.companyName}</h3>
-                        {editState ? <i className="fa-solid fa-pen"></i> : <div></div>}
+                        {editState ? <i className="fa-solid fa-pen"
+                        onClick={(e)=>openModalPayload({ modal: 'updateExp', payload:exp })}
+                        ></i> : <div></div>}
                     </div>
                     <div className="component-body">
                         <p>{exp.title}</p>

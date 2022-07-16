@@ -11,6 +11,15 @@ class Api::UsersController < ApplicationController
         end
     end 
 
+    def update
+        @user = User.find_by(id: params[:id])
+        if @user.update(user_params)
+            render :show
+        else 
+            render json: @user.errors.full_messages, status: 422
+        end
+    end
+
     def show
         @user = User.find_by(id: params[:id])
         render :show
@@ -26,7 +35,8 @@ class Api::UsersController < ApplicationController
                                     :headline,
                                     :about,
                                     :industry,
-                                    :location_country,
-                                    :location_postcode)
+                                    :location_city,
+                                    :location_state,
+                                    :location_country)
     end 
 end

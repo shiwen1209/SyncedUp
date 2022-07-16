@@ -15,7 +15,7 @@ const mdtp = dispatch=>{
         deletePost: (postId)=>dispatch(deletePost(postId)),
         updatePost: (post)=> dispatch(updatePost(post)),
         openModalPayload: (obj)=> dispatch(openModalPayload(obj)),
-        closeModal: () => dispatch(closeModal()),
+        // closeModal: () => dispatch(closeModal()),
     }
 }
 

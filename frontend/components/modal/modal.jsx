@@ -5,7 +5,10 @@ import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import CreatePostContainer from '../posts/create_post_container';
 import UpdatePostContainer from '../posts/update_post_container';
-import { proposalSyntaxPlugins } from '@babel/preset-env/lib/shipped-proposals';
+import UpdateUserContainer from "../users/update_user_container";
+import UpdateAboutContainer from "../users/update_about_container";
+import CreateExpContainer from "../experiences/create_exp_container";
+import UpdateExpContainer from "../experiences/update_exp_container";
 
 function Modal({ modal, closeModal }) {
 
@@ -29,6 +32,18 @@ function Modal({ modal, closeModal }) {
         case "updatePost":
             console.log("Update post hit");
             component = <UpdatePostContainer />
+            break;
+        case "updateUser":
+            component = <UpdateUserContainer />
+            break;
+        case "updateAbout":
+            component = <UpdateAboutContainer />
+            break;
+        case "createExp":
+            component = <CreateExpContainer />
+            break;
+        case "updateExp":
+            component = <UpdateExpContainer />
             break;
         default:
             return null;

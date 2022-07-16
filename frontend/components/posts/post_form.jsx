@@ -12,8 +12,6 @@ class PostForm extends React.Component{
     }
 
     handleSubmit(e){
-        console.log("submit")
-        console.log(this.props.creatPost)
         this.props.processForm(this.state).then(this.props.closeModal)
     }
 

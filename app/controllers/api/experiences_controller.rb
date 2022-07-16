@@ -18,6 +18,7 @@ class Api::ExperiencesController < ApplicationController
     end
 
     def destroy
+        debugger
         @experience = Experience.find_by(id: params[:id])
 
         if @experience.destroy
@@ -29,6 +30,6 @@ class Api::ExperiencesController < ApplicationController
 
 
     def experience_params
-        params.require(:experience).permit(:user_id, :title, :company_name, :location)
+        params.require(:experience).permit(:user_id, :title, :company_name, :employment_type, :location, :start_date, :end_date, :current_job, :exp_type)
     end
 end

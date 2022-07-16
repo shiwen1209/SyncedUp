@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_USER } from "../actions/user_action";
-// import { RECEIVE_COMMENT, DELETE_COMMENT } from "../actions/comment_actions";
+import { RECEIVE_EXP, DELETE_EXP } from "../actions/exp_actions";
 
 const expReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -10,12 +10,13 @@ const expReducer = (state = {}, action) => {
             return action.experiences;
         case RECEIVE_USER:
             return action.experiences; //double check if need to merge with current state
-        // case RECEIVE_COMMENT:
-        //     nextState[action.comment.id] = action.comment;
-        //     return nextState;
-        // case DELETE_COMMENT:
-        //     delete nextState[action.commentId]
-        //     return nextState
+        case RECEIVE_EXP:
+            nextState[action.exp.id] = action.exp;
+            return nextState;
+        case DELETE_EXP:
+            debugger
+            delete nextState[action.expId]
+            return nextState
         default:
             return state;
     }

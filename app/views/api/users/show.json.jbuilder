@@ -1,7 +1,7 @@
 json.users do
     json.set! @user.id do 
         json.extract! @user, :id, :email, :first_name, :last_name, :pronouns, 
-        :headline, :about, :industry, :location_country, :location_city
+        :headline, :about, :industry, :location_country, :location_state, :location_city
     end 
 end
 
