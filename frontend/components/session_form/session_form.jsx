@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
             password: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmitDemo = this.handleSubmitDemo.bind(this)
     }
 
     componentWillUnmount(){
@@ -18,7 +19,13 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.processForm(this.state)
-        // .then(this.props.closeModal)
+    }
+
+    handleSubmitDemo(e) {
+        e.preventDefault();
+        this.props.processForm({
+            email: "banana",
+            password: "123456"})
     }
 
     update(field) {
@@ -54,7 +61,10 @@ class SessionForm extends React.Component {
                     </label>
                     <br />
                         <button className="session-button" >Sign in</button>
+                        
                 </form>
+                    <button onClick={this.handleSubmitDemo}
+                    className="session-button" >Demo Sign in</button>
 
                 <ul>{errs}</ul>
 

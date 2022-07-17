@@ -10,6 +10,7 @@ class UpdateUser extends React.Component{
     }
 
     handleSubmit(e){
+        e.preventDefault();
         const dupState = Object.assign({}, this.state)
         dupState.first_name = this.state.firstName;
         dupState.last_name = this.state.lastName;

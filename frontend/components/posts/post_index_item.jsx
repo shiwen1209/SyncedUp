@@ -1,7 +1,6 @@
 import React from "react";
+import CommentIndexContainer from "../comments/comment_index_container";
 import { Link } from "react-router-dom";
-import CommentIndexContainer from "../comments/comment_index_container"
-
 
 
 class PostIndexItem extends React.Component {
@@ -22,37 +21,76 @@ class PostIndexItem extends React.Component {
     }
 
     render(){
-
+        const { post, currentUserId, deletePost, openModalPayload } = this.props
         return (
             <li className="component" id="post">
-                <div>
-                    <p>{this.props.post.authorName}</p>
-                    <p>{this.props.post.authorHeadline}</p>
-                </div>
-                <p>{this.props.post.body}</p>
-                <p onClick={this.toggleComments}>
-                    See comments
-                </p>
-                <button>Like</button>
-                <button onClick={this.toggleComments}>
-                    Comment
-                </button>
-
-
-                {this.props.currentUserId === this.props.post.authorId ?
+                <div className="component-title" >
                     <div>
-                        <button onClick={(e) => this.props.deletePost(this.props.post.id)}>
-                            Delete</button>
-                        <button onClick={(e) => this.props.openModalPayload({ modal: 'updatePost', payload: this.props.post })}>
-                            Update Post
-                        </button>
-                    </div> :
-                    <div></div>
+                        <Link to={`/users/${post.authorId}`}>
+                            <div className="img">
+                                img
+                            </div>
+                        </Link>
+                        <div className="headline-tag">
+                            <Link to={`/users/${post.authorId}`}>
+                                <div>
+                                    <span>{post.authorFirstname} {post.authorLastname}</span><span>({post.authorPronouns})</span>
+                                </div>
+                                <div>
+                                    <p>{post.authorHeadline}</p>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+
+                    {currentUserId === post.authorId ?
+                        <div>
+                            <button onClick={(e) => deletePost(post.id)}>
+                                Delete Post</button>
+                            <button onClick={(e) => openModalPayload({ modal: 'updatePost', payload: post })}>
+                                Edit Post
+                            </button>
+                        </div> :
+                        <div></div>
+                    }
+                </div>
+
+
+                <div className="component-body">
+                    <p>{post.body}</p>
+                </div>
+
+                {post.numLikes > 0 || post.numComments > 0 ?
+                    < div className="post-like-comment">
+                        {post.numLikes > 0 ?
+                            < div >
+                                <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                <p>{post.numLikes}</p>
+                            </div> : <div>{" "}</div>
+                        }
+                        {post.numComments > 0 ?
+                            <p onClick={this.toggleComments}>
+                                {post.numComments} comments
+                            </p> : <div>{" "}</div>
+                        }
+                    </div> : <div></div>
                 }
+
+                <div className="like-comment-button">
+                    <div>
+                        <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                        <p>Like</p>
+                    </div>
+                    <div onClick={this.toggleComments}>
+                        <i className="fa fa-commenting-o" aria-hidden="true"></i>
+                        <p>Comment</p>
+                    </div>
+                </div>
+
 
                 {this.state.displayComments ?
                     <div>
-                        <CommentIndexContainer post={this.props.post}/>
+                        <CommentIndexContainer post={post}/>
                     </div> :
                     <div></div>
                 }

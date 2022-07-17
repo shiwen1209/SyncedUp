@@ -47,6 +47,16 @@ class User < ApplicationRecord
         class_name: :Experience,
         dependent: :destroy
 
+      has_many :connects,
+        foreign_key: :user1_id,
+        class_name: :Connection,
+        dependent: :destroy
+      
+      has_many :connections,
+        through: :connects,
+        source: :follower
+    
+
   def self.find_by_credentials(email, password)
      user = User.find_by(email: email)
      if user

@@ -2,7 +2,6 @@ import React from "react";
 import PostIndexContainer from "../posts/post_index_container";
 import { Link } from "react-router-dom";
 
-
 class UserFeed extends React.Component{
     constructor(props){
         super(props)
@@ -13,20 +12,24 @@ class UserFeed extends React.Component{
     }
 
     render(){
-        console.log("props");
-        console.log(this.props);
+        const {user, posts} = this.props
         return(
             <div id="user-feed">
                 <div id="user-feed-profile">
                     <div className="component">
-                        <Link to={`/users/${this.props.user.id}`}>
-                            <h1>{this.props.user.firstName} {this.props.user.lastName}</h1>
+                        <Link to={`/users/${user.id}`}>
+                            <div className="img">
+                                img
+                            </div>
+                        </Link>
+                        <Link to={`/users/${user.id}`}>
+                            <h1>{user.firstName} {user.lastName}</h1>
                         </Link>
                         <h2>User Info</h2>
-                        <p>{this.props.user.id}</p>
-                        <p>{this.props.user.email}</p>
-                        <p>{this.props.user.firstName}</p>
-                        <p>{this.props.user.lastName}</p>
+                        <p>{user.id}</p>
+                        <p>{user.email}</p>
+                        <p>{user.firstName}</p>
+                        <p>{user.lastName}</p>
                     </div>
                     <div className="component">
                         user tags
@@ -34,7 +37,7 @@ class UserFeed extends React.Component{
                 </div>
 
                 <div id="user-feed-posts">
-                    <PostIndexContainer posts={this.props.posts} />
+                    <PostIndexContainer posts={posts} />
                 </div>
          
                 <div id="user-feed-other">

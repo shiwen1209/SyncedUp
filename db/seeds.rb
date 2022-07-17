@@ -10,6 +10,7 @@ Like.delete_all
 Comment.delete_all
 Post.delete_all
 Experience.delete_all
+Connection.delete_all
 User.delete_all
 
 
@@ -56,6 +57,7 @@ post1 = Post.create!("author_id": user1.id, "body": "today has been a hard day")
 post2 = Post.create!("author_id": user1.id, "body": "another hard day at work")
 post3 = Post.create!("author_id": user1.id, "body": "I need a vacation...")
 post4 = Post.create!("author_id": user2.id, "body": "Our company is doing well")
+post5 = Post.create!("author_id": user3.id, "body": "This quarter's kiwi productions are looking good")
 
 
 comment1 = Comment.create!("body": "ditto", "post_id": post1.id, "commenter_id": user2.id)
@@ -75,3 +77,14 @@ exp3 = Experience.create!("user_id": user1.id, "title": "Analyst", "company_name
 
 exp4 = Experience.create!("user_id": user1.id, "title": "Master of Accounting", "company_name": "University of California, Davis",
                         "start_date": "2010-11-03", "end_date": "2014-11-03", "exp_type": "school")
+
+
+like1 = Like.create!(user_id: user2.id, likable_id: comment1.id, likable_type: 'Comment')
+like2 = Like.create!(user_id: user3.id, likable_id: post1.id, likable_type: 'Post')
+like3 = Like.create!(user_id: user2.id, likable_id: post2.id, likable_type: 'Post')
+like4 = Like.create!(user_id: user3.id, likable_id: comment1.id, likable_type: 'Comment')
+
+c1 = Connection.create!(user1_id: user1.id, user2_id: user2.id)
+c2 = Connection.create!(user1_id: user2.id, user2_id: user1.id)
+c3 = Connection.create!(user1_id: user1.id, user2_id: user3.id)
+c4 = Connection.create!(user1_id: user3.id, user2_id: user1.id)

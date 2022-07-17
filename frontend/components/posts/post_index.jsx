@@ -12,15 +12,14 @@ class PostIndex extends React.Component{
         console.log(this.props)
 
         return(
-            <div>
+            <div >
                 <div id="create-post" className="component">
-                    <div>
+                    <div className="img">
                         img
                     </div>
                     {this.props.createPostForm}
                 </div>
                 <div>
-                    <h1>List of posts</h1>
                     <ul>
                         {postsList}
                     </ul>

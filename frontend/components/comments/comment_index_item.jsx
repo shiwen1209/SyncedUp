@@ -41,6 +41,7 @@ class CommentIndexItem extends React.Component{
 
     handleSubmit(e) {
         // debugger
+        e.preventDefault();
         this.props.updateComment(this.state.comment)
         this.setState({ displayCommentEdit: false })
     }

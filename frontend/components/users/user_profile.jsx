@@ -33,7 +33,7 @@ class UserProfile extends React.Component {
                         <div id="user-profile-backgroundpic">
                             profile background picture placeholder
                         </div>
-                        <div>
+                        <div>   
                             <div>
                                 <div>
                                     <span>{user.firstName} {user.lastName}</span><span>({user.pronouns})</span>
@@ -43,7 +43,7 @@ class UserProfile extends React.Component {
                                 <h4>{user.locationCity}{user.locationCity && (user.locationState || user.locationCountry ) ? ", " : ""}
                                     {user.locationState}{user.locationState && (user.locationCountry) ? ", " : ""}
                                     {user.locationCountry}</h4>
-                                <h4>500 connections</h4>
+                                <h4>{user.numConnections} connections</h4>
                                 {user.id === currentUserId ? 
                                     <div>
                                         <button className="session-button">Add Profile Section</button>
