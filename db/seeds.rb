@@ -79,10 +79,13 @@ exp4 = Experience.create!("user_id": user1.id, "title": "Master of Accounting", 
                         "start_date": "2010-11-03", "end_date": "2014-11-03", "exp_type": "school")
 
 
+
 like1 = Like.create!(user_id: user2.id, likable_id: comment1.id, likable_type: 'Comment')
 like2 = Like.create!(user_id: user3.id, likable_id: post1.id, likable_type: 'Post')
 like3 = Like.create!(user_id: user2.id, likable_id: post2.id, likable_type: 'Post')
 like4 = Like.create!(user_id: user3.id, likable_id: comment1.id, likable_type: 'Comment')
+like5 = Like.create!(user_id: user1.id, likable_id: post1.id, likable_type: 'Post')
+like6 = Like.create!(user_id: user1.id, likable_id: post3.id, likable_type: 'Post')
 
 c1 = Connection.create!(user1_id: user1.id, user2_id: user2.id)
 c2 = Connection.create!(user1_id: user2.id, user2_id: user1.id)

@@ -1,6 +1,7 @@
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_POST, DELETE_POST} from "../actions/post_actions";
 import { RECEIVE_COMMENT, DELETE_COMMENT } from "../actions/comment_actions";
+import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
 
 const postsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -26,6 +27,24 @@ const postsReducer = (state = {}, action) => {
             post2.numComments -= 1;
             nextState[action.postId] = post2;
             return nextState
+        case RECEIVE_LIKE:
+            if (action.like.likableType === "Post") {
+                const post3 = Object.assign({}, nextState[action.like.likableId]);
+                post3.numLikes += 1;
+                nextState[action.like.likableId] = post3;
+                return nextState
+            } else {
+                return state
+            }
+        case REMOVE_LIKE:
+            if (action.like.likableType === "Post") {
+                const post4 = Object.assign({}, nextState[action.like.likableId]);
+                post4.numLikes -= 1;
+                nextState[action.like.likableId] = post4;
+                return nextState
+            } else {
+                return state
+            }
         default:
             return state;
     }

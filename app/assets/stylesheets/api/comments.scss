@@ -1,3 +1,127 @@
 // Place all the styles related to the api/comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#comment-item .img, #comment-area .img{
+    height: 50px;
+    width: 50px;
+
+}
+
+#comment-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    width: 500px;
+}
+
+
+#comment-item .component-title {
+    align-items: flex-start;
+}
+
+#comment-body {
+    background-color: rgba(125, 120, 120, 0.157);
+    border-radius: 5px;
+    width: 400px;
+}
+
+#like-reply {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   
+
+}
+
+#like-reply div:nth-child(1){
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5px;
+}
+
+#like-reply .post-like-comment{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+
+#like-reply button{
+    background-color: white;
+    border: none;
+    margin: 0;
+    padding: 1;
+    border-radius: 2px;
+    &:hover{
+        background-color: rgba(125, 120, 120, 0.157);
+    }
+}
+
+#reply-area, #comment-area{
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+#reply-area form, #comment-area form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    margin: 0px;
+}
+
+#reply-area form {
+    margin-top: 10px;
+
+}
+
+#reply-area textarea, #comment-area textarea{
+    margin: 0px;
+    padding: 0px;
+    width: 330px ;
+    border-radius: 30px;
+    min-height: 20px;
+}
+
+#reply-area button, #comment-area button {
+    background-color: #B3402E;
+    font-size: 15px;
+    color: white;
+    border: none;
+    height: 30px;
+    width: 80px;
+    margin-top: 10px;
+    border-radius: 20px;
+        &:hover {
+                background-color: #61342F;
+            }
+}
+
+#comment-area {
+    margin-left: 2px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+#comment-area form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#comment-area button {
+    margin: 0px;
+    margin-left: 10px;
+}
+
+#comment-area+ul{
+    margin-top: 20px;
+}

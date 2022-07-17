@@ -13,16 +13,19 @@ const receiveCurrentUser = (payload) => {
     let posts = {};
     let comments = {};
     let experiences = {};
+    let likes = {};
     if (payload.posts){posts = payload.posts}
     if (payload.comments) { comments = payload.comments }
     if (payload.experiences) { experiences = payload.experiences }
-
+    if (payload.likes) { likes = payload.likes }
+    
     return {
         type: RECEIVE_CURRENT_USER,
         users: payload.users,
         posts: posts,
         comments,
-        experiences
+        experiences,
+        likes
     }
 }
 
@@ -31,8 +34,7 @@ const logoutCurrentUser = () => ({
 })
 
 const receiveErrors = (errors) => {
-    // debugger
-    console.log("receive errors action")
+    // console.log("receive errors action")
     console.log(errors)
     return {
         type: RECEIVE_SESSION_ERRORS,

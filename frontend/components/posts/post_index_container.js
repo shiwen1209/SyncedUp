@@ -12,7 +12,6 @@ const mdtp = dispatch => {
                 Start a post
             </button>
         )
-        // closeModal: () => dispatch(closeModal())
     }
 }
 

@@ -18,7 +18,7 @@ const mstp = (state)=>{
 const mdtp = dispatch=>{
     return{
         processForm: (post)=>dispatch(createPost(post)),
-        closeModal: () => dispatch(closeModal())
+        closeModal: ()=>dispatch(closeModal())
     }
 }
 

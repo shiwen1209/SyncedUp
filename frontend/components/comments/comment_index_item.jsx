@@ -1,5 +1,6 @@
 import React from "react";
 import CreateCommentContainer from "./create_comment_container";
+import { Link } from "react-router-dom";
 
 class CommentIndexItem extends React.Component{
     constructor(props){
@@ -13,6 +14,7 @@ class CommentIndexItem extends React.Component{
         this.toggleCommentEdit = this.toggleCommentEdit.bind(this);
         this.updateBody = this.updateBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleLike = this.handleLike.bind(this)
     }
 
     toggleReply(){
@@ -40,56 +42,109 @@ class CommentIndexItem extends React.Component{
     }
 
     handleSubmit(e) {
-        // debugger
         e.preventDefault();
         this.props.updateComment(this.state.comment)
         this.setState({ displayCommentEdit: false })
     }
 
+    handleLike(e) {
+        const {comment, likes, currentUserId, createLike, deleteLike } = this.props
+        const currentLike = { userId: currentUserId, likableId: comment.id, likableType: 'Comment' }
+        // debugger
+        if (JSON.stringify(currentLike) in likes) {
+            const likeId = likes[JSON.stringify(currentLike)]
+            deleteLike(likeId)
+        } else {
+            const likeForm = { user_id: currentUserId, likable_id: comment.id, likable_type: 'Comment' }
+            createLike(likeForm)
+        }
+    }
+
+
 
 
     render(){
+        const {comment, currentUserId, updateComment, deleteComment} = this.props
+
         return(
-            <div>
-                <div>
-                    <p>{this.props.comment.commenterName}</p>
-                    <p>{this.props.comment.commenterHeadline}</p>
-                    {this.state.displayCommentEdit ? 
-                        <form onSubmit={this.handleSubmit}>
-                            <textarea value={this.state.comment.body}
-                                    onChange={this.updateBody}>
+        <div id="comment-item">
+                <Link to={`/users/${comment.commenterId}`}>
+                    <div className="img">
+                        img
+                    </div>
+                </Link>
+                <div >
+                    <div id="comment-body">
+                        <div className="component-title" >
+                                <div className="headline-tag">
+                                    <Link to={`/users/${comment.commenterId}`}>
+                                        <div>
+                                            <span>{comment.commenterFirstname} {comment.commenterLastname}</span><span>({comment.commenterPronouns})</span>
+                                        </div>
+                                        <div>
+                                            <p>{comment.commenterHeadline}</p>
+                                        </div>
+                                    </Link>
+                                </div>
+                    
+                                {currentUserId === comment.commenterId ?
+                                <div>
+
+                                    <button onClick={this.toggleCommentEdit}>
+                                        Edit    
+                                    </button>
+                                    <button onClick={(e)=>deleteComment(this.props.comment.id)}>
+                                        Delete
+                                    </button>
+                                </div> :
+                                <div></div>
+                            }
+                        </div>
                             
+                    
+                
+                        {this.state.displayCommentEdit ?
+                        <form className="component-body"
+                        onSubmit={this.handleSubmit}>
+                            <textarea value={this.state.comment.body}
+                                onChange={this.updateBody}>
                             </textarea>
                             <br />
                             <button type="submit">Save Changes</button>
                             <button>Cancel</button>
-                        </form> :
-                            <p>{this.props.comment.body}</p>
-                    }
-                </div>
-
-                {this.props.comment.commenterId === this.props.currentUserId ?
-                    <div>
-                        <button onClick={this.toggleCommentEdit}>Edit</button>
-                        <button onClick={(e)=>this.props.deleteComment(this.props.comment.id)}>Delete</button>
-                    </div>
-                    : <div></div>
-                }
-
-                <button>Like</button>
-                <button onClick = {this.toggleReply}>Reply</button>
-
-                {this.state.displayReply ? 
-                    <div>
-                        <CreateCommentContainer 
-                            postId={this.props.postId}
-                            parentCommentId={this.props.comment.id}
-                            formType="Add a reply..."
-                             />
-                    </div> : 
-                    <div></div> }
+                        </form> : <p className="component-body">{this.props.comment.body}</p>
+                        }
                 
-            </div>
+                    </div>
+                    <div id="like-reply">
+                        <div>   
+                            <button onClick={this.handleLike}>Like</button>&nbsp;&nbsp;
+                            {comment.numLikes > 0 ?
+                                < div className="post-like-comment">
+                                    <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                    <p>{comment.numLikes}</p>
+                                </div> : <div></div>
+                             }
+                            &nbsp;&nbsp;<p>|</p>&nbsp;&nbsp;
+                            <button onClick={this.toggleReply}>Reply</button>
+                        </div>
+
+                        {this.state.displayReply ? 
+                        <div id="reply-area">
+                            <Link to={`/users/${currentUserId}`}>
+                                    <div className="img">
+                                        img
+                                    </div>
+                            </Link>
+                            <CreateCommentContainer
+                                    postId={this.props.postId}
+                                    parentCommentId={this.props.comment.id}
+                                    formType="Add a reply..."
+                            />
+                        </div> : <div></div> }
+                    </div>
+                </div>
+        </div>
         )
     }
     

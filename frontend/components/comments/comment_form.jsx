@@ -14,10 +14,6 @@ class CommentForm extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    // componentDidMount(){
-    //     this.setState({display: true})
-    // }
-
     updateBody(e){
         this.setState({body: e.currentTarget.value })
     }
@@ -30,17 +26,14 @@ class CommentForm extends React.Component{
 
     render(){
             return (
-                <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <textarea value={this.state.body}
+                <form onSubmit={this.handleSubmit}>
+                    <textarea value={this.state.body}
                             onChange={this.updateBody}></textarea>
-                        <br />
                         {this.props.formType === "Add a comment..." ?
                             <button type="submit">Post</button> :
                             <button type="submit">Reply</button>
                         }
-                    </form>
-                </div>
+                </form>
             )
         }
     

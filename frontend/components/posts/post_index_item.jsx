@@ -10,6 +10,7 @@ class PostIndexItem extends React.Component {
             displayComments: false
         }
         this.toggleComments = this.toggleComments.bind(this)
+        this.handleLike = this.handleLike.bind(this)
     }
 
     toggleComments(e){
@@ -20,8 +21,21 @@ class PostIndexItem extends React.Component {
         }
     }
 
+    handleLike(e){
+        const {post, likes, currentUserId, createLike, deleteLike} = this.props
+        const currentLike = { userId: currentUserId, likableId: post.id, likableType: 'Post'}
+        // debugger
+        if (JSON.stringify(currentLike) in likes){
+            const likeId = likes[JSON.stringify(currentLike)]
+            deleteLike(likeId)
+        } else {
+            const likeForm = { user_id: currentUserId, likable_id: post.id, likable_type: 'Post' }
+            createLike(likeForm)
+        }
+    }
+
     render(){
-        const { post, currentUserId, deletePost, openModalPayload } = this.props
+        const { post, currentUserId, deletePost, openModalPayload} = this.props
         return (
             <li className="component" id="post">
                 <div className="component-title" >
@@ -77,7 +91,7 @@ class PostIndexItem extends React.Component {
                 }
 
                 <div className="like-comment-button">
-                    <div>
+                    <div onClick={this.handleLike}>
                         <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
                         <p>Like</p>
                     </div>
@@ -100,6 +114,8 @@ class PostIndexItem extends React.Component {
     }
 
 }
+
+
 
 
 export default PostIndexItem

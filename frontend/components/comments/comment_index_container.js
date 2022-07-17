@@ -4,9 +4,11 @@ import {selectPostComments} from "../../selectors/comments_selector"
 
 
 const mstp = (state, ownProps) => {
-    // debugger
     return {
-        comments: selectPostComments(state, ownProps.post.id)
+        comments: selectPostComments(state, ownProps.post.id),
+        currentUserId: state.session.id
+
+
     }
 }
 
