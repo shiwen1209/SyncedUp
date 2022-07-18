@@ -1,0 +1,103 @@
+// Place all the styles related to the api/users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#my-network{
+    display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 1080px;
+        padding: 0;
+        margin: 0;
+        margin-top: 90px;
+}
+
+#my-network>div:nth-child(1){
+    width: 310px;
+    min-height: 400px;
+    border: 1px solid red;
+}
+
+#my-network>div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 700px;
+    // border: 1px solid blue;
+}
+
+#my-network ul {
+    margin-top: 20px;
+    border-top: 1px solid lightgrey;
+}
+
+#my-network li{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    // border: 1px solid red;
+    width: 680px;
+    height: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+#my-network li .img{
+    height: 80px;
+    width: 80px;
+}
+
+#my-network li .connection-detail{
+        display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            // border: 1px solid purple;
+            height: 100%;
+            width: 87%;
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid lightgrey;
+}
+
+
+#my-network li button{
+            color:#B3402E;
+            border: none;
+            min-height: 30px;
+            min-width: 80px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: bold;
+            padding-left: 10px;
+            padding-right: 10px;
+            border: 2px solid #B3402E;
+            background-color: white;
+            &:hover {
+                background-color: #b3402e39;
+            }
+}
+
+
+.connection-title h3{
+    font-weight: bold;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.connection-title h4{
+    font-size: 15px;
+    color: rgba(65, 63, 63, 0.786);
+    margin: 5px;
+}
+
+.connection-title p {
+    font-size: 13px;
+    color: rgba(65, 63, 63, 0.786);
+    margin: 5px;
+}

@@ -4,8 +4,8 @@ json.post do
     json.author_lastname @post.author.last_name
     json.author_pronouns @post.author.pronouns
     json.author_headline @post.author.headline
-    json.num_comments post.comments.count
-    json.num_likes post.likes.count
+    json.num_comments @post.comments.count
+    json.num_likes @post.likes.count
 end
 
 json.comments do 

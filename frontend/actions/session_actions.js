@@ -14,10 +14,12 @@ const receiveCurrentUser = (payload) => {
     let comments = {};
     let experiences = {};
     let likes = {};
+    let connections ={};
     if (payload.posts){posts = payload.posts}
     if (payload.comments) { comments = payload.comments }
     if (payload.experiences) { experiences = payload.experiences }
     if (payload.likes) { likes = payload.likes }
+    if (payload.connections) { connections = payload.connections }
     
     return {
         type: RECEIVE_CURRENT_USER,
@@ -25,7 +27,8 @@ const receiveCurrentUser = (payload) => {
         posts: posts,
         comments,
         experiences,
-        likes
+        likes,
+        connections
     }
 }
 
@@ -34,7 +37,6 @@ const logoutCurrentUser = () => ({
 })
 
 const receiveErrors = (errors) => {
-    // console.log("receive errors action")
     console.log(errors)
     return {
         type: RECEIVE_SESSION_ERRORS,
@@ -64,7 +66,6 @@ export const signup = (user) => dispatch => {
 }
     
 export const logout = () => dispatch => {
-    console.log("logging out")
     return SessionApiUtil.logout()
         .then(() => dispatch(logoutCurrentUser()))
 }

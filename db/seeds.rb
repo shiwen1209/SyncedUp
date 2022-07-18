@@ -25,7 +25,6 @@ user1 = User.create!(
                     "industry": "Agriculture",
                     "location_country": "United States",
                     "location_city": "Bakersfield"
-
                     )
 user2 = User.create!(
                     "email": "orange", 
@@ -52,6 +51,47 @@ user3 = User.create!(
                     "location_country": "United States",
                     "location_city": "Bakersfield"
                     )
+
+user4 = User.create!(
+                    "email": "strawberry", 
+                    "password": "123456", 
+                    "first_name": "Strawberry", 
+                    "last_name": "Sam", 
+                    "pronouns": "He/him",
+                    "headline": "I'm a strawberry entrepreneur",
+                    "about": "I produce and sell the best strawberry",
+                    "industry": "Agriculture",
+                    "location_country": "United States",
+                    "location_city": "Bakersfield"
+                    )
+
+user5 = User.create!(
+                    "email": "candy", 
+                    "password": "123456", 
+                    "first_name": "Candy", 
+                    "last_name": "Cake", 
+                    "pronouns": "She/her",
+                    "headline": "I'm a candy entrepreneur",
+                    "about": "I produce and sell the best candies",
+                    "industry": "Manufacture",
+                    "location_country": "United States",
+                    "location_city": "LA"
+                    )
+
+user6 = User.create!(
+                    "email": "Cookie", 
+                    "password": "123456", 
+                    "first_name": "Cookie", 
+                    "last_name": "Coo", 
+                    "pronouns": "She/her",
+                    "headline": "I'm a cookie entrepreneur",
+                    "about": "I produce and sell the best cookies",
+                    "industry": "Manufacture",
+                    "location_country": "United States",
+                    "location_city": "LA"
+                    )
+
+
 
 post1 = Post.create!("author_id": user1.id, "body": "today has been a hard day")
 post2 = Post.create!("author_id": user1.id, "body": "another hard day at work")

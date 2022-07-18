@@ -78,7 +78,7 @@ summary,
 time,
 mark,
 audio,
-video {
+video, Link {
     margin: 0;
     padding: 0;
     border: 0;
@@ -128,4 +128,11 @@ q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
 }

@@ -82,5 +82,19 @@ json.experiences do
     end
 end
 
+json.connections do
+    @user.connects.each do |connect|
+        user = connect.follower
+        mirrorConnection = user.connects.find_by("user2_id": @user.id)
+
+        json.set! user.id do 
+            json.extract! user, :id, :email, :first_name, :last_name, :pronouns, 
+            :headline
+            json.connected_at connect.created_at
+            json.connectionId connect.id
+            json.mirrorConnectionId mirrorConnection.id
+        end
+    end
+end
 
 

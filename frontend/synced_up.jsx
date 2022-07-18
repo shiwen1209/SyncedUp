@@ -7,8 +7,9 @@ import Root from "./components/root";
 import { signup, login, logout } from "./actions/session_actions";
 import {createPost, updatePost, deletePost} from "./actions/post_actions";
 import {createComment, updateComment, deleteComment} from "./actions/comment_actions";
-import { updateUser } from "./actions/user_action";
+import { updateUser, fetchPeople } from "./actions/user_action";
 import { createExp, updateExp, deleteExp } from "./actions/exp_actions";
+import {createConnection, deleteConnection} from "./actions/connection_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
     // console.log("entry file")
@@ -34,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.signup = signup;
     window.login = login;
     window.logout = logout;
-    
     window.createPost = createPost;
     window.updatePost = updatePost;
     window.deletePost = deletePost;
@@ -45,4 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.createExp = createExp;
     window.updateExp = updateExp;
     window.deleteExp = deleteExp;
+    window.createConnection = createConnection;
+    window.deleteConnection = deleteConnection;
+    window.fetchPeople = fetchPeople;
 });

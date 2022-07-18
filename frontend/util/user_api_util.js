@@ -12,3 +12,10 @@ export const updateUser = (user) => {
         data: {user}
     })
 }
+
+export const fetchPeople = () => {
+    return $.ajax({
+        url: `/api/users`,
+        method: "GET",
+    })
+}

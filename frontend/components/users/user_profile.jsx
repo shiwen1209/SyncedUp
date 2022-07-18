@@ -6,6 +6,8 @@ import EduIndexContainer from "../experiences/edu_index_container";
 class UserProfile extends React.Component {
     constructor(props){
         super(props);
+        this.handleClickConnect = this.handleClickConnect.bind(this);
+        this.handleClickDisconnect = this.handleClickDisconnect.bind(this)
     }
 
     componentDidMount(){
@@ -18,13 +20,27 @@ class UserProfile extends React.Component {
         } 
     }
 
+    handleClickConnect(e){
+        const {currentUserId, user, createConnection } = this.props;
+        const con1 = {"user1_id": currentUserId, "user2_id": user.id};
+        const con2 = {"user1_id": user.id, "user2_id": currentUserId};
+        createConnection(con1);
+        createConnection(con2);
+    }
+
+    handleClickDisconnect(e){
+        const {currentUserId, connections, deleteConnection} = this.props;
+        const conId1 = connections[currentUserId].connectionId;
+        const conId2 = connections[currentUserId].mirrorConnectionId;
+        deleteConnection(conId1);
+        deleteConnection(conId2);
+    }
+
     render(){
-        const { user, currentUserId, openModalPayload } = this.props
+        const { user, currentUserId, connections, openModalPayload} = this.props
 
         if(!user){return(
-            <h1 className="test">User does not exist</h1>
-        )
-        }
+            <h1 className="test">User does not exist</h1>)}
 
         return(
             <div id="user-profile">
@@ -38,7 +54,6 @@ class UserProfile extends React.Component {
                                 <div>
                                     <span>{user.firstName} {user.lastName}</span><span>({user.pronouns})</span>
                                 </div>
-
                                 <h3>{user.headline} </h3>
                                 <h4>{user.locationCity}{user.locationCity && (user.locationState || user.locationCountry ) ? ", " : ""}
                                     {user.locationState}{user.locationState && (user.locationCountry) ? ", " : ""}
@@ -50,7 +65,13 @@ class UserProfile extends React.Component {
                                         <button className="session-button">More</button>
                                     </div> :
                                     <div>
-                                        <button className="session-button">Connect</button>
+                                        {currentUserId in connections ? 
+                                        <button onClick={this.handleClickDisconnect}
+                                        className="session-button">Disconnect</button>
+                                        : <button onClick={this.handleClickConnect}
+                                        className="session-button">Connect</button>
+                                        }
+                                        
                                         <button className="session-button">Message</button>
                                     </div>
                                     }

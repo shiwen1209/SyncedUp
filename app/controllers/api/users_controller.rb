@@ -1,5 +1,15 @@
 class Api::UsersController < ApplicationController
 
+    def index
+        if current_user
+            connection_ids = current_user.connections.to_a.map{|user| user.id}
+            @users = User.all.to_a.select{|user| !connection_ids.include?(user.id) && user.id != current_user.id}
+        else
+            @users = User.all
+        end
+        render :index
+    end
+
     def create 
         @user = User.new(user_params)
         if @user.save 

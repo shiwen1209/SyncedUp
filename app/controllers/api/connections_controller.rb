@@ -8,6 +8,12 @@ class Api::ConnectionsController < ApplicationController
         end
     end
 
+    def show
+        @connection = Connection.find_by(id: params[:id])
+        render :show
+    end
+
+
     def destroy
         @connection = Connection.find_by(id: params[:id])
 

@@ -31,10 +31,12 @@ class Nav extends React.Component {
                             <span>My profile</span>
                         </Link>
 
-                        <div className="icon">
+             
+                        <Link className="icon" to={`/mynetwork`}>
                             <i className="fa-solid fa-user-group"></i>
                             <span>My network</span>
-                        </div>
+                        </Link> 
+                
 
                         <div className="icon">
                             <i className="fa-solid fa-comment-dots"></i>
