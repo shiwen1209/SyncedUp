@@ -39,8 +39,7 @@ class UserProfile extends React.Component {
     render(){
         const { user, currentUserId, connections, openModalPayload} = this.props
 
-        if(!user){return(
-            <h1 className="test">User does not exist</h1>)}
+        if(!user){return}
 
         return(
             <div id="user-profile">
