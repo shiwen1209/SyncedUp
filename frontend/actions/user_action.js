@@ -18,9 +18,11 @@ const receiveUser = (payload)=>{
 }
 
 const receivePeople = (payload) => {
+    let people = {};
+    if (payload.people) { people = payload.people }
     return {
         type: RECEIVE_PEOPLE,
-        people: payload.people,
+        people
     }
 }
 
