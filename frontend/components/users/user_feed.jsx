@@ -13,13 +13,14 @@ class UserFeed extends React.Component{
 
     render(){
         const {user, posts} = this.props
+        debugger
         return(
             <div id="user-feed">
                 <div id="user-feed-profile">
                     <div className="component">
                         <Link to={`/users/${user.id}`}>
                             <div className="img">
-                                img
+                                <img src={user.headshotUrl} alt="" />
                             </div>
                         </Link>
                         <Link to={`/users/${user.id}`}>

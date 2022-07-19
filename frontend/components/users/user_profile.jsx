@@ -14,6 +14,10 @@ class UserProfile extends React.Component {
         this.props.fetchUser(this.props.match.params.userId)
     }
 
+    // componentDidUpdate() {
+    //     this.props.fetchUser(this.props.match.params.userId)
+    // }
+
     componentDidUpdate(prevProp) {
         if (prevProp.user !== undefined && (prevProp.user.id !== parseInt(this.props.match.params.userId))){
             this.props.fetchUser(this.props.match.params.userId)
@@ -46,10 +50,12 @@ class UserProfile extends React.Component {
                 <div id="user-profile-main">
                     <div id="user-profile-summary" className="component">
                         <div id="user-profile-backgroundpic">
-                            profile background picture placeholder
+                            <img id="background-image" src="https://media-exp2.licdn.com/dms/image/C5616AQEwZ6A6A1tmxQ/profile-displaybackgroundimage-shrink_350_1400/0/1658203353167?e=1663804800&v=beta&t=QbWxVweNYHnPBOFJgs4mTGulaXDUabgG08tESVl-ixQ" alt="" />
                         </div>
                         <div>   
                             <div>
+                                <img id="headshot-image" src={user.headshotUrl} alt="headshot" 
+                                    onClick={(e) => openModalPayload({ modal: 'editHeadshot', payload: this.props.user })}/>
                                 <div>
                                     <span>{user.firstName} {user.lastName}</span><span>({user.pronouns})</span>
                                 </div>

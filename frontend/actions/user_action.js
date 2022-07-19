@@ -20,9 +20,12 @@ const receiveUser = (payload)=>{
 const receivePeople = (payload) => {
     let people = {};
     if (payload.people) { people = payload.people }
+    let user = {};
+    if (payload.user) { user = payload.user }
     return {
         type: RECEIVE_PEOPLE,
-        people
+        people,
+        user
     }
 }
 
@@ -35,6 +38,11 @@ export const fetchUser = (userId)=> dispatch =>{
 
 export const updateUser = (user) => dispatch => {
     return UserApiUtil.updateUser(user)
+        .then((payload) => dispatch(receiveUser(payload)))
+}
+
+export const updateUserPhoto = (userId, formData) => dispatch => {
+    return UserApiUtil.updateUserPhoto(userId, formData)
         .then((payload) => dispatch(receiveUser(payload)))
 }
 

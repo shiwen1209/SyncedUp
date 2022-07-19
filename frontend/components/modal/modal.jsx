@@ -9,6 +9,7 @@ import UpdateUserContainer from "../users/update_user_container";
 import UpdateAboutContainer from "../users/update_about_container";
 import CreateExpContainer from "../experiences/create_exp_container";
 import UpdateExpContainer from "../experiences/update_exp_container";
+import EditHeadshotContainer from '../users/edit_headshot_container';
 
 function Modal({ modal, closeModal }) {
 
@@ -16,7 +17,6 @@ function Modal({ modal, closeModal }) {
         return null;
     }
     let component;
-
     switch (modal.modal) {
         case 'login':
             component = <LoginFormContainer />;
@@ -44,6 +44,9 @@ function Modal({ modal, closeModal }) {
             break;
         case "updateExp":
             component = <UpdateExpContainer />
+            break;
+        case "editHeadshot":
+            component = <EditHeadshotContainer />
             break;
         default:
             return null;

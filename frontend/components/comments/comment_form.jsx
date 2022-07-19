@@ -5,7 +5,7 @@ class CommentForm extends React.Component{
         // debugger
         super(props);
         this.state = {
-            body: this.props.formType,
+            body: "",
             post_id: this.props.postId,
             commenter_id: this.props.currentUserId,
             parent_comment_id: this.props.parentCommentId,
@@ -28,6 +28,7 @@ class CommentForm extends React.Component{
             return (
                 <form onSubmit={this.handleSubmit}>
                     <textarea value={this.state.body}
+                        placeholder={this.props.formType}
                             onChange={this.updateBody}></textarea>
                         {this.props.formType === "Add a comment..." ?
                             <button type="submit">Post</button> :

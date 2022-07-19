@@ -75,13 +75,15 @@ nav > div {
 }
 
 nav .comment-button {
-    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0);
     width: 270px;
     height: 20px;
-    background-color: rgba(212, 205, 205, 0.239);
     border: none;
+    border-radius: 0px;
+    &:focus {
+        outline: none;
+    }
 }
-
 
 nav i {
     font-size: 20px;
@@ -101,7 +103,28 @@ nav .icon {
     &:hover {
                 color: rgba(77, 74, 74, 0.971);
             }
+}
 
+nav .search-bar{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    border-radius: 6px;
+    background-color: rgba(212, 205, 205, 0.239);
+    height: 40px;
+    &:hover {
+        border: 2px solid #B3402E;
+    }
+}
 
-    // border: 1px solid black;
+.search-bar .search-bar-icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5px;
+    height: 100%;
+}
+.search-bar i{
+    color: rgba(106, 103, 103, 0.971);
 }

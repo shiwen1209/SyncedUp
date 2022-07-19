@@ -1,17 +1,20 @@
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
 import Nav from "./nav";
+import { fetchPeople } from "../../actions/user_action";
+
 
 const mapStateToProps = (state) => {
     return {
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id],
+        people: Object.values(state.entities.people)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    console.log("action dispatched")
     return {
-        logout: () => dispatch(logout()) // action inside dispatch must be invoked
+        logout: () => dispatch(logout()), // action inside dispatch must be invoked
+        fetchPeople: () => dispatch(fetchPeople())
     }
 }
 

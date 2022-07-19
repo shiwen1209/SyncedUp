@@ -13,6 +13,7 @@ class People extends React.Component {
 
     render(){
         const { people, currentUserId, createConnection } = this.props
+        // debugger
         const peopleList = people.map((person, idx) => (<PeopleItem 
             key={idx} person={person} currentUserId={currentUserId}
             createConnection={createConnection}/>))

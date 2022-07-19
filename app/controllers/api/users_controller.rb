@@ -1,12 +1,14 @@
 class Api::UsersController < ApplicationController
 
     def index
-        if current_user
-            connection_ids = current_user.connections.to_a.map{|user| user.id}
-            @users = User.all.to_a.select{|user| !connection_ids.include?(user.id) && user.id != current_user.id}
-        else
-            @users = User.all
-        end
+        # if current_user
+        #     connection_ids = current_user.connections.to_a.map{|user| user.id}
+        #     @users = User.all.to_a.select{|user| !connection_ids.include?(user.id) && user.id != current_user.id}
+        # else
+        #     @users = User.all
+        # end
+        @users = User.all
+
         render :index
     end
 
@@ -47,6 +49,7 @@ class Api::UsersController < ApplicationController
                                     :industry,
                                     :location_city,
                                     :location_state,
-                                    :location_country)
+                                    :location_country,
+                                    :headshot)
     end 
 end

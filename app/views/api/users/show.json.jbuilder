@@ -3,6 +3,10 @@ json.users do
         json.extract! @user, :id, :email, :first_name, :last_name, :pronouns, 
         :headline, :about, :industry, :location_country, :location_state, :location_city
         json.num_connections @user.connections.count
+        json.connectionIds @user.connections.pluck(:id)
+        if @user.headshot.attached?
+            json.headshot_url url_for(@user.headshot)
+        end
     end 
 end
 

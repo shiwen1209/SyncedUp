@@ -13,6 +13,16 @@ export const updateUser = (user) => {
     })
 }
 
+export const updateUserPhoto = (userId, formData) => {
+    return $.ajax({
+        url: `/api/users/${userId}`,
+        method: "PATCH",
+        data: formData,
+        contentType: false,
+        processData: false
+    })
+}
+
 export const fetchPeople = () => {
     return $.ajax({
         url: `/api/users`,

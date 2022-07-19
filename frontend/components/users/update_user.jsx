@@ -1,6 +1,4 @@
 import React from "react";
-import { closeModal } from "../../actions/modal_actions";
-
 
 class UpdateUser extends React.Component{
     constructor(props){

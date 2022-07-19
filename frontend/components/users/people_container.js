@@ -2,12 +2,13 @@ import {connect } from "react-redux";
 import People from "./people";
 import {fetchPeople} from "../../actions/user_action";
 import {createConnection} from "../../actions/connection_actions";
+import { peopleSelector } from "../../selectors/people_selector";
 
 
 const mstp = (state)=>{
     // debugger
     return{
-        people: Object.values(state.entities.people),
+        people: peopleSelector(state),
         currentUserId: state.session.id
     }
 }
