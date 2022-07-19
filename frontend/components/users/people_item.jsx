@@ -8,17 +8,8 @@ class PeopleItem extends React.Component {
             connect: false
         }
         this.handleClickConnect = this.handleClickConnect.bind(this)
-        // this.handleClickDisconnect = this.handleClickDisconnect.bind(this)
     }
 
-    // handleClickDisconnect(e) {
-        // this.setState({connect: false})
-        // const {connection, deleteConnection } = this.props;
-        // const conId1 = connection.connectionId;
-        // const conId2 = connection.mirrorConnectionId;
-        // deleteConnection(conId1);
-        // deleteConnection(conId2);
-    // }
 
     handleClickConnect(e) {
         this.setState({ connect: true })
