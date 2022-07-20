@@ -34,8 +34,10 @@ class UserFeed extends React.Component{
                                 <p>{user.locationCity}{user.locationCity && (user.locationState || user.locationCountry) ? ", " : ""}
                                     {user.locationState}{user.locationState && (user.locationCountry) ? ", " : ""}
                                     {user.locationCountry}</p>
-                                <br />  
-                                <h3>{user.numConnections} connections</h3>
+                                <br /> 
+                                <Link to='/mynetwork' className="link"> 
+                                    <h3>{user.numConnections} connections</h3>
+                                </Link>
                           
                             
                         </div>

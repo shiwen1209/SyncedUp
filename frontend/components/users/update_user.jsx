@@ -28,9 +28,10 @@ class UpdateUser extends React.Component{
         return(
             <div className="component">
                 <div className="component-title">
-                    <h1>Edit {formType}</h1>
-                    <i className="fa-solid fa-xmark"
-                        onClick={closeModal}></i>
+                    <h2>Edit {formType}</h2>
+                    <div className="icon" onClick={closeModal}>
+                        <i className="fa-solid fa-xmark"></i>
+                    </div>
                 </div>
                 
                 {formType === "intro" ? 

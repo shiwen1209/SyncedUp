@@ -24,9 +24,8 @@ class ExpIndex extends React.Component {
                     <div className="component-title">
                         <div>
                             {this.state.editState ?
-                                <div className="icon">
-                                    <i className="fa-solid fa-arrow-left"
-                                    onClick={(e) => this.setState({ editState: false })}></i> 
+                                <div className="icon" onClick={(e) => this.setState({ editState: false })}>
+                                    <i className="fa-solid fa-arrow-left"></i> 
                                 </div>
                             : <div></div>}
                             {exp_type === "work" ? <h2>Experience</h2> : <h2>Education</h2> }  
@@ -34,14 +33,12 @@ class ExpIndex extends React.Component {
                         
                             {user.id === currentUserId ?
                             <div className="two-icons">
-                                <div className="icon">
-                                <i className="fa-solid fa-plus"
-                                    onClick={(e) => this.props.openModalPayload({ modal: 'createExp', payload: exp_type })}
-                                ></i>
+                                <div className="icon" onClick={(e) => this.props.openModalPayload({ modal: 'createExp', payload: exp_type })}>
+                                    <i className="fa-solid fa-plus"></i>
                                 </div>
                                 {this.state.editState ? <div></div> :
-                                <div className="icon">
-                                    <i className="fa-solid fa-pen" onClick={(e) => this.setState({editState: true})}></i>
+                                    <div className="icon" onClick={(e) => this.setState({ editState: true })}>
+                                    <i className="fa-solid fa-pen"></i>
                                 </div>}
                             </div> : <div></div>}
                     </div>

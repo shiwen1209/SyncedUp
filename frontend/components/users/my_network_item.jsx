@@ -31,7 +31,7 @@ class MyNetworkItem extends React.Component {
             <li>
                 <Link to={`/users/${connection.id}`}>
                     <div className="img">
-                        img
+                        <img src={connection.headshotUrl} alt="" />
                     </div>
                 </Link>
                 <div className="connection-detail">

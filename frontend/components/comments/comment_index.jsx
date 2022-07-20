@@ -20,8 +20,7 @@ class CommentIndex extends React.Component {
                 <div id="comment-area">
                     <Link to={`/users/${currentUser.id}`}>
                         <div className="img">
-                            <img src={currentUser.headshotUrl ? currentUser.headshotUrl
-                                : "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg"} alt="" />
+                            <img src={currentUser.headshotUrl} alt="" />
                         </div>
                     </Link>
                      <CreateCommentContainer parentCommentId={null} postId={post.id} formType="Add a comment..." />

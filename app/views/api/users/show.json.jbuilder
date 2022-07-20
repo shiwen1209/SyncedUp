@@ -32,6 +32,7 @@ json.posts do
                 json.author_lastname post.author.last_name
                 json.author_pronouns post.author.pronouns
                 json.author_headline post.author.headline
+                json.author_headshot_url url_for(post.author.headshot)
                 json.num_comments post.comments.count
                 json.num_likes post.likes.count
             end
@@ -48,6 +49,7 @@ json.comments do
                 json.commenter_lastname comment.commenter.last_name
                 json.commenter_pronouns comment.commenter.pronouns
                 json.commenter_headline comment.commenter.headline
+                json.author_headshot_url url_for(comment.commenter.headshot)
                 json.num_likes comment.likes.count
             end
         end
@@ -62,6 +64,7 @@ json.comments do
                     json.commenter_lastname comment.commenter.last_name
                     json.commenter_pronouns comment.commenter.pronouns
                     json.commenter_headline comment.commenter.headline
+                    json.author_headshot_url url_for(comment.commenter.headshot)
                     json.num_likes comment.likes.count
                 end
             end
@@ -95,6 +98,9 @@ json.connections do
         json.set! user.id do 
             json.extract! user, :id, :email, :first_name, :last_name, :pronouns, 
             :headline
+            if user.headshot.attached?
+                json.headshot_url url_for(user.headshot)
+            end
             json.connected_at connect.created_at
             json.connectionId connect.id
             json.mirrorConnectionId mirrorConnection.id

@@ -75,8 +75,7 @@ class CommentIndexItem extends React.Component{
         <div id="comment-item">
                 <Link to={`/users/${comment.commenterId}`}>
                     <div className="img">
-                        <img src={comment.authorHeadshotUrl ? comment.authorHeadshotUrl
-                            : "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg"} alt="" />
+                        <img src={comment.authorHeadshotUrl} alt="" />
                     </div>
                 </Link>
                 <div >

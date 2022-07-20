@@ -21,18 +21,48 @@ class People extends React.Component {
         return(
             <div id="my-network">
                 <div className="component">
-                    <Link to="/mynetwork/people">
-                        People you may know
-                    </Link>
-                    <br />
-                    <Link to="/mynetwork">
-                        Your connections
-                    </Link>
+                    <div className="component-title">
+                        <h3>Manage your network</h3>
+                    </div>
+                    <div className="component-subtitle">
+                        <Link className="link" to="/mynetwork">
+                            <i className="fa-solid fa-user-group"></i>
+                            <h3>Your connections</h3>
+                        </Link>
+                    </div>
+                    <div id="highlight" className="component-subtitle">
+                        <Link className="link" to="/mynetwork/people">
+                            <i class="fa-solid fa-user-pen"></i>
+                            <h3>People you may know</h3>
+                        </Link>
+                    </div>
+                    <div className="component-subtitle">
+                        <Link className="link">
+                            <i class="fa-solid fa-user-pen"></i>
+                            <h3>Contacts</h3>
+                        </Link>
+                    </div>
+                    <div className="component-subtitle">
+                        <Link className="link">
+                            <i class="fa-solid fa-user-pen"></i>
+                            <h3>Groups</h3>
+                        </Link>
+                    </div>
+                    <div className="component-subtitle">
+                        <Link className="link">
+                            <i class="fa-solid fa-user-pen"></i>
+                            <h3>News</h3>
+                        </Link>
+                    </div>
                 </div>
                 <div className="component">
                     <div>
-                        <p>Recommended for you</p>
-                        <p>Search bar</p>
+                        <div className="component-title">
+                            <h3>People to follow</h3>
+                        </div>
+                        <div className="component-subtitle">
+                            <p>Recommended for you</p>
+                        </div>
                     </div>
                     <ul>
                         {peopleList}

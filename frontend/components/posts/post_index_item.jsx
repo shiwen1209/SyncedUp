@@ -52,8 +52,7 @@ class PostIndexItem extends React.Component {
                     <div>
                         <Link to={`/users/${post.authorId}`}>
                             <div className="img">
-                                <img src={post.authorHeadshotUrl ? post.authorHeadshotUrl 
-                                    : "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg"} alt="" />
+                                <img src={post.authorHeadshotUrl} alt="" />
                             </div>
                         </Link>
                         <div className="headline-tag">

@@ -26,7 +26,7 @@ class PeopleItem extends React.Component {
             <li>
                 <Link to={`/users/${person.id}`}>
                     <div className="img">
-                        img
+                        <img src={person.headshotUrl} alt="" />
                     </div>
                 </Link>
                 <div className="connection-detail">

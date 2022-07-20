@@ -1,6 +1,7 @@
 import React from "react";
 import ExpIndexContainer from "../experiences/exp_index_container";
 import EduIndexContainer from "../experiences/edu_index_container";
+import { Link } from "react-router-dom";
 
 
 class UserProfile extends React.Component {
@@ -74,7 +75,13 @@ class UserProfile extends React.Component {
                                 <h4>{user.locationCity}{user.locationCity && (user.locationState || user.locationCountry ) ? ", " : ""}
                                     {user.locationState}{user.locationState && (user.locationCountry) ? ", " : ""}
                                     {user.locationCountry}</h4>
-                                <h4>{user.numConnections} connections</h4>
+                                {user.id === currentUserId ?
+                                    <Link to='/mynetwork' className="link"> 
+                                    <h4 className="connection-link">{user.numConnections} connections</h4>
+                                    </Link> : 
+                                    <div className="link">
+                                        <h4 className="connection-link">{user.numConnections} connections</h4>
+                                    </div>}
                                 {user.id === currentUserId ? 
                                     <div>
                                         <button onClick={this.toggleDisplayDropdown}
@@ -114,10 +121,8 @@ class UserProfile extends React.Component {
                     
                             </div>
                             {user.id === currentUserId ? 
-                            <div className="icon" id="this-icon">
-                                <i className="fa-solid fa-pen"
-                                        onClick={(e) => openModalPayload({ modal: 'updateUser', payload: this.props.user })}
-                                ></i>
+                            <div className="icon" id="this-icon" onClick={(e) => openModalPayload({ modal: 'updateUser', payload: this.props.user })}>
+                                <i className="fa-solid fa-pen"></i>
                             </div> : <div></div>
                             }
                         </div>
@@ -129,10 +134,9 @@ class UserProfile extends React.Component {
                             <div className="component-title">
                                 <h2>About</h2>
                                 {user.id === currentUserId ?
-                                    <div className="icon">
-                                    <i className="fa-solid fa-pen"
-                                    onClick={(e) => openModalPayload({ modal: 'updateAbout', payload: this.props.user })}></i>
-                                    </div>
+                                <div className="icon" onClick={(e) => openModalPayload({ modal: 'updateAbout', payload: this.props.user })}>
+                                    <i className="fa-solid fa-pen"></i>
+                                </div>
                                 : <div></div>}
                             </div>
                             <div className="component-body">

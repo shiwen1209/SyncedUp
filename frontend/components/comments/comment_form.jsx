@@ -34,8 +34,7 @@ class CommentForm extends React.Component{
                         {formType === "Add a reply..." ?
                         < Link className="link" to={`/users/${currentUserId}`}>
                             <div className="img">
-                                <img src={this.props.comment.authorHeadshotUrl ? this.props.comment.authorHeadshotUrl
-                                    : "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg"} alt="" />
+                                <img src={this.props.comment.authorHeadshotUrl} alt="" />
                             </div>
                         </Link> : <div></div>
                         }

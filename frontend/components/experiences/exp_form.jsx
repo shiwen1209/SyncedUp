@@ -21,7 +21,7 @@ class ExpForm extends React.Component {
         return(
             <div className="component">
                 <div className="component-title">
-                    <h1>{formType} {create_exp_type === "work" ? "experience" : "education"}</h1>
+                    <h2>{formType} {create_exp_type === "work" ? "experience" : "education"}</h2>
                     <div className="icon" onClick={(e) => closeModal()}>
                         <i className="fa-solid fa-xmark"></i>
                     </div>

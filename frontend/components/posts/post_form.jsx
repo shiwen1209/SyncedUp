@@ -27,8 +27,7 @@ class PostForm extends React.Component{
                 </div>
                 <div className="component-title">
                     <div className="img">
-                        <img src={currentUser.headshotUrl ? currentUser.headshotUrl
-                                : "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg"} alt="" />
+                        <img src={currentUser.headshotUrl} alt="" />
                     </div>
                     <div className="headline-tag">
                             <div>

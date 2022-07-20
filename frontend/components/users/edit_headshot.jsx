@@ -26,7 +26,6 @@ class EditHeadshot extends React.Component{
         e.preventDefault();
         const { user, closeModal } = this.props
         const formData = new FormData();
-
         formData.append('user[headshot]', this.state.photoFile);
         this.props.updateUserPhoto(user.id, formData).then(closeModal())
     }

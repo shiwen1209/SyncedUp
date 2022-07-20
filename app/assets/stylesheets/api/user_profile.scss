@@ -103,17 +103,13 @@
     padding-bottom: 5px;
 }
 
-#user-profile-summary h4:nth-of-type(2){
+#user-profile-summary .link h4{
     font-weight: bold;
     color: #B3402E;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-#user-profile h2{
-    font-size: 24px;
-    font-weight: bold;
-}
 
 #user-profile .dropdown-buttons{
     padding: 0px;
@@ -159,7 +155,6 @@
 #user-profile-main button:nth-child(2){
     background-color: white;
     color: #B3402E;
-    
     border: 2px solid #B3402E;;
 }
 
