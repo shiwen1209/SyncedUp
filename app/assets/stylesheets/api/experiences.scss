@@ -1,3 +1,61 @@
 // Place all the styles related to the api/experiences controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.exp-item {
+    border-bottom: 1px solid lightgray;
+    // border: 1px solid red;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.exp-item .img-square{
+    margin-top: 16px;
+    height: 55px;
+    width: 55px;
+    margin-right: 10px;
+    background-color: rgb(157, 155, 155);
+    
+}
+
+.exp-item div:nth-child(2){
+    width: 85%;
+}
+
+.exp-item .component-subtitle{
+    margin-top: 10px;
+    padding: 0;
+    // border: 1px solid green;
+    font-weight: bold;
+    height: 30px;
+    width: 600px;
+}
+
+
+.exp-item h3{
+    width: 90%;
+
+}
+.exp-item .component-body {
+    margin: 0;
+    padding: 0;
+
+}
+
+.exp-item .component-body p{
+    margin-top: 5px;
+    font-size: 15px;
+
+}
+
+.exp-item .component-body p:nth-child(2){
+    color: rgb(94, 92, 92);
+    font-size: 14px;
+}
+
+.exp-item .component-body p:nth-child(3) {
+    color: rgb(94, 92, 92);
+    font-size: 14px;
+}

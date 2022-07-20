@@ -15,36 +15,44 @@ class ExpIndexItem extends React.Component{
 
         if(exp_type==="work"){
             return (
-                <li>
-                    <div className="component-subtitle">
-                        <h3>{exp.title}</h3>
-
-                        {editState ? 
-                        <div className="icon" onClick={(e) => openModalPayload({ modal: 'updateExp', payload: exp })}>
-                            <i className="fa-solid fa-pen"></i>
-                        </div> : <div></div>}
+                <li className="exp-item">
+                    <div className="img-square">
+                        
                     </div>
-                    <div className="component-body">
-                        <p>{exp.companyName}</p>
-                        <p>{start_date} - {end_date} </p>
-                        <p>{exp.location}</p>
+                    <div>
+                        <div className="component-subtitle">
+                            <h3>{exp.title}</h3>
+                            {editState ? 
+                            <div className="icon" onClick={(e) => openModalPayload({ modal: 'updateExp', payload: exp })}>
+                                <i className="fa-solid fa-pen"></i>
+                            </div> : <div></div>}
+                        </div>
+                        <div className="component-body">
+                            <p>{exp.companyName}</p>
+                            <p>{start_date} - {end_date} </p>
+                            <p>{exp.location}</p>
+                        </div>
                     </div>
-
                 </li>
             )
         } else {
             return (
-                <li>
-                    <div className="component-subtitle">
-                        <h3>{exp.companyName}</h3>
-                        {editState ? 
-                        <div className="icon" onClick={(e) => openModalPayload({ modal: 'updateExp', payload: exp })}>
-                        <i className="fa-solid fa-pen"></i> 
-                        </div>: <div></div>}
+                <li className="exp-item">
+                    <div className="img-square">
+
                     </div>
-                    <div className="component-body">
-                        <p>{exp.title}</p>
-                        <p>{start_year} - {end_year} </p>
+                    <div>
+                        <div className="component-subtitle">
+                            <h3>{exp.companyName}</h3>
+                            {editState ? 
+                            <div className="icon" onClick={(e) => openModalPayload({ modal: 'updateExp', payload: exp })}>
+                            <i className="fa-solid fa-pen"></i> 
+                            </div>: <div></div>}
+                        </div>
+                        <div className="component-body">
+                            <p>{exp.title}</p>
+                            <p>{start_year} - {end_year} </p>
+                        </div>
                     </div>
 
                 </li>

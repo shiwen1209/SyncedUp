@@ -28,7 +28,7 @@ class CommentForm extends React.Component{
     render(){
         const {currentUserId, formType} = this.props;
 
-            if (this.state.display){
+        if (this.state.display || formType === "Add a comment..."){
                 return (
                     <div id={formType === "Add a reply..." ? "comment-reply-form" : "comment-create-form"}>
                         {formType === "Add a reply..." ?
