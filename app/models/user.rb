@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
     attr_reader :password
     after_initialize :ensure_session_token
-    after_initialize :ensure_headshot
+    before_create :ensure_headshot
 
       has_many :posts,
         foreign_key: :author_id,
@@ -89,8 +89,7 @@ class User < ApplicationRecord
   end
 
   def ensure_headshot
-    file = File.open("/Users/whshiwen/Desktop/App Academy/SyncedUp/app/assets/images/default_headshot.jpeg")
-    self.headshot.attach(io: file, filename: 'default_headshot.jpeg')
+    self.headshot.attach(io: File.open("app/assets/images/default.jpeg"), filename: 'default.jpeg')
   end
 
 end

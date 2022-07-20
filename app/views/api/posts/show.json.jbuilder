@@ -4,7 +4,9 @@ json.post do
     json.author_lastname @post.author.last_name
     json.author_pronouns @post.author.pronouns
     json.author_headline @post.author.headline
-    json.author_headshot_url url_for(@post.author.headshot)
+    if @post.author.headshot.attached?
+        json.author_headshot_url url_for(@post.author.headshot)
+    end
     json.num_comments @post.comments.count
     json.num_likes @post.likes.count
 end
@@ -17,6 +19,9 @@ json.comments do
             json.commenter_lastname comment.commenter.last_name
             json.commenter_pronouns comment.commenter.pronouns
             json.commenter_headline comment.commenter.headline
+            if comment.commenter.headshot.attached?
+                json.author_headshot_url url_for(comment.commenter.headshot)
+            end
             json.num_likes comment.likes.count
         end
     end

@@ -36,7 +36,16 @@
 
 #user-profile-backgroundpic {
     height: 150px;
-        // border: 1px solid blue;
+}
+
+#background-image {
+    margin: 0;
+    padding: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: none;
+    height: 100%;
+    width: 100%;
 }
 
 #user-profile-backgroundpic+div {
@@ -283,11 +292,3 @@
     outline: none;
 }
 
-#background-image {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border: none;
-    height: 100%;
-    width: 100%;
-
-}

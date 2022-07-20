@@ -32,27 +32,27 @@ class People extends React.Component {
                     </div>
                     <div id="highlight" className="component-subtitle">
                         <Link className="link" to="/mynetwork/people">
-                            <i class="fa-solid fa-user-pen"></i>
+                            <i className="fa-solid fa-user-pen"></i>
                             <h3>People you may know</h3>
                         </Link>
                     </div>
                     <div className="component-subtitle">
-                        <Link className="link">
-                            <i class="fa-solid fa-user-pen"></i>
+                        <div className="link">
+                            <i className="fa-solid fa-user-pen"></i>
                             <h3>Contacts</h3>
-                        </Link>
+                        </div>
                     </div>
                     <div className="component-subtitle">
-                        <Link className="link">
-                            <i class="fa-solid fa-user-pen"></i>
+                        <div className="link">
+                            <i className="fa-solid fa-user-pen"></i>
                             <h3>Groups</h3>
-                        </Link>
+                        </div>
                     </div>
                     <div className="component-subtitle">
-                        <Link className="link">
-                            <i class="fa-solid fa-user-pen"></i>
+                        <div className="link">
+                            <i className="fa-solid fa-user-pen"></i>
                             <h3>News</h3>
-                        </Link>
+                        </div>
                     </div>
                 </div>
                 <div className="component">
