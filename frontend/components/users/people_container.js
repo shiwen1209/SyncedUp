@@ -6,7 +6,6 @@ import { peopleSelector } from "../../selectors/people_selector";
 
 
 const mstp = (state)=>{
-    // debugger
     return{
         people: peopleSelector(state),
         currentUserId: state.session.id
@@ -14,7 +13,6 @@ const mstp = (state)=>{
 }
 
 const mdtp = (dispatch)=>{
-    // debugger
     return{
         fetchPeople: () => dispatch(fetchPeople()),
         createConnection: (connect) => dispatch(createConnection(connect))

@@ -14,7 +14,6 @@ import People from "./users/people";
 
 
 const App = () => {
-    console.log("App")
     return (
         <div id="app">
             <Modal />

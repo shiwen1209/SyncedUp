@@ -6,7 +6,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mstp = (state)=>{
     return{
-        formType: "Create Post",
+        formType: "Create a post",
         currentUser: state.entities.users[state.session.id],
         post: {
             body: "",

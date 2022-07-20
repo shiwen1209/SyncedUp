@@ -3,14 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
-
 .post-like-comment {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(65, 63, 63, 0.786);
+    border-bottom: 1px solid lightgray;
     color: rgba(65, 63, 63, 0.786);
     font-size: 15px;
     height: 25px;
@@ -42,9 +40,7 @@
 
 }
 
-#post .component-title {
-    
-}
+
 
 .headline-tag {
     display: flex;
@@ -61,7 +57,7 @@
 
 .headline-tag p {
     font-size: 13px;
-    color: rgba(65, 63, 63, 0.786);
+    color: rgba(65, 63, 63, 0.887);
     padding-top: 3px;
 }
 
@@ -72,7 +68,7 @@
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
-
+    // border-top: 1px solid lightgray;
 
 }
 
@@ -90,15 +86,74 @@
     color: rgba(65, 63, 63, 0.786);
     font-weight: bold;
     margin-top: 10px;
-    height: 40px;
+    height: 35px;
     width: 140px;
     border-radius: 5px;
-
     &:hover{
         background-color: rgba(125, 120, 120, 0.157);
     }
+}
 
-    
-    
+#post-title{
+    height: 50px;
+}
 
+.dropdown-container .icon{
+    &:hover{
+        background-color: rgba(125, 120, 120, 0.157);
+    }
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+}
+
+.dropdown-buttons{
+    position: absolute;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 180px;
+    margin-left: -140px;
+    z-index: 1;
+    box-shadow: 0px 0px 2px 1px lightgray;
+}
+
+.dropdown-buttons div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color: rgba(65, 63, 63, 0.887);
+    cursor: pointer;
+    &:hover{
+        background-color: rgba(125, 120, 120, 0.157);
+    }
+}
+
+
+
+#post-form{
+    @include column-center-align;
+    height: 450px;
+    width: 600px;
+}
+
+#post-form .component-title{
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+#post-form .component-title:nth-child(2){
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+}
+
+
+#post-form textarea{
+    width: 80%;
+    height: 80%;
 }

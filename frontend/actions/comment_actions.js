@@ -11,7 +11,6 @@ export const receiveComment = (comment) => {
 }
 
 export const removeComment = (payload) => {
-    // debugger
     return {
         type: DELETE_COMMENT,
         commentId: payload.comment.id,

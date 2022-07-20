@@ -18,6 +18,7 @@ json.posts do
             json.author_lastname post.author.last_name
             json.author_pronouns post.author.pronouns
             json.author_headline post.author.headline
+            json.author_headshot_url url_for(post.author.headshot)
             json.num_comments post.comments.count
             json.num_likes post.likes.count
         end

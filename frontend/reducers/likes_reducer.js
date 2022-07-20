@@ -2,7 +2,6 @@ import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
 
 const likesReducer = (state = {}, action) => {
-    // debugger
     Object.freeze(state);
     let nextState = Object.assign({}, state);
     switch (action.type) {

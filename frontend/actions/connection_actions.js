@@ -32,7 +32,6 @@ const removeConnection = (connectedUserId) => {
 
 
 export const fetchConnections = (userId) => dispatch => {
-    // debugger
     return UserApiUtil.fetchUser(userId)
         .then((payload) => dispatch(receiveConnections(payload)))
 }
@@ -40,7 +39,6 @@ export const fetchConnections = (userId) => dispatch => {
 export const createConnection = (connect)=> dispatch=>{
     return ConnectionApiUtil.createConnection(connect)
         .then((payload) =>{
-            // debugger
             return dispatch(receiveConnection(payload))
         }) 
 }
@@ -48,7 +46,6 @@ export const createConnection = (connect)=> dispatch=>{
 export const deleteConnection = (connectId) => dispatch => {
     return ConnectionApiUtil.deleteConnection(connectId)
         .then((payload) =>{
-            // debugger
             return dispatch(removeConnection(payload.connection.id))
         } )
 }

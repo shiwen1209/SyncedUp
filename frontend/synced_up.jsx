@@ -12,7 +12,6 @@ import { createExp, updateExp, deleteExp } from "./actions/exp_actions";
 import {createConnection, deleteConnection} from "./actions/connection_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // console.log("entry file")
     const root = document.getElementById("root");
 
     let preloadedState;

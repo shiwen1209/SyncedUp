@@ -2,44 +2,32 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 1100px;
-    padding: 0;
-    margin: 0;
+    width: $body-width;
     margin-top: 90px;
-    // background-color: aqua;
+        // padding: 0;
+            // margin: 0;
 }
 
 #user-feed-profile {
     width: 240px;
-        padding: 0;
-            margin: 0;
-            // background-color: palegoldenrod
+    // padding: 0;
+    // margin: 0;
 }
 
 #user-feed-posts {
     width: 550px;
-        padding: 0;
-            margin: 0;
+    // padding: 0;
+    // margin: 0;
             // background-color: palegoldenrod
 }
 
 #user-feed-other {
     width: 270px;
-        padding: 0;
-            margin: 0;
+        // padding: 0;
+        //     margin: 0;
             // background-color: palegoldenrod
 }
 
-.component {
-        display: flex;
-        flex-direction: column;
-        border: 1px solid lightgrey;
-        background-color: white;
-        padding: 10px;
-        border-radius: 10px;
-        margin-bottom: 10px;
-
-}
 
 #create-post {
     display: flex;
@@ -53,11 +41,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: azure;
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    border: 1px solid grey;
+    background-color: aliceblue;
     margin-right: 10px;
 }
 
@@ -65,9 +52,7 @@
     width: 100%;
     height: 100%;
     overflow: none;
-    border-radius: 50%;
-
-    
+    border-radius: 50%;    
 }
 
 .comment-button {
@@ -79,13 +64,58 @@
         border: none;
         border-radius: 30px;
         width: 400px;
-        border:1px solid grey ;
+        border:1px solid rgb(153, 152, 152) ;
         padding: 10px;
         text-align: left;
+        &:hover{
+            background-color: rgba(125, 120, 120, 0.157);
+        }
         // margin: 10px;
-
 }
 
 #post{
     margin-bottom: 10px;
+}
+
+#user-feed-profile-summary{
+    @include column-center-align;
+    padding: 0;
+}
+
+#user-feed-profile-summary>div:nth-child(2){
+    @include column-center-align;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0;
+    margin-top: -50px;
+
+}
+
+#user-feed-profile-summary .img{
+    height: 100px;
+    width: 100px;
+    border: 2px solid white;
+    margin-bottom: 15px;
+}
+
+#user-feed-profile-summary #user-profile-backgroundpic{
+    height: 80px;
+}
+
+#user-feed-profile-summary h1{
+    font-size: 20px;
+}
+
+#user-feed-profile-summary h2 {
+    font-size: 16px;
+}
+#user-feed-profile-summary p, #user-feed-profile-summary h3 {
+    font-size: 15px;
+    color: grey;
+    padding-top: 3px;
+}
+
+#user-feed-profile-summary h3{
+    color: $theme-color1;
+    font-weight: bold;
 }

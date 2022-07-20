@@ -18,7 +18,6 @@ class Api::ExperiencesController < ApplicationController
     end
 
     def destroy
-        debugger
         @experience = Experience.find_by(id: params[:id])
 
         if @experience.destroy

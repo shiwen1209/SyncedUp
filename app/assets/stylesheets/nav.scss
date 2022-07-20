@@ -91,18 +91,29 @@ nav i {
     // color: rgba(106, 103, 103, 0.971);
 }
 
-nav .icon {
+.icon {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 12px;
     color: rgba(106, 103, 103, 0.971);
-    height: 50px;
-    width: 80px;
-    &:hover {
-                color: rgba(77, 74, 74, 0.971);
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+        &:hover {
+                background-color: rgba(125, 120, 120, 0.157);
             }
+}
+
+nav .icon{
+        height: 50px;
+            width: 80px;
+                &:hover {
+                        color: rgba(77, 74, 74, 0.971);
+                    }
+
 }
 
 nav .search-bar{

@@ -7,16 +7,16 @@ class UserProfile extends React.Component {
     constructor(props){
         super(props);
         this.handleClickConnect = this.handleClickConnect.bind(this);
-        this.handleClickDisconnect = this.handleClickDisconnect.bind(this)
+        this.handleClickDisconnect = this.handleClickDisconnect.bind(this);
+        this.toggleDisplayDropdown = this.toggleDisplayDropdown.bind(this);
+        this.state ={
+            displayDropdown: false
+        }
     }
 
     componentDidMount(){
         this.props.fetchUser(this.props.match.params.userId)
     }
-
-    // componentDidUpdate() {
-    //     this.props.fetchUser(this.props.match.params.userId)
-    // }
 
     componentDidUpdate(prevProp) {
         if (prevProp.user !== undefined && (prevProp.user.id !== parseInt(this.props.match.params.userId))){
@@ -40,11 +40,20 @@ class UserProfile extends React.Component {
         deleteConnection(conId2);
     }
 
+    toggleDisplayDropdown(e){
+        if(this.state.displayDropdown){
+            this.setState({ displayDropdown: false }) 
+        } else {
+            this.setState({ displayDropdown: true}) 
+        }
+        console.log(this.state)
+
+    }
+
     render(){
-        const { user, currentUserId, connections, openModalPayload} = this.props
+        const { user, currentUserId, connections, openModalPayload, closeModal} = this.props
 
         if(!user){return}
-
         return(
             <div id="user-profile">
                 <div id="user-profile-main">
@@ -54,10 +63,12 @@ class UserProfile extends React.Component {
                         </div>
                         <div>   
                             <div>
-                                <img id="headshot-image" src={user.headshotUrl} alt="headshot" 
+                                <div className="img">
+                                    <img id="headshot-image" src={user.headshotUrl} alt="" 
                                     onClick={(e) => openModalPayload({ modal: 'editHeadshot', payload: this.props.user })}/>
+                                </div>
                                 <div>
-                                    <span>{user.firstName} {user.lastName}</span><span>({user.pronouns})</span>
+                                    <span>{user.firstName} {user.lastName}</span>&nbsp;<span>({user.pronouns})</span>
                                 </div>
                                 <h3>{user.headline} </h3>
                                 <h4>{user.locationCity}{user.locationCity && (user.locationState || user.locationCountry ) ? ", " : ""}
@@ -66,8 +77,27 @@ class UserProfile extends React.Component {
                                 <h4>{user.numConnections} connections</h4>
                                 {user.id === currentUserId ? 
                                     <div>
-                                        <button className="session-button">Add Profile Section</button>
+                                        <button onClick={this.toggleDisplayDropdown}
+                                        className="session-button">Add Profile Section</button>
                                         <button className="session-button">More</button>
+                
+                                        {this.state.displayDropdown ? 
+                                        <div className="dropdown-buttons" onClick={(e)=> this.setState({displayDropdown: false})}>
+                                                <div onClick={(e) =>
+                                                    openModalPayload({ modal: 'createExp', payload: "work" })} >
+                                                    <div className="icon">
+                                                        <i className="fa-solid fa-plus"></i>
+                                                    </div>
+                                                    <h4>Add experience</h4>
+                                                </div>
+                                                <div onClick={(e) =>openModalPayload({ modal: 'createExp', payload: "school" })}>
+                                                    <div className="icon">
+                                                        <i className="fa-solid fa-plus"></i>
+                                                    </div>
+                                                    <h4>Add education</h4>
+                                                </div>   
+                                        </div> : <div></div>
+                                        }
                                     </div> :
                                     <div>
                                         {currentUserId in connections ? 
@@ -80,9 +110,11 @@ class UserProfile extends React.Component {
                                         <button className="session-button">Message</button>
                                     </div>
                                     }
+
+                    
                             </div>
                             {user.id === currentUserId ? 
-                            <div>
+                            <div className="icon" id="this-icon">
                                 <i className="fa-solid fa-pen"
                                         onClick={(e) => openModalPayload({ modal: 'updateUser', payload: this.props.user })}
                                 ></i>
@@ -95,15 +127,20 @@ class UserProfile extends React.Component {
                     {user.about ? 
                         <div id="user-profile-about" className="component">
                             <div className="component-title">
-                                <h1>About</h1>
+                                <h2>About</h2>
                                 {user.id === currentUserId ?
+                                    <div className="icon">
                                     <i className="fa-solid fa-pen"
                                     onClick={(e) => openModalPayload({ modal: 'updateAbout', payload: this.props.user })}></i>
+                                    </div>
                                 : <div></div>}
                             </div>
-                            <p>
-                                {user.about}
-                            </p>
+                            <div className="component-body">
+                                <p>
+                                    {user.about}
+                                </p>
+                            </div>
+
                         </div> :
                         
                         <div></div>

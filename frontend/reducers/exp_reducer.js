@@ -14,7 +14,6 @@ const expReducer = (state = {}, action) => {
             nextState[action.exp.id] = action.exp;
             return nextState;
         case DELETE_EXP:
-            debugger
             delete nextState[action.expId]
             return nextState
         default:

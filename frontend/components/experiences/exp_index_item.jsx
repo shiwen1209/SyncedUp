@@ -18,9 +18,11 @@ class ExpIndexItem extends React.Component{
                 <li>
                     <div className="component-subtitle">
                         <h3>{exp.title}</h3>
-                        {editState ? <i className="fa-solid fa-pen"
-                            onClick={(e) => openModalPayload({ modal: 'updateExp', payload: exp })}
-                            ></i> : <div></div>}
+
+                        {editState ? 
+                            <div className="icon" onClick={(e) => openModalPayload({ modal: 'updateExp', payload: exp })}>
+                        <i className="fa-solid fa-pen"></i>
+                            </div> : <div></div>}
                     </div>
                     <div className="component-body">
                         <p>{exp.companyName}</p>

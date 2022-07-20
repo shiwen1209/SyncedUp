@@ -18,16 +18,16 @@ class ExpForm extends React.Component {
 
     render(){
         const {formType , create_exp_type, closeModal} = this.props
-        debugger
         return(
             <div className="component">
                 <div className="component-title">
                     <h1>{formType} {create_exp_type === "work" ? "experience" : "education"}</h1>
-                    <i className="fa-solid fa-xmark"
-                        onClick={closeModal}></i>
+                    <div className="icon" onClick={(e) => closeModal()}>
+                        <i className="fa-solid fa-xmark"></i>
+                    </div>
                 </div>
                     
-                <form id={formType} className="form" onSubmit={this.handleSubmit}>
+                <form id={formType} onSubmit={this.handleSubmit}>
                 {create_exp_type === "work" ? 
                     <div>
                             <label className="session-label">Title

@@ -1,14 +1,12 @@
 import { connect } from "react-redux";
 import PostForm from "./post_form";
 import { updatePost } from "../../actions/post_actions";
-import { openModal, closeModal } from '../../actions/modal_actions';
+import {closeModal } from '../../actions/modal_actions';
 
 
-const mstp = (state, ownProps) => {
-    console.log("update post container");
-    console.log(ownProps);
+const mstp = (state) => {
     return {
-        formType: "Update Post",
+        formType: "Edit post",
         currentUser: state.entities.users[state.session.id],
         post: state.ui.modal.payload
     

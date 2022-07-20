@@ -34,7 +34,7 @@ class UpdateUser extends React.Component{
                 </div>
                 
                 {formType === "intro" ? 
-                <form id={formType} className="form" onSubmit={this.handleSubmit}>
+                <form id={formType} onSubmit={this.handleSubmit}>
                     <div>
                     <label className="session-label">First name
                         <input type="text" value={this.state.firstName}
@@ -85,7 +85,7 @@ class UpdateUser extends React.Component{
                     </div>
                 </form> :
 
-                    <form id={formType} className="form" onSubmit={this.handleSubmit}>
+                    <form id={formType} onSubmit={this.handleSubmit}>
                         
                             <p>You can write about your years of experience, industry, or skills. People also talk about their achievements or previous job experiences.</p>
                             <textarea type="text" value={this.state.about}

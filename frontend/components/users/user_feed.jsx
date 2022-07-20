@@ -13,24 +13,33 @@ class UserFeed extends React.Component{
 
     render(){
         const {user, posts} = this.props
-        debugger
         return(
             <div id="user-feed">
                 <div id="user-feed-profile">
-                    <div className="component">
-                        <Link to={`/users/${user.id}`}>
-                            <div className="img">
-                                <img src={user.headshotUrl} alt="" />
-                            </div>
-                        </Link>
-                        <Link to={`/users/${user.id}`}>
-                            <h1>{user.firstName} {user.lastName}</h1>
-                        </Link>
-                        <h2>User Info</h2>
-                        <p>{user.id}</p>
-                        <p>{user.email}</p>
-                        <p>{user.firstName}</p>
-                        <p>{user.lastName}</p>
+                    <div id="user-feed-profile-summary" className="component">
+                        <div id="user-profile-backgroundpic">
+                            <img id="background-image" src="https://media-exp2.licdn.com/dms/image/C5616AQEwZ6A6A1tmxQ/profile-displaybackgroundimage-shrink_350_1400/0/1658203353167?e=1663804800&v=beta&t=QbWxVweNYHnPBOFJgs4mTGulaXDUabgG08tESVl-ixQ" alt="" />
+                        </div>
+                        <div>
+                            <Link to={`/users/${user.id}`}>
+                                <div className="img">
+                                    <img src={user.headshotUrl} alt="headshot" />
+                                </div>
+                            </Link>
+                            <Link to={`/users/${user.id}`}>
+                                <h1>{user.firstName} {user.lastName}</h1>
+                            </Link>
+                        
+                                <h2>{user.headline} </h2>
+                                <p>{user.locationCity}{user.locationCity && (user.locationState || user.locationCountry) ? ", " : ""}
+                                    {user.locationState}{user.locationState && (user.locationCountry) ? ", " : ""}
+                                    {user.locationCountry}</p>
+                                <br />  
+                                <h3>{user.numConnections} connections</h3>
+                          
+                            
+                        </div>
+                       
                     </div>
                     <div className="component">
                         user tags

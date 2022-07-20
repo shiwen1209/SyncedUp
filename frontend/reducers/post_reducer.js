@@ -13,8 +13,6 @@ const postsReducer = (state = {}, action) => {
             nextState[action.post.id] = action.post;
             return nextState;
         case DELETE_POST:
-            console.log("delete post")
-            console.log(action.postId)
             delete nextState[action.postId]
             return nextState
         case RECEIVE_COMMENT:

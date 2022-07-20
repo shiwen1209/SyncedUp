@@ -1,8 +1,14 @@
 import { connect } from "react-redux";
 import PostIndex from "./post_index";
-import { openModalPayload, closeModal } from '../../actions/modal_actions';
+import { openModalPayload} from '../../actions/modal_actions';
 import React from 'react';
 
+
+const mstp = (state) => {
+    return{
+        currentUser: state.entities.users[state.session.id]
+    }
+}
 
 const mdtp = dispatch => {
     return {
@@ -16,4 +22,4 @@ const mdtp = dispatch => {
 }
 
 
-export default connect(null, mdtp)(PostIndex);
+export default connect(mstp, mdtp)(PostIndex);

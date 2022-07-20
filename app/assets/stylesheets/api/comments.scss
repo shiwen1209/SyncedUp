@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#comment-area{
+    // border: 1px solid red;
+}
+
 #comment-item .img, #comment-area .img{
     height: 50px;
     width: 50px;
@@ -16,23 +20,23 @@
     width: 500px;
 }
 
-
-#comment-item .component-title {
-    align-items: flex-start;
-}
-
 #comment-body {
     background-color: rgba(125, 120, 120, 0.157);
     border-radius: 5px;
     width: 400px;
+    padding: 5px;
 }
+
+#comment-item .component-title {
+    height: auto;
+    align-items: center;;
+}
+
 
 #like-reply {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-   
-
 }
 
 #like-reply div:nth-child(1){
@@ -124,4 +128,44 @@
 
 #comment-area+ul{
     margin-top: 20px;
+}
+
+#comment-item input{
+    font-size: 15px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    height: 60px;
+    width: 300px;
+    &:focus{
+        outline: none;
+    }
+}
+
+#comment-edit-container  button{
+    font-size: 15px;
+    height: 30px;
+    padding: 5px;
+}
+
+#comment-edit-container button:nth-child(2){
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid grey;
+    color: grey;
+    &:hover{
+        border: 2px solid grey;;
+    }
+    margin-left: 5px;
+}
+
+#comment-reply-form{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 450px;
+}
+
+
+#comment-item .dropdown-buttons{
+    margin-left: -150px;
 }

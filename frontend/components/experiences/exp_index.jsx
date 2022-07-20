@@ -23,18 +23,26 @@ class ExpIndex extends React.Component {
                 <div id="user-profile-experience" className="component">
                     <div className="component-title">
                         <div>
-                            {this.state.editState ? <i className="fa-solid fa-arrow-left"
-                            onClick={(e) => this.setState({ editState: false })}></i> : <div></div>}
-                            {exp_type === "work" ? <h1>Experience</h1> : <h1>Education</h1> }  
+                            {this.state.editState ?
+                                <div className="icon">
+                                    <i className="fa-solid fa-arrow-left"
+                                    onClick={(e) => this.setState({ editState: false })}></i> 
+                                </div>
+                            : <div></div>}
+                            {exp_type === "work" ? <h2>Experience</h2> : <h2>Education</h2> }  
                         </div>
                         
                             {user.id === currentUserId ?
-                            <div>
+                            <div className="two-icons">
+                                <div className="icon">
                                 <i className="fa-solid fa-plus"
                                     onClick={(e) => this.props.openModalPayload({ modal: 'createExp', payload: exp_type })}
                                 ></i>
+                                </div>
                                 {this.state.editState ? <div></div> :
-                                <i className="fa-solid fa-pen" onClick={(e) => this.setState({editState: true})}></i>}
+                                <div className="icon">
+                                    <i className="fa-solid fa-pen" onClick={(e) => this.setState({editState: true})}></i>
+                                </div>}
                             </div> : <div></div>}
                     </div>
                     <ul>

@@ -4,20 +4,19 @@ import PostIndexItemContainer from "./post_index_item_container";
 
 class PostIndex extends React.Component{
     render(){
-        const postsList = this.props.posts.map((post, idx)=>(
+        const { posts, createPostForm, currentUser } = this.props
+
+        const postsList = posts.map((post, idx)=>(
             <PostIndexItemContainer post={post} key = {idx} />
         ))
-
-        console.log("post index props")
-        console.log(this.props)
 
         return(
             <div >
                 <div id="create-post" className="component">
                     <div className="img">
-                        img
+                        <img src={currentUser.headshotUrl} alt="" />
                     </div>
-                    {this.props.createPostForm}
+                    {createPostForm}
                 </div>
                 <div>
                     <ul>

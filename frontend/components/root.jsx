@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import { HashRouter } from "react-router-dom";
 
 const Root = ({ store }) => {
-    console.log("Root")
     return (
         <Provider store={store}>
             <HashRouter>

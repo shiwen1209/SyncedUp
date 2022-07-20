@@ -32,7 +32,6 @@ class EditHeadshot extends React.Component{
     }
 
     render(){
-        console.log(this.state)
         const {user, closeModal} = this.props
         return(
             <div id="edit-headshot" className="component">

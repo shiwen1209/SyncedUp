@@ -8,6 +8,7 @@ class CommentIndexItem extends React.Component{
         this.state = {
             displayCommentEdit: false,
             displayReply: false,
+            displayButtons: false,
             comment: this.props.comment
         }
         this.toggleReply = this.toggleReply.bind(this);
@@ -15,6 +16,7 @@ class CommentIndexItem extends React.Component{
         this.updateBody = this.updateBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLike = this.handleLike.bind(this)
+        this.toggleButtons = this.toggleButtons.bind(this);
     }
 
     toggleReply(){
@@ -31,7 +33,14 @@ class CommentIndexItem extends React.Component{
         } else {
             this.setState({ displayCommentEdit: true })
         }
+    }
 
+    toggleButtons(e) {
+        if (this.state.displayButtons) {
+            this.setState({ displayButtons: false })
+        } else {
+            this.setState({ displayButtons: true })
+        }
     }
 
     updateBody(e) {
@@ -50,7 +59,6 @@ class CommentIndexItem extends React.Component{
     handleLike(e) {
         const {comment, likes, currentUserId, createLike, deleteLike } = this.props
         const currentLike = { userId: currentUserId, likableId: comment.id, likableType: 'Comment' }
-        // debugger
         if (JSON.stringify(currentLike) in likes) {
             const likeId = likes[JSON.stringify(currentLike)]
             deleteLike(likeId)
@@ -60,17 +68,15 @@ class CommentIndexItem extends React.Component{
         }
     }
 
-
-
-
     render(){
-        const {comment, currentUserId, updateComment, deleteComment} = this.props
+        const {comment, postId, currentUserId, deleteComment} = this.props
 
         return(
         <div id="comment-item">
                 <Link to={`/users/${comment.commenterId}`}>
                     <div className="img">
-                        img
+                        <img src={comment.authorHeadshotUrl ? comment.authorHeadshotUrl
+                            : "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg"} alt="" />
                     </div>
                 </Link>
                 <div >
@@ -86,33 +92,38 @@ class CommentIndexItem extends React.Component{
                                         </div>
                                     </Link>
                                 </div>
-                    
-                                {currentUserId === comment.commenterId ?
-                                <div>
-
-                                    <button onClick={this.toggleCommentEdit}>
-                                        Edit    
-                                    </button>
-                                    <button onClick={(e)=>deleteComment(this.props.comment.id)}>
-                                        Delete
-                                    </button>
+                            {currentUserId === comment.commenterId ?
+                                <div className="dropdown-container">
+                                    <div className="icon" onClick={this.toggleButtons}>
+                                        <i className="fa-solid fa-ellipsis"></i>
+                                    </div>
+                                    {this.state.displayButtons ?
+                                        <div className="dropdown-buttons" onClick={(e) => { this.setState({ displayButtons: false })}}>
+                                            <div onClick={this.toggleCommentEdit}>
+                                                <i className="fa-solid fa-pen"></i>
+                                                <p>Edit Comment</p>
+                                            </div>
+                                            <div onClick={(e) => deleteComment(comment.id)}>
+                                                <i className="fa-solid fa-trash-can"></i>
+                                                <p>Delete Comment</p>
+                                            </div>
+                                        </div> : <div></div>
+                                    }
                                 </div> :
                                 <div></div>
                             }
                         </div>
                             
-                    
-                
                         {this.state.displayCommentEdit ?
-                        <form className="component-body"
-                        onSubmit={this.handleSubmit}>
-                            <textarea value={this.state.comment.body}
-                                onChange={this.updateBody}>
-                            </textarea>
-                            <br />
-                            <button type="submit">Save Changes</button>
-                            <button>Cancel</button>
-                        </form> : <p className="component-body">{this.props.comment.body}</p>
+                        <div id="comment-edit-container" className="component-body">
+                            <input type="text" value={this.state.comment.body} 
+                                    onChange={this.updateBody}/>
+                            <br/>
+                            <div>
+                                    <button className="session-button" onClick={this.handleSubmit}>Save Changes</button>
+                                    <button className="session-button" onClick={(e) => { this.setState({ displayCommentEdit: false }) }}>Cancel</button>
+                            </div>
+                        </div> : <p className="component-body">{comment.body}</p>
                         }
                 
                     </div>
@@ -131,17 +142,13 @@ class CommentIndexItem extends React.Component{
 
                         {this.state.displayReply ? 
                         <div id="reply-area">
-                            <Link to={`/users/${currentUserId}`}>
-                                    <div className="img">
-                                        img
-                                    </div>
-                            </Link>
                             <CreateCommentContainer
-                                    postId={this.props.postId}
-                                    parentCommentId={this.props.comment.id}
+                                    postId={postId}
+                                    parentCommentId={comment.id}
                                     formType="Add a reply..."
+                                    comment={comment}
                             />
-                        </div> : <div></div> }
+                        </div> : <div></div>}
                     </div>
                 </div>
         </div>

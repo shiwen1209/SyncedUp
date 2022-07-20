@@ -4,14 +4,12 @@ import CommentForm from "./comment_form";
 
 
 const mstp = (state)=>{
-    // debugger
     return{
         currentUserId: state.session.id
     }
 }
 
 const mdtp = dispatch => {
-    // debugger
     return {
         createComment: (comment)=>dispatch(createComment(comment))
     }

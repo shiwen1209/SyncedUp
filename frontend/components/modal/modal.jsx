@@ -25,12 +25,9 @@ function Modal({ modal, closeModal }) {
             component = <SignupFormContainer />;
             break;
         case "createPost":
-            console.log("Create post hit");
-            console.log(modal)
             component = <CreatePostContainer />
             break;
         case "updatePost":
-            console.log("Update post hit");
             component = <UpdatePostContainer />
             break;
         case "updateUser":

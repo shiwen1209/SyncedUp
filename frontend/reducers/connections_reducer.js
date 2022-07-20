@@ -16,7 +16,6 @@ const connectionsReducer = (state = {}, action) => {
             nextState[action.connection.id] = action.connection;
             return nextState;
         case REMOVE_CONNECTION:
-            // debugger
             delete nextState[action.connectedUserId]
             return nextState
         default:

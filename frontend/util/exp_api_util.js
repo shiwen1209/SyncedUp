@@ -7,7 +7,6 @@ export const createExp = (experience)=>(
 );
 
 export const deleteExp = id => {
-    debugger
     return $.ajax({
         method: 'DELETE',
         url: `api/experiences/${id}`

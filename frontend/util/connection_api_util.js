@@ -7,7 +7,6 @@ export const createConnection = (connection) => (
 );
 
 export const deleteConnection = (id) => {
-    // debugger
     return $.ajax({
         method: 'DELETE',
         url: `api/connections/${id}`

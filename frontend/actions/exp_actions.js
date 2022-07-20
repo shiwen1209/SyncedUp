@@ -11,7 +11,6 @@ export const receiveExp = (exp) => {
 }
 
 export const removeExp = (expId) => {
-    debugger
     return {
         type: DELETE_EXP,
         expId

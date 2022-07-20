@@ -9,7 +9,6 @@ export const closeModal = () => {
 };
 
 export const openModalPayload = ({modal, payload = null}) =>{
-    console.log("open modal payload");
     return {
         type: OPEN_MODAL_PAYLOAD,
         modal: modal,

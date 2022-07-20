@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class CommentForm extends React.Component{
     constructor(props){
-        // debugger
         super(props);
         this.state = {
             body: "",
             post_id: this.props.postId,
             commenter_id: this.props.currentUserId,
             parent_comment_id: this.props.parentCommentId,
+            display: true
         }
         this.updateBody = this.updateBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -21,21 +22,37 @@ class CommentForm extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         this.props.createComment(this.state)
-        this.setState({ body: this.props.formType })
+        this.setState({ body: "", display: false})
     }
 
     render(){
-            return (
-                <form onSubmit={this.handleSubmit}>
-                    <textarea value={this.state.body}
-                        placeholder={this.props.formType}
-                            onChange={this.updateBody}></textarea>
-                        {this.props.formType === "Add a comment..." ?
-                            <button type="submit">Post</button> :
-                            <button type="submit">Reply</button>
+        const {currentUserId, formType} = this.props;
+
+            if (this.state.display){
+                return (
+                    <div id={formType === "Add a reply..." ? "comment-reply-form" : "comment-create-form"}>
+                        {formType === "Add a reply..." ?
+                        < Link className="link" to={`/users/${currentUserId}`}>
+                            <div className="img">
+                                <img src={this.props.comment.authorHeadshotUrl ? this.props.comment.authorHeadshotUrl
+                                    : "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg"} alt="" />
+                            </div>
+                        </Link> : <div></div>
                         }
-                </form>
-            )
+                        <form onSubmit={this.handleSubmit}>
+                            <textarea value={this.state.body}
+                                placeholder={formType}
+                                onChange={this.updateBody}></textarea>
+                            {formType === "Add a comment..." ?
+                                <button type="submit">Post</button> :
+                                <button type="submit">Reply</button>
+                            }
+                        </form>
+
+                    </div>
+                )
+            } else {return (<div></div>)}
+
         }
     
 

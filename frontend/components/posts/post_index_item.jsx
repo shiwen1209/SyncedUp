@@ -7,10 +7,13 @@ class PostIndexItem extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            displayComments: false
+            displayComments: false,
+            displayButtons: false
         }
-        this.toggleComments = this.toggleComments.bind(this)
-        this.handleLike = this.handleLike.bind(this)
+        this.toggleComments = this.toggleComments.bind(this);
+        this.toggleButtons = this.toggleButtons.bind(this);
+        this.handleLike = this.handleLike.bind(this);
+
     }
 
     toggleComments(e){
@@ -21,10 +24,17 @@ class PostIndexItem extends React.Component {
         }
     }
 
+    toggleButtons(e) {
+        if (this.state.displayButtons) {
+            this.setState({ displayButtons: false })
+        } else {
+            this.setState({ displayButtons: true })
+        }
+    }
+
     handleLike(e){
         const {post, likes, currentUserId, createLike, deleteLike} = this.props
         const currentLike = { userId: currentUserId, likableId: post.id, likableType: 'Post'}
-        // debugger
         if (JSON.stringify(currentLike) in likes){
             const likeId = likes[JSON.stringify(currentLike)]
             deleteLike(likeId)
@@ -38,17 +48,18 @@ class PostIndexItem extends React.Component {
         const { post, currentUserId, deletePost, openModalPayload} = this.props
         return (
             <li className="component" id="post">
-                <div className="component-title" >
+                <div id ="post-title" className="component-title" >
                     <div>
                         <Link to={`/users/${post.authorId}`}>
                             <div className="img">
-                                img
+                                <img src={post.authorHeadshotUrl ? post.authorHeadshotUrl 
+                                    : "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg"} alt="" />
                             </div>
                         </Link>
                         <div className="headline-tag">
                             <Link to={`/users/${post.authorId}`}>
                                 <div>
-                                    <span>{post.authorFirstname} {post.authorLastname}</span><span>({post.authorPronouns})</span>
+                                    <span>{post.authorFirstname} {post.authorLastname}</span>&nbsp;<span>({post.authorPronouns})</span>
                                 </div>
                                 <div>
                                     <p>{post.authorHeadline}</p>
@@ -56,14 +67,23 @@ class PostIndexItem extends React.Component {
                             </Link>
                         </div>
                     </div>
-
                     {currentUserId === post.authorId ?
-                        <div>
-                            <button onClick={(e) => deletePost(post.id)}>
-                                Delete Post</button>
-                            <button onClick={(e) => openModalPayload({ modal: 'updatePost', payload: post })}>
-                                Edit Post
-                            </button>
+                        <div className="dropdown-container">
+                            <div className="icon" onClick={this.toggleButtons}>
+                                <i className="fa-solid fa-ellipsis" ></i>
+                            </div>
+                            {this.state.displayButtons ? 
+                                <div className="dropdown-buttons" onClick={(e) => { this.setState({ displayButtons: false }) }}>
+                                <div onClick={(e) => openModalPayload({ modal: 'updatePost', payload: post })}>
+                                    <i className="fa-solid fa-pen"></i>
+                                    <p>Edit Post</p>
+                                </div>
+                                <div onClick={(e) => deletePost(post.id)}>
+                                    <i className="fa-solid fa-trash-can"></i>
+                                    <p>Delete Post</p>
+                                </div>
+                            </div> : <div></div>
+                            }
                         </div> :
                         <div></div>
                     }
