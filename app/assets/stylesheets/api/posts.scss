@@ -175,8 +175,9 @@
     margin-bottom: 10px;
 }
 
-#post-body p {
+p {
     line-height: 1.5;
+    word-wrap: break-word;
 }
 
 #post-body .post-image, #post-form .post-image{

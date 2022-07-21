@@ -27,13 +27,13 @@ class UserFeed extends React.Component{
                                 </div>
                             </Link>
                             <Link to={`/users/${user.id}`}>
-                                <h1>{user.firstName} {user.lastName}</h1>
+                                <h1 className="text-link">{user.firstName} {user.lastName}</h1>
                             </Link>
-                        
                                 <h2>{user.headline}</h2>
                                 <p>{user.locationCity}{user.locationCity && (user.locationState || user.locationCountry) ? ", " : ""}
                                     {user.locationState}{user.locationState && (user.locationCountry) ? ", " : ""}
-                                    {user.locationCountry}</p>
+                                    {user.locationCountry}
+                                </p>
                                 <br /> 
                                 <Link to='/mynetwork' className="link"> 
                                     <h3>{user.numConnections} connections</h3>

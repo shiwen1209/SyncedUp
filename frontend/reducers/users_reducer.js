@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_USER, RECEIVE_PEOPLE} from "../actions/user_action";
-import { RECEIVE_CONNECTIONS } from "../actions/connection_actions";
+import { RECEIVE_CONNECTIONS, RECEIVE_CONNECTION, REMOVE_CONNECTION} from "../actions/connection_actions";
 
 const usersReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -15,6 +15,18 @@ const usersReducer = (state = {}, action) => {
             return nextState;
         case RECEIVE_CONNECTIONS:
             return action.user
+        case RECEIVE_CONNECTION:
+            // debugger
+            Object.keys(nextState).forEach((key)=>
+            nextState[key].numConnections += 0.5)
+            // debugger
+            return nextState
+        case REMOVE_CONNECTION:
+            // debugger
+            Object.keys(nextState).forEach((key) =>
+                nextState[key].numConnections -= 0.5)
+            // debugger
+            return nextState
         case RECEIVE_PEOPLE:
             nextState[action.user.id] = action.user
             return nextState;

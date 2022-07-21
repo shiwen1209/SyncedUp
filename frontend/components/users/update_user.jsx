@@ -86,14 +86,15 @@ class UpdateUser extends React.Component{
                     </div>
                 </form> :
 
-                    <form id={formType} onSubmit={this.handleSubmit}>
-                        
-                            <p>You can write about your years of experience, industry, or skills. People also talk about their achievements or previous job experiences.</p>
+                <form id={formType} onSubmit={this.handleSubmit}>
+                            <div>
+                                <p>You can write about your years of experience, industry, or skills. People also talk about their achievements or previous job experiences.</p>
+                            </div>
                             <textarea type="text" value={this.state.about}
                                     className="session-box"
                                     onChange={this.handleUpdate("about")}>
                             </textarea>
-                    </form>   
+                </form>   
                 }
 
                 <div className="button-container">

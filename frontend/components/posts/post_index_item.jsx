@@ -57,7 +57,7 @@ class PostIndexItem extends React.Component {
                         </Link>
                         <div className="headline-tag">
                             <Link to={`/users/${post.authorId}`}>
-                                <div>
+                                <div className="text-link">
                                     <span>{post.authorFirstname} {post.authorLastname}</span>
                                     {post.authorPronouns ? <span>&nbsp;({post.authorPronouns})</span> : <span></span>}
                                 </div>
@@ -111,9 +111,12 @@ class PostIndexItem extends React.Component {
                             </div> : <div>{" "}</div>
                         }
                         {post.numComments > 0 ?
-                            <p onClick={this.toggleComments}>
-                                {post.numComments} comments
-                            </p> : <div>{" "}</div>
+                            <div>
+                                <p onClick={this.toggleComments}>
+                                    {post.numComments} comments
+                                </p> 
+                            </div>    
+                            : <div>{" "}</div>
                         }
                     </div> : <div></div>
                 }

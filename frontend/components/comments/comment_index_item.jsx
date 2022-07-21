@@ -83,7 +83,7 @@ class CommentIndexItem extends React.Component{
                         <div className="component-title" >
                                 <div className="headline-tag">
                                     <Link to={`/users/${comment.commenterId}`}>
-                                        <div>
+                                        <div className="text-link">
                                             <span>{comment.commenterFirstname} {comment.commenterLastname}</span>
                                             {comment.commenterPronouns ? <span>&nbsp;({comment.commenterPronouns})</span> : <span></span>}
                                         </div>
@@ -123,7 +123,11 @@ class CommentIndexItem extends React.Component{
                                     <button className="session-button" onClick={this.handleSubmit}>Save Changes</button>
                                     <button className="session-button" onClick={(e) => { this.setState({ displayCommentEdit: false }) }}>Cancel</button>
                             </div>
-                        </div> : <p className="component-body">{comment.body}</p>
+                        </div> : 
+                        <div id="comment-paragraph" className="component-body">
+                            <p >{comment.body}</p>
+                        </div>
+
                         }
                 
                     </div>

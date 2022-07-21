@@ -39,9 +39,11 @@ class CommentForm extends React.Component{
                         </Link> : <div></div>
                         }
                         <form onSubmit={this.handleSubmit}>
-                            <textarea value={this.state.body}
+                            <input type="text" 
+                                value={this.state.body}
                                 placeholder={formType}
-                                onChange={this.updateBody}></textarea>
+                                onChange={this.updateBody}/>
+                            {/* <textarea ></textarea> */}
                             {formType === "Add a comment..." ?
                                 <button type="submit">Post</button> :
                                 <button type="submit">Reply</button>

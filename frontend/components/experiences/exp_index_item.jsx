@@ -23,12 +23,12 @@ class ExpIndexItem extends React.Component{
                         <div className="component-subtitle">
                             <h3>{exp.title}</h3>
                             {editState ? 
-                            <div className="icon" onClick={(e) => openModalPayload({ modal: 'updateExp', payload: exp })}>
+                            <div className="exp-item-edit" onClick={(e) => openModalPayload({ modal: 'updateExp', payload: exp })}>
                                 <i className="fa-solid fa-pen"></i>
                             </div> : <div></div>}
                         </div>
                         <div className="component-body">
-                            <p>{exp.companyName}</p>
+                            <p>{exp.companyName}{exp.employmentType ? ` | ${exp.employmentType}` : ""}</p>
                             <p>{start_date} - {end_date} </p>
                             <p>{exp.location}</p>
                         </div>
@@ -45,7 +45,7 @@ class ExpIndexItem extends React.Component{
                         <div className="component-subtitle">
                             <h3>{exp.companyName}</h3>
                             {editState ? 
-                            <div className="icon" onClick={(e) => openModalPayload({ modal: 'updateExp', payload: exp })}>
+                            <div className="exp-item-edit" onClick={(e) => openModalPayload({ modal: 'updateExp', payload: exp })}>
                             <i className="fa-solid fa-pen"></i> 
                             </div>: <div></div>}
                         </div>

@@ -24,7 +24,8 @@
     background-color: rgba(125, 120, 120, 0.157);
     border-radius: 5px;
     width: 400px;
-    padding: 5px;
+    padding: 8px;
+    // border: 1px solid red;
 }
 
 #comment-item .component-title {
@@ -51,6 +52,16 @@
     margin: 0px;
     border: none;
 }
+
+
+.post-like-comment{
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 #like-reply button{
     background-color: white;
@@ -87,13 +98,16 @@
 
 }
 
-#reply-area textarea, #comment-area textarea{
+#reply-area input, #comment-area input{
     margin: 0px;
-    padding: 0px;
+    padding: 5px;
     width: 330px ;
     border-radius: 30px;
     min-height: 20px;
+    border: 1px solid rgb(153, 152, 152);
+    word-wrap: break-word;
 }
+
 
 #reply-area button, #comment-area button {
     background-color: #B3402E;
@@ -168,4 +182,19 @@
 
 #comment-item .dropdown-buttons{
     margin-left: -150px;
+}
+
+#comment-paragraph p{
+    width: 100%;
+        // border: 1px solid red;
+}
+
+#comment-paragraph{
+    // border: 1px solid red;
+    word-wrap: break-word;
+    overflow: auto;
+    padding: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
 }

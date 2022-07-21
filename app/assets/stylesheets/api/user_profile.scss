@@ -38,7 +38,7 @@
 }
 
 #user-profile-backgroundpic {
-    height: 150px;
+    height: 180px;
 }
 
 #background-image {
@@ -52,7 +52,7 @@
 }
 
 #user-profile-backgroundpic+div {
-    height: 220px;
+    min-height: 120px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -67,7 +67,7 @@
     justify-content: end;
     padding-bottom: 10px;
     padding-left: 10px;
-    width: 500px;
+    width: 600px;
     align-items: baseline;
     // border: 1px solid  red;
 }
@@ -97,6 +97,11 @@
 
 #user-profile-backgroundpic+div div>span:nth-child(2) {
     padding-left: 3px;
+}
+
+
+#user-profile-pic {
+    margin-top: -100px;
 }
 
 //headlines and location 
@@ -285,3 +290,9 @@
 
 }
 
+
+
+#user-profile .component-body {
+   padding-top: 10px;
+   padding-bottom: 10px;
+}

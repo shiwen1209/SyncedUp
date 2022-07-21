@@ -26,19 +26,17 @@ class UserProfile extends React.Component {
     }
 
     handleClickConnect(e){
-        const {currentUserId, user, createConnection } = this.props;
+        const {currentUserId, user, createConnection, fetchUser} = this.props;
         const con1 = {"user1_id": currentUserId, "user2_id": user.id};
         const con2 = {"user1_id": user.id, "user2_id": currentUserId};
-        createConnection(con1);
-        createConnection(con2);
+        createConnection(con1).then(createConnection(con2))
     }
 
     handleClickDisconnect(e){
-        const {currentUserId, connections, deleteConnection} = this.props;
+        const {currentUserId, connections, deleteConnection, fetchUser} = this.props;
         const conId1 = connections[currentUserId].connectionId;
         const conId2 = connections[currentUserId].mirrorConnectionId;
-        deleteConnection(conId1);
-        deleteConnection(conId2);
+        deleteConnection(conId1).then(deleteConnection(conId2))
     }
 
     toggleDisplayDropdown(e){
@@ -64,9 +62,10 @@ class UserProfile extends React.Component {
                         </div>
                         <div>   
                             <div>
-                                <div className="img">
+                                <div id="user-profile-pic" className="img">
                                     <img id="headshot-image" src={user.headshotUrl} alt="" 
-                                    onClick={(e) => openModalPayload({ modal: 'editHeadshot', payload: this.props.user })}/>
+                                        onClick={(e) => { if(user.id === currentUserId){ return openModalPayload({ modal: 'editHeadshot', payload: this.props.user })}}
+                                    }/>
                                 </div>
                                 <div>
                                     <span>{user.firstName} {user.lastName}</span>
@@ -109,11 +108,8 @@ class UserProfile extends React.Component {
                                     </div> :
                                     <div>
                                         {currentUserId in connections ? 
-                                        <button onClick={this.handleClickDisconnect}
-                                        className="session-button">Disconnect</button>
-                                        : <button onClick={this.handleClickConnect}
-                                        className="session-button">Connect</button>
-                                        }
+                                        <button onClick={this.handleClickDisconnect} className="session-button">Disconnect</button>
+                                        : <button onClick={this.handleClickConnect} className="session-button">Connect</button>}
                                         
                                         <button className="session-button">Message</button>
                                     </div>

@@ -36,11 +36,9 @@ class EditHeadshot extends React.Component{
             <div id="edit-headshot" className="component">
                 <div id="headshot-title">
                     <h3>Profile photo</h3>
-                    <div className="icon">
-                        <i className="fa-solid fa-xmark"
-                            onClick={closeModal}></i>
+                    <div className="icon" onClick={closeModal}>
+                        <i className="fa-solid fa-xmark" ></i>
                     </div>
-
                 </div>
                 <div className="img">
                     <img src={this.state.photoUrl ? this.state.photoUrl : user.headshotUrl} 

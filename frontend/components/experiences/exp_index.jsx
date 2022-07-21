@@ -30,7 +30,6 @@ class ExpIndex extends React.Component {
                             : <div></div>}
                             {exp_type === "work" ? <h2>Experience</h2> : <h2>Education</h2> }  
                         </div>
-                        
                             {user.id === currentUserId ?
                             <div className="two-icons">
                                 <div className="icon" onClick={(e) => this.props.openModalPayload({ modal: 'createExp', payload: exp_type })}>

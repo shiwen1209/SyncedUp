@@ -122,3 +122,16 @@ h2 {
 button, img{
   cursor: pointer;
 }
+
+h1, h2, h3, p {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+
+.text-link {
+  &:hover{
+    text-decoration: underline;
+    color: $theme-color1;
+  }
+}

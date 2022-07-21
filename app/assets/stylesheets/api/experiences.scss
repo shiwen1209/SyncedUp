@@ -30,12 +30,33 @@
 }
 
 .exp-item .component-subtitle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 10px;
-    padding: 0;
     // border: 1px solid green;
     font-weight: bold;
     height: 30px;
     width: 600px;
+    padding: 0;
+
+}
+
+.exp-item .component-subtitle > .exp-item-edit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid green;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+            &:hover {
+                    background-color: rgba(125, 120, 120, 0.157);
+                }
+
 }
 
 
@@ -63,4 +84,16 @@
 .exp-item .component-body p:nth-child(3) {
     color: rgb(94, 92, 92);
     font-size: 14px;
+}
+
+
+
+// #user-profile-experience .component-title{
+//     border: 1px solid red;
+//     margin-bottom: 10px;
+// }
+
+#user-profile-experience h2{
+    margin: 0;
+
 }

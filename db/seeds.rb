@@ -90,7 +90,7 @@ user6 = User.create!(
                     "password": "123456", 
                     "first_name": "Elon", 
                     "last_name": "Musk", 
-                    "headline": "Founder, CEO, and Chief Engineer at SpaceX;",
+                    "headline": "Founder, CEO, and Chief Engineer at SpaceX",
                     "about": "A business magnate and investor. Founder, CEO, and Chief Engineer at SpaceX; angel investor, CEO, and Product Architect of Tesla, Inc",
                     "industry": "Investment",
                     "location_country": "United States",
@@ -163,12 +163,15 @@ Connection.create!(user1_id: user4.id, user2_id: user3.id)
 
 
 Experience.create!("user_id": user1.id, "title": "CEO", "company_name": "Banana Corp",
+                        "employment_type": "full-time",
                         "start_date": "2017-11-03", "end_date": "2022-11-03", "exp_type": "work")
 
 Experience.create!("user_id": user1.id, "title": "VP of Strategy", "company_name": "Banana Corp",
+                        "employment_type": "full-time",
                         "start_date": "2015-11-03", "end_date": "2017-11-03", "exp_type": "work")
 
 Experience.create!("user_id": user1.id, "title": "Analyst", "company_name": "Banana Corp",
+                        "employment_type": "full-time",
                         "start_date": "2014-11-03", "end_date": "2015-11-03", "exp_type": "work")
 
 Experience.create!("user_id": user1.id, "title": "Master of Banana Business", "company_name": "University of California, Davis",
@@ -176,12 +179,15 @@ Experience.create!("user_id": user1.id, "title": "Master of Banana Business", "c
 
 
 Experience.create!("user_id": user2.id, "title": "Co-chair", "company_name": "Bill & Melinda Gates Foundation",
+                        "employment_type": "full-time",
                         "start_date": "2000-01-01", "end_date": "2022-07-03", "exp_type": "work")
 
 Experience.create!("user_id": user2.id, "title": "Founder", "company_name": "Breakthrough Energy",
+                        "employment_type": "full-time",
                         "start_date": "2015-11-03", "end_date": "2022-07-03", "exp_type": "work")
 
 Experience.create!("user_id": user2.id, "title": "Cofounder", "company_name": "Microsoft",
+                        "employment_type": "full-time",
                         "start_date": "1975-11-03", "end_date": "2022-07-03", "exp_type": "work")
 
 Experience.create!("user_id": user2.id, "title": "Bachelor of Science", "company_name": "Harvard University",
