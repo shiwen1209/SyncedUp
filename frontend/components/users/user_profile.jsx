@@ -60,7 +60,7 @@ class UserProfile extends React.Component {
                 <div id="user-profile-main">
                     <div id="user-profile-summary" className="component">
                         <div id="user-profile-backgroundpic">
-                            <img id="background-image" src="/assets/userbg5.jpeg" alt="" />
+                            <img id="background-image" src="/assets/userbg3.webp" alt="" />
                         </div>
                         <div>   
                             <div>

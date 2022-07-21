@@ -18,7 +18,7 @@ class UserFeed extends React.Component{
                 <div id="user-feed-profile">
                     <div id="user-feed-profile-summary" className="component">
                         <div id="user-profile-backgroundpic">
-                            <img id="background-image" src="/assets/userbg5.jpeg" alt="" />
+                            <img id="background-image" src="/assets/userbg3.webp" alt="" />
                         </div>
                         <div>
                             <Link to={`/users/${user.id}`}>
