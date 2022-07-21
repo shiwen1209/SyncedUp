@@ -55,7 +55,7 @@ user3 = User.create!(
                     "location_state": "CA",
                     "location_city": "Palo Alto"
                     )
-user3.headshot.attach(io: File.open("app/assets/images/stevejobs.jpeg"), filename: 'stevejobs.jpeg')
+user3.headshot.attach(io: File.open("app/assets/images/stevejobs.png"), filename: 'stevejobs.png')
 
 user4 = User.create!(
                     "email": "warren_buffett@gmail.com", 

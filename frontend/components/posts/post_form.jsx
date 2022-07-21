@@ -23,7 +23,8 @@ class PostForm extends React.Component{
         formData.append('post[body]', this.state.body);
         formData.append('post[author_id]', this.state.authorId);
         // debugger
-        processForm(formData, post.id).then(closeModal)
+        processForm(formData, post.id)
+        closeModal();
     }
 
     handleFile(e) {

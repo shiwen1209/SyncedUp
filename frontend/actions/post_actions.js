@@ -17,9 +17,8 @@ export const removePost = (postId)=>{
 }}
 
 export const createPost = (postForm)=> dispatch => (
-    PostApiUtil.createPost(postForm)
-    .then((payload)=>dispatch(receivePost(payload.post)))
-) 
+    PostApiUtil.createPost(postForm).then((payload)=>dispatch(receivePost(payload.post)))
+)
 
 export const updatePost = (postForm, postId) => dispatch=>(
     PostApiUtil.updatePost(postForm, postId)

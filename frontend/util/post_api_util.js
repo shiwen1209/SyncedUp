@@ -1,14 +1,5 @@
-// export const createPost = post => (
-//     $.ajax({
-//         method: 'POST',
-//         url: 'api/posts',
-//         data: {post}
-//     })
-// );
-
 export const createPost = formData => {
-    // debugger
-    $.ajax({
+   return $.ajax({
         method: 'POST',
         url: 'api/posts',
         data: formData,
