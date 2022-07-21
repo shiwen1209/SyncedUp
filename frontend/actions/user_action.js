@@ -42,6 +42,7 @@ export const updateUser = (user) => dispatch => {
 }
 
 export const updateUserPhoto = (userId, formData) => dispatch => {
+    // debugger
     return UserApiUtil.updateUserPhoto(userId, formData)
         .then((payload) => dispatch(receiveUser(payload)))
 }

@@ -20,8 +20,10 @@ class Post < ApplicationRecord
         class_name: :Comment,
         dependent: :destroy
     
-    has_many :likes, as: :likable
+    has_many :likes, as: :likable,
+    dependent: :destroy
 
-    has_one_attached :image
+    has_one_attached :image,
+    dependent: :destroy
 
 end

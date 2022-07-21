@@ -17,8 +17,12 @@ const usersReducer = (state = {}, action) => {
             return action.user
         case RECEIVE_CONNECTION:
             // debugger
-            Object.keys(nextState).forEach((key)=>
-            nextState[key].numConnections += 0.5)
+            const connectIds = [action.connect.user1Id, action.connect.user2Id]
+            Object.keys(nextState).forEach((key)=>{
+                if (connectIds.includes(nextState[key].id)){
+                    nextState[key].numConnections += 0.5
+                }
+            })
             // debugger
             return nextState
         case REMOVE_CONNECTION:

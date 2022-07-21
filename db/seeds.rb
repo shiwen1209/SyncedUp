@@ -99,6 +99,63 @@ user6 = User.create!(
                     )
 user6.headshot.attach(io: File.open("app/assets/images/elonmusk.png"), filename: 'elonmusk.png')
 
+user7 = User.create!(
+                    "email": "barak_obama@gmail.com", 
+                    "password": "123456", 
+                    "first_name": "Barak", 
+                    "last_name": "Obama", 
+                    "headline": "Former Potus",
+                    "about": "Served as the 44th president of the United States from 2009 to 2017. A member of the Democratic Party, the first African-American president of the United States",
+                    "industry": "politics",
+                    "location_country": "United States",
+                    "location_state": "DC",
+                    "location_city": "Washington"
+                    )
+user7.headshot.attach(io: File.open("app/assets/images/barackobama.jpeg"), filename: 'barackobama.jpeg')
+
+user8 = User.create!(
+                    "email": "queen_elizabeth@gmail.com", 
+                    "password": "123456", 
+                    "first_name": "Elizabeth", 
+                    "last_name": "Windsor", 
+                    "headline": "Queen of the United Kingdom",
+                    "about": "Queen of the United Kingdom and 14 other Commonwealth realms.",
+                    "industry": "Monachy",
+                    "location_country": "United Kingdom",
+                    "location_state": "London",
+                    "location_city": "England"
+                    )
+user8.headshot.attach(io: File.open("app/assets/images/queenelizabeth.png"), filename: 'queenelizabeth.png')
+
+
+user9 = User.create!(
+                    "email": "Angela_Merkel@gmail.com", 
+                    "password": "123456", 
+                    "first_name": "Angela", 
+                    "last_name": "Merkel", 
+                    "headline": "Retired German politician and scientist",
+                    "about": "Served as the chancellor of Germany from 2005 to 2021. A member of the Christian Democratic Union (CDU), previously served as leader of the Opposition from 2002 to 2005 and as Leader of the Christian Democratic Union from 2000 to 2018",
+                    "industry": "Politics",
+                    "location_country": "Germany",
+                    "location_state": "",
+                    "location_city": "Berlin"
+                    )
+user9.headshot.attach(io: File.open("app/assets/images/angelamerkel.jpeg"), filename: 'angelamerkel.jpeg')
+
+user10 = User.create!(
+                    "email": "lisa_su@gmail.com", 
+                    "password": "123456", 
+                    "first_name": "Lisa", 
+                    "last_name": "Su", 
+                    "headline": "President, CEO and Chair of AMD",
+                    "about": "I am the President and CEO at Advanced Micro Devices, a Fortune 500 technology leader. Since joining AMD, we have successfully executed a transformation of our strategy, market focus, and product execution.My passion is in leading global technology teams to bring great products and solutions to market. ",
+                    "industry": "Technology",
+                    "location_country": "United States",
+                    "location_state": "Austin",
+                    "location_city": "Texas"
+                    )
+user10.headshot.attach(io: File.open("app/assets/images/lisasu.png"), filename: 'lisasu.png')
+
 
 post1 = Post.create!("author_id": user1.id, "body": "Learning how to correctly pronounce someone's name goes a long way toward helping them feel respected and valued. Share some methods on how you build an inclusive community")
 
@@ -119,7 +176,7 @@ post6.image.attach(io: File.open("app/assets/images/warrent_quote.png"), filenam
 post7 = Post.create!("author_id": user6.id, "body": "Jk!!!")
 post7.image.attach(io: File.open("app/assets/images/elon-musk-twitter.webp"), filename: 'elon-musk-twitter.webp')
 
-post8 = Post.create!("author_id": user6.id, "body": "I'm going to buy twitter for 40 billions!!!")
+post8 = Post.create!("author_id": user6.id, "body": "I'm going to buy twitter for 40 billion!!!")
 post8.image.attach(io: File.open("app/assets/images/Twitter-Elon-musk.jpeg"), filename: 'Twitter-Elon-musk.jpeg')
 
 post10 = Post.create!("author_id": user1.id, "body": "There's always money in the banana stand")

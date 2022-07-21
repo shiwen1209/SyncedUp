@@ -19,7 +19,7 @@ const receiveConnection = (payload)=>{
     return{
         type: RECEIVE_CONNECTION,
         connection: payload.connection,
-        currentUser: payload.currentUser
+        connect: payload.connect
     }
 }
 

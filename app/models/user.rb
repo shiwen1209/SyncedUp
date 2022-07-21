@@ -22,6 +22,8 @@
 class User < ApplicationRecord
     validates :email, :session_token, presence: true, uniqueness: true
     validates :password_digest, :first_name, :last_name, presence: true
+    validates :first_name, :last_name, length: {maximum: 30}
+    validates :email, length: {maximum: 50}
     validates :password, length: {minimum:6}, allow_nil: true
 
     attr_reader :password
@@ -55,9 +57,11 @@ class User < ApplicationRecord
       
       has_many :connections,
         through: :connects,
-        source: :follower
-
-      has_one_attached :headshot
+        source: :follower,
+        dependent: :destroy
+      
+      has_one_attached :headshot,
+      dependent: :destroy
 
   def self.find_by_credentials(email, password)
      user = User.find_by(email: email)

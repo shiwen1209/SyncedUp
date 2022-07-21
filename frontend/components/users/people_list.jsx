@@ -14,7 +14,7 @@ class PeopleList extends React.Component {
         const { people, currentUserId, createConnection } = this.props
         const peopleList = people.map((person, idx) => (<PeopleItem
             key={idx} person={person} currentUserId={currentUserId}
-            createConnection={createConnection} />))
+            createConnection={createConnection} />)).sort(() => Math.random() - 0.5)
 
         const filteredPeopleList = peopleList.slice(0, 3)
 
