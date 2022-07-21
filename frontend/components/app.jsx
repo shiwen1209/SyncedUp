@@ -11,6 +11,7 @@ import MyNetworkContainer from "./users/my_network_container";
 import PeopleContainer from "./users/people_container";
 import Modal from "./modal/modal";
 import People from "./users/people";
+import MessageIndexContainer from "./message/message_index_container";
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
                 <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
                 <ProtectedRoute path="/mynetwork/people" component={PeopleContainer} />
                 <ProtectedRoute path="/mynetwork" component={MyNetworkContainer} />
+                <ProtectedRoute path="/messaging" component={MessageIndexContainer} />
                 <AuthRoute exact path="/" component={Homepage} />
             </Switch>
         </div>

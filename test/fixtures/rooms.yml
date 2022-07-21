@@ -1,12 +1,10 @@
 # == Schema Information
 #
-# Table name: connections
+# Table name: rooms
 #
 #  id         :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user1_id   :integer          not null
-#  user2_id   :integer          not null
 #
 
 # This model initially had no columns defined. If you add columns to the

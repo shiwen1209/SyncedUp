@@ -13,6 +13,7 @@
 #  current_job     :boolean
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  exp_type        :string           not null
 #
 class Experience < ApplicationRecord
     validates :user_id, :title, :company_name, presence: true

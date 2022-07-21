@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'static_pages#root'
 
+  # get '/:path', to: 'static_pages#root', constraints: { path: /(?!api).*/, /(?!users).*/}
+
   namespace :api, defaults: {format: :json}  do
     resources :users, only: [:create, :show, :update, :index]
     resource :session, only: [:create, :destroy]
@@ -12,4 +14,8 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy, :show]
     resources :connections, only: [:create, :destroy, :show]
   end
+
+
+  # resources :rooms, only: [:index, :show, :create, :destroy]
+  # resources :messages, only: [:create, :destroy]
 end
