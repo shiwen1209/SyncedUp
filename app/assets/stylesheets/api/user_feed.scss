@@ -1,31 +1,42 @@
 #user-feed {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     width: $body-width;
     margin-top: 90px;
         // padding: 0;
             // margin: 0;
+            // border: 1px solid red;
 }
 
 #user-feed-profile {
     width: 240px;
+    position: sticky;
+    top: 90px;
+    // border: 1px solid red;
+    // left: 100px;
+    // position: fixed;
+    // left: 170px;
+    // top: 90px;
     // padding: 0;
     // margin: 0;
+    
 }
 
 #user-feed-posts {
     width: 550px;
+    margin-left: 3px;
+    // margin-right: 30px;
     // padding: 0;
     // margin: 0;
             // background-color: palegoldenrod
 }
 
 #user-feed-other {
-    width: 270px;
-        // padding: 0;
-        //     margin: 0;
-            // background-color: palegoldenrod
+    // position: fixed;
+    // left: 995px;
+    // top: 90px;
+    width: 275px;
 }
 
 
@@ -80,6 +91,9 @@
 #user-feed-profile-summary{
     @include column-center-align;
     padding: 0;
+    min-height: 270px;
+    width: 100%;
+    // border: 1px solid red;
 }
 
 #user-feed-profile-summary>div:nth-child(2){
@@ -88,6 +102,10 @@
     justify-content: flex-start;
     padding: 0;
     margin-top: -50px;
+    // border: 1px solid yellow;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
 
 }
 
@@ -102,20 +120,41 @@
     height: 80px;
 }
 
+#user-feed-profile-summary h1, #user-feed-profile-summary h2, #user-feed-profile-summary h3
+#user-feed-profile-summary p{
+    width: 100%;
+    word-wrap: break-word;
+    // border: 1px solid yellow;
+    width: 220px;
+    text-align: center;
+    
+}
+
 #user-feed-profile-summary h1{
     font-size: 20px;
 }
 
 #user-feed-profile-summary h2 {
     font-size: 16px;
+    font-weight: normal;
 }
 #user-feed-profile-summary p, #user-feed-profile-summary h3 {
     font-size: 15px;
     color: grey;
     padding-top: 3px;
+    
 }
 
 #user-feed-profile-summary h3{
+    color: $theme-color1;
+    font-weight: bold;
+}
+
+#tags h3, #tags p{
+    height: 25px;
+
+}
+#tags h3{
     color: $theme-color1;
     font-weight: bold;
 }

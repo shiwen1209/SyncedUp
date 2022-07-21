@@ -7,18 +7,34 @@
     display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 1080px;
+        width: 1100px;
         padding: 0;
         margin: 0;
         margin-top: 90px;
+        // border: 1px solid red;
 }
 
 #my-network>div{
     width: 310px;
     padding: 0px;
+    // border: 1px solid red;
 }
 
+#my-network>div:nth-child(1) {
+    height: 400px;
+    width: 280px ;
+    // position: fixed;
+}
 
+#my-network>div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 800px;
+    min-height: 400px;
+    // border: 1px solid blue;
+}
 
 #my-network>div .component-title, 
 #my-network>div .component-subtitle{
@@ -55,28 +71,17 @@
 
 #my-network>div:nth-child(1)>.component-subtitle > .link{
         display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            color: rgba(65, 63, 63, 0.887);
-            font-weight: lighter;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        color: rgba(65, 63, 63, 0.887);
+        font-weight: lighter;
 
 }
 
-#my-network>div:nth-child(1){
-    height: 400px;
-}
 
 
-#my-network>div:nth-child(2) {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 700px;
-    min-height: 400px;
-    // border: 1px solid blue;
-}
+
 
 #my-network>div:nth-child(2) >div{
     width: 100%;
@@ -90,16 +95,12 @@
 
 
 #my-network ul {
-    margin-top: 20px;
+    
     border-top: 1px solid lightgrey;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 680px;
+    width: 760px;
     // border: 1px solid red;
     margin-bottom: 20px;
  
-
-
 }
 
 #my-network li{
@@ -108,7 +109,7 @@
     justify-content: flex-start;
     align-items: center;
     // border: 1px solid red;
-    width: 660px;
+    width: 740px;
     height: 100px;
     padding-left: 10px;
     padding-right: 10px;
@@ -159,6 +160,10 @@
     font-weight: bold;
     font-size: 16px;
     margin: 5px;
+    &:hover{
+        color: #B3402E;
+        text-decoration: underline;
+    }
 }
 
 .connection-title h4{

@@ -1,7 +1,7 @@
 #user-profile {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 1100px;
     height: 600px;
     padding: 0;
@@ -30,7 +30,10 @@
 }
 
 #user-profile-other {
+    // position: fixed;
+    left: 890px;
     width: 350px;
+    height: 500px;
     // border: 1px solid green;
 }
 
@@ -258,6 +261,10 @@
     margin-bottom: 50px;
 }
 
+#edit-headshot i{
+    color: white;
+}
+
 #headshot-title{
     display: flex;
     flex-direction: row;
@@ -270,23 +277,11 @@
 #headshot-buttons{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     border-top: 0.5px solid white;
     padding-top: 10px;
+    // border:0.5px solid white;
 
-}
-
-#headshot-buttons div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#headshot-buttons input{
-    background-color:rgb(48, 47, 47);
-    border: none;
-    outline: none;
 }
 

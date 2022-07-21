@@ -36,8 +36,11 @@ class EditHeadshot extends React.Component{
             <div id="edit-headshot" className="component">
                 <div id="headshot-title">
                     <h3>Profile photo</h3>
-                    <i className="fa-solid fa-xmark"
-                        onClick={closeModal}></i>
+                    <div className="icon">
+                        <i className="fa-solid fa-xmark"
+                            onClick={closeModal}></i>
+                    </div>
+
                 </div>
                 <div className="img">
                     <img src={this.state.photoUrl ? this.state.photoUrl : user.headshotUrl} 
@@ -45,17 +48,15 @@ class EditHeadshot extends React.Component{
                 </div>
                 <div id="headshot-buttons">
                     <div>
-                        <input type="file"
-                            onChange={this.handleFile}
-                         />
-                         <button
-                         onClick={this.handleSubmit}
-                         >Save</button>
+                        <input type="file" onChange={this.handleFile}/>
                     </div>
                     <div>
+                        <button onClick={this.handleSubmit}>Save</button>
+                    </div>
+                    {/* <div>
                         <i className="fa-solid fa-trash-can"></i>
                         <p>Delete</p>
-                    </div>
+                    </div> */}
                 </div>
                 
             </div>

@@ -84,7 +84,8 @@ class CommentIndexItem extends React.Component{
                                 <div className="headline-tag">
                                     <Link to={`/users/${comment.commenterId}`}>
                                         <div>
-                                            <span>{comment.commenterFirstname} {comment.commenterLastname}</span><span>({comment.commenterPronouns})</span>
+                                            <span>{comment.commenterFirstname} {comment.commenterLastname}</span>
+                                            {comment.commenterPronouns ? <span>&nbsp;({comment.commenterPronouns})</span> : <span></span>}
                                         </div>
                                         <div>
                                             <p>{comment.commenterHeadline}</p>

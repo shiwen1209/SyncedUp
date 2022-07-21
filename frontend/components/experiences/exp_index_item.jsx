@@ -17,7 +17,7 @@ class ExpIndexItem extends React.Component{
             return (
                 <li className="exp-item">
                     <div className="img-square">
-                        
+                        <img src="/assets/company2.png" alt="" />
                     </div>
                     <div>
                         <div className="component-subtitle">
@@ -39,7 +39,7 @@ class ExpIndexItem extends React.Component{
             return (
                 <li className="exp-item">
                     <div className="img-square">
-
+                        <img src="/assets/company2.png" alt="" />
                     </div>
                     <div>
                         <div className="component-subtitle">

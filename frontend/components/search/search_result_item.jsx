@@ -16,7 +16,7 @@ class SearchResultItem extends React.Component{
                     <p>{person.firstName} {person.lastName}</p>
                 </div>
                 <div className="img">
-                    img
+                    <img src={person.headshotUrl} alt="" />
                 </div>
             </li>
             </Link>

@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import PostForm from "./post_form";
-import { updatePost } from "../../actions/post_actions";
-import {closeModal } from '../../actions/modal_actions';
+import {updatePost} from "../../actions/post_actions";
+import {closeModal} from '../../actions/modal_actions';
 
 
 const mstp = (state) => {
@@ -15,7 +15,7 @@ const mstp = (state) => {
 
 const mdtp = dispatch => {
     return {
-        processForm: (post) => dispatch(updatePost(post)),
+        processForm: (formData, postId) => dispatch(updatePost(formData, postId)),
         closeModal: () => dispatch(closeModal())
     }
 }

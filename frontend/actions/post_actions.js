@@ -18,11 +18,11 @@ export const removePost = (postId)=>{
 
 export const createPost = (postForm)=> dispatch => (
     PostApiUtil.createPost(postForm)
-        .then((payload)=>dispatch(receivePost(payload.post)))
+    .then((payload)=>dispatch(receivePost(payload.post)))
 ) 
 
-export const updatePost = (postForm) => dispatch=>(
-    PostApiUtil.updatePost(postForm)
+export const updatePost = (postForm, postId) => dispatch=>(
+    PostApiUtil.updatePost(postForm, postId)
         .then((payload) => {
             return dispatch(receivePost(payload.post))})
 )

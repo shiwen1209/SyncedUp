@@ -7,6 +7,9 @@ json.post do
     if @post.author.headshot.attached?
         json.author_headshot_url url_for(@post.author.headshot)
     end
+    if @post.image.attached?
+        json.image_url url_for(@post.image)
+    end
     json.num_comments @post.comments.count
     json.num_likes @post.likes.count
 end

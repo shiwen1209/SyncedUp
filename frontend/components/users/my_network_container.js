@@ -5,7 +5,7 @@ import {fetchConnections, createConnection, deleteConnection } from "../../actio
 
 const mstp = (state)=>{
     return{
-        connections: Object.values(state.entities.connections)
+        connections: Object.values(state.entities.connections).sort(((b, a) => a.connectionId - b.connectionId))
             .filter((obj)=>obj.id !== state.session.id), 
             // temporary solution, need to figure out how to remove session user 
             //self from connection state when creating a pair of connections

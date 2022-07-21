@@ -60,7 +60,7 @@ class UserProfile extends React.Component {
                 <div id="user-profile-main">
                     <div id="user-profile-summary" className="component">
                         <div id="user-profile-backgroundpic">
-                            <img id="background-image" src="https://static-exp2.licdn.com/sc/h/5q92mjc5c51bjlwaj3rs9aa82" alt="" />
+                            <img id="background-image" src="/assets/userbg5.jpeg" alt="" />
                         </div>
                         <div>   
                             <div>
@@ -69,7 +69,8 @@ class UserProfile extends React.Component {
                                     onClick={(e) => openModalPayload({ modal: 'editHeadshot', payload: this.props.user })}/>
                                 </div>
                                 <div>
-                                    <span>{user.firstName} {user.lastName}</span>&nbsp;<span>({user.pronouns})</span>
+                                    <span>{user.firstName} {user.lastName}</span>
+                                    {user.pronouns ? <span>&nbsp;({user.pronouns})</span> : <span></span>}
                                 </div>
                                 <h3>{user.headline} </h3>
                                 <h4>{user.locationCity}{user.locationCity && (user.locationState || user.locationCountry ) ? ", " : ""}
@@ -156,7 +157,8 @@ class UserProfile extends React.Component {
                     <EduIndexContainer user={user} currentUserId={currentUserId} />
 
                 </div>
-                <div id="user-profile-other">
+
+                <div id="user-profile-other" className="component">
 
                 </div>
             </div>

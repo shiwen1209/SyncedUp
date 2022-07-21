@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
     attr_reader :password
     after_initialize :ensure_session_token
-    before_create :ensure_headshot
+    before_validation :ensure_headshot
 
       has_many :posts,
         foreign_key: :author_id,

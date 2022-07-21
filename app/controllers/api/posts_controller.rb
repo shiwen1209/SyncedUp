@@ -25,7 +25,6 @@ class Api::PostsController < ApplicationController
 
     def destroy
         @post = Post.find_by(id: params[:id])
-
         if @post.destroy
             render :show
         else
@@ -35,6 +34,6 @@ class Api::PostsController < ApplicationController
 
 
     def post_params
-        params.require(:post).permit(:body, :author_id)
+        params.require(:post).permit(:body, :author_id, :image)
     end
 end

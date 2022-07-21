@@ -10,7 +10,8 @@ class Nav extends React.Component {
         this.state = {
             searchValue: "",
             displaySearch: false,
-            filteredResult: this.props.people
+            filteredResult: this.props.people,
+            searchBarId: "searchBarInactive"
             };
         this.handleUpdate = this.handleUpdate.bind(this);
         this.closeSearch = this.closeSearch.bind(this);
@@ -43,15 +44,18 @@ class Nav extends React.Component {
             this.setState({
                 searchValue: "",
                 displaySearch: false,
-                filteredResult: this.props.people
+                filteredResult: this.props.people,
+                searchBarId: "searchBarInactive"
             })
         }
     }
 
     handleSearch(e){
-        this.setState({ displaySearch: true})
-        this.setState({filteredResult: this.props.people})
-    }
+        this.setState({filteredResult: this.props.people,
+            displaySearch: true,
+            searchBarId: "searchBarActive"
+        })
+    }       
 
     render() {
         const { currentUser} = this.props
@@ -63,11 +67,11 @@ class Nav extends React.Component {
                 <nav onClick={this.closeSearch}>
                     <div>
                         <Link id="logo" to="/"><span className="logo" id="up">up</span></Link>
-                        <div className="search-bar">
+                        <div className="search-bar" id={this.state.searchBarId}>
                             <div className="search-bar-icon">
                                 <i className="fa-solid fa-magnifying-glass"></i>
                             </div>
-                            <input onFocus={this.handleSearch}
+                            <input onFocus={this.handleSearch} id="search-box"
                             onChange={this.handleUpdate} placeholder="Search"
                                 className="comment-button" type="text" value={this.state.searchValue} />
                         </div>
@@ -75,9 +79,12 @@ class Nav extends React.Component {
                         {this.state.displaySearch ? 
                             <div id="search-parent" className="modal-background" onClick={this.closeSearch} >
                                 <div id="search-child" className="component" onClick={e => e.stopPropagation()}>
-                                    <ul onClick={this.closeSearch}>
-                                        {searchResult}
-                                    </ul>
+                                    {searchResult.length > 0 ? 
+                                        <ul onClick={this.closeSearch}>
+                                            {searchResult}
+                                        </ul> :
+                                        <h3>No result found</h3>
+                                    }
                             </div>
                         </div> : <div></div>} 
                     </div>

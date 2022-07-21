@@ -18,7 +18,7 @@ class UserFeed extends React.Component{
                 <div id="user-feed-profile">
                     <div id="user-feed-profile-summary" className="component">
                         <div id="user-profile-backgroundpic">
-                            <img id="background-image" src="https://static-exp2.licdn.com/sc/h/5q92mjc5c51bjlwaj3rs9aa82" alt="" />
+                            <img id="background-image" src="/assets/userbg5.jpeg" alt="" />
                         </div>
                         <div>
                             <Link to={`/users/${user.id}`}>
@@ -30,7 +30,7 @@ class UserFeed extends React.Component{
                                 <h1>{user.firstName} {user.lastName}</h1>
                             </Link>
                         
-                                <h2>{user.headline} </h2>
+                                <h2>{user.headline}</h2>
                                 <p>{user.locationCity}{user.locationCity && (user.locationState || user.locationCountry) ? ", " : ""}
                                     {user.locationState}{user.locationState && (user.locationCountry) ? ", " : ""}
                                     {user.locationCountry}</p>
@@ -38,13 +38,14 @@ class UserFeed extends React.Component{
                                 <Link to='/mynetwork' className="link"> 
                                     <h3>{user.numConnections} connections</h3>
                                 </Link>
-                          
-                            
                         </div>
                        
                     </div>
-                    <div className="component">
-                        user tags
+                    <div id= "tags" className="component">
+                        <h3>Followed hashtags</h3>
+                        <p>&nbsp;#technology</p>
+                        <p>&nbsp;#market</p>
+                        <p>&nbsp;#futurism</p>
                     </div >
                 </div>
 

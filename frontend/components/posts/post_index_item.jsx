@@ -58,7 +58,8 @@ class PostIndexItem extends React.Component {
                         <div className="headline-tag">
                             <Link to={`/users/${post.authorId}`}>
                                 <div>
-                                    <span>{post.authorFirstname} {post.authorLastname}</span>&nbsp;<span>({post.authorPronouns})</span>
+                                    <span>{post.authorFirstname} {post.authorLastname}</span>
+                                    {post.authorPronouns ? <span>&nbsp;({post.authorPronouns})</span> : <span></span>}
                                 </div>
                                 <div>
                                     <p>{post.authorHeadline}</p>
@@ -89,8 +90,16 @@ class PostIndexItem extends React.Component {
                 </div>
 
 
-                <div className="component-body">
-                    <p>{post.body}</p>
+                <div id="post-body" className="component-body">
+                    <div>
+                        <p>{post.body}</p>
+                    </div>
+                    {post.imageUrl ? 
+                        <div className="post-image">
+                            <img src={post.imageUrl} alt="" />
+                        </div>
+                         : <div></div>
+                    }
                 </div>
 
                 {post.numLikes > 0 || post.numComments > 0 ?
