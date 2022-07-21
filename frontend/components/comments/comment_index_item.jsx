@@ -57,7 +57,7 @@ class CommentIndexItem extends React.Component{
     }
 
     handleLike(e) {
-        const {comment, likes, currentUserId, createLike, deleteLike } = this.props
+        const {comment, likes, currentUserId, createLike, deleteLike} = this.props
         const currentLike = { userId: currentUserId, likableId: comment.id, likableType: 'Comment' }
         if (JSON.stringify(currentLike) in likes) {
             const likeId = likes[JSON.stringify(currentLike)]
@@ -69,7 +69,7 @@ class CommentIndexItem extends React.Component{
     }
 
     render(){
-        const {comment, postId, currentUserId, deleteComment} = this.props
+        const { comment, postId, currentUserId, deleteComment, currentUser} = this.props
 
         return(
         <div id="comment-item">
@@ -151,7 +151,7 @@ class CommentIndexItem extends React.Component{
                                     parentCommentId={comment.id}
                                     formType="Add a reply..."
                                     comment={comment}
-                            />
+                                    currentUser={currentUser}/>
                         </div> : <div></div>}
                     </div>
                 </div>

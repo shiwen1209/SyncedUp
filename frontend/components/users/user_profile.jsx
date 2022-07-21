@@ -1,7 +1,9 @@
 import React from "react";
 import ExpIndexContainer from "../experiences/exp_index_container";
 import EduIndexContainer from "../experiences/edu_index_container";
+import PeopleContainer from "./people_container";
 import { Link } from "react-router-dom";
+import PeopleListContainer from "./people_list_container";
 
 
 class UserProfile extends React.Component {
@@ -155,7 +157,11 @@ class UserProfile extends React.Component {
                 </div>
 
                 <div id="user-profile-other" className="component">
-
+                    <div className="component-title">
+                        <h3>Discover who's on Syncedup</h3>
+                        <p>Recommended for you</p>
+                    </div>
+                    <PeopleListContainer />
                 </div>
             </div>
         )

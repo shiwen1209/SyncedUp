@@ -33,7 +33,7 @@
     // position: fixed;
     left: 890px;
     width: 350px;
-    height: 500px;
+    height: 450px;
     // border: 1px solid green;
 }
 
@@ -295,4 +295,31 @@
 #user-profile .component-body {
    padding-top: 10px;
    padding-bottom: 10px;
+}
+
+#user-profile-other ul{
+    padding-top: 20px;
+    width: 100%;
+}
+
+#user-profile-other li {
+    // border: 1px solid red;
+    width: 95%;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 10px;
+
+}
+
+#user-profile-other .component-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    // padding-bottom: 20px;
+}
+
+#user-profile-other .component-title h3 {
+    font-weight: bold;
+    padding-bottom: 20px;
 }

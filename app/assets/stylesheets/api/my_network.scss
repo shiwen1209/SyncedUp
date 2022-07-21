@@ -93,29 +93,26 @@
 
 }
 
-
-#my-network ul {
-    
-    border-top: 1px solid lightgrey;
+#my-network ul{
     width: 760px;
-    // border: 1px solid red;
+    border-top: 1px solid lightgrey;
     margin-bottom: 20px;
- 
 }
 
-#my-network li{
+#my-network li, #user-profile-other li{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     // border: 1px solid red;
-    width: 740px;
     height: 100px;
     padding-left: 10px;
     padding-right: 10px;
     // border: 1px solid green;
+}
 
-    
+#my-network li{
+    width: 740px;
 }
 
 #my-network li .img{
@@ -137,7 +134,7 @@
 }
 
 
-#my-network li button{
+#my-network li button, #user-profile-other li button{
             color:#B3402E;
             border: none;
             min-height: 30px;

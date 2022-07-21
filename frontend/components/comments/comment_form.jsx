@@ -26,7 +26,7 @@ class CommentForm extends React.Component{
     }
 
     render(){
-        const {currentUserId, formType} = this.props;
+        const {currentUserId, formType, currentUser} = this.props;
 
         if (this.state.display || formType === "Add a comment..."){
                 return (
@@ -34,7 +34,7 @@ class CommentForm extends React.Component{
                         {formType === "Add a reply..." ?
                         < Link className="link" to={`/users/${currentUserId}`}>
                             <div className="img">
-                                <img src={this.props.comment.authorHeadshotUrl} alt="" />
+                                <img src={currentUser.headshotUrl} alt="" />
                             </div>
                         </Link> : <div></div>
                         }
