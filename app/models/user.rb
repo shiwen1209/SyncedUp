@@ -29,7 +29,7 @@ class User < ApplicationRecord
 
     attr_reader :password
     after_initialize :ensure_session_token
-    before_validation :ensure_headshot
+    after_initialize :ensure_headshot
 
       has_many :posts,
         foreign_key: :author_id,
@@ -94,7 +94,9 @@ class User < ApplicationRecord
   end
 
   def ensure_headshot
-    self.headshot.attach(io: File.open("app/assets/images/default.jpeg"), filename: 'default.jpeg')
+    if !self.headshot.attached?
+      self.headshot.attach(io: File.open("app/assets/images/default.jpeg"), filename: 'default.jpeg')
+    end 
   end
 
 end
