@@ -221,7 +221,7 @@ Connection.create!(user1_id: user4.id, user2_id: user3.id)
 
 Experience.create!("user_id": user1.id, "title": "CEO", "company_name": "Banana Corp",
                         "employment_type": "full-time",
-                        "start_date": "2017-11-03", "end_date": "2022-11-03", "exp_type": "work")
+                        "start_date": "2017-11-03", "end_date": "2022-07-21", "exp_type": "work")
 
 Experience.create!("user_id": user1.id, "title": "VP of Strategy", "company_name": "Banana Corp",
                         "employment_type": "full-time",

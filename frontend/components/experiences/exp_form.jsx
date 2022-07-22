@@ -9,7 +9,11 @@ class ExpForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.processForm(this.state).then(this.props.closeModal())
+        const {processForm, closeModal, errors} = this.props
+        processForm(this.state).then(()=>{
+            if (errors.length === 0) { closeModal() }
+        })
+        
     }
 
     handleUpdate(field) {
@@ -17,7 +21,14 @@ class ExpForm extends React.Component {
     }
 
     render(){
-        const {formType , create_exp_type, closeModal} = this.props
+        const {formType , create_exp_type, closeModal, errors} = this.props
+
+        let errs;
+        if (errors.length > 0) {
+            errs = errors.map((err, idx) => (<li key={idx}>{err}</li>))
+        } else {
+            errs = <div></div>
+        }
         return(
             <div className="component">
                 <div className="component-title">
@@ -26,6 +37,8 @@ class ExpForm extends React.Component {
                         <i className="fa-solid fa-xmark"></i>
                     </div>
                 </div>
+
+                
                     
                 <form id={formType} onSubmit={this.handleSubmit}>
                 {create_exp_type === "work" ? 
@@ -74,6 +87,7 @@ class ExpForm extends React.Component {
 
                     <div>
                         <h3>Timeline </h3>
+                        <ul className="error-list">{errs}</ul>
                         <label className="session-label">Start date
                             <input type="date" value={this.state.start_date}
                                 className="session-box"

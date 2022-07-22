@@ -25,6 +25,7 @@ class User < ApplicationRecord
     validates :first_name, :last_name, length: {maximum: 30}
     validates :email, length: {maximum: 50}
     validates :password, length: {minimum:6}, allow_nil: true
+    validates :pronouns, inclusion: { in: %w(She/her He/him They/they Other)}, allow_nil: true
 
     attr_reader :password
     after_initialize :ensure_session_token

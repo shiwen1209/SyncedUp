@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
                     <button onClick={this.handleSubmitDemo}
                     className="session-button" >Demo Sign in</button>
 
-                <ul>{errs}</ul>
+                <ul className="error-list">{errs}</ul>
 
                 <div>
                     <span>New to Syncedup?</span>&nbsp;<Link className="link" to="/signup">Join now</Link>

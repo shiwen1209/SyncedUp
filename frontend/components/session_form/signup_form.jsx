@@ -71,7 +71,7 @@ class SignupForm extends React.Component {
                         <button className="session-button">Agree and Join</button>
                     </form>
 
-                    <ul>{errs}</ul>
+                    <ul className="error-list">{errs}</ul>
 
                     
 
