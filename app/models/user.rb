@@ -70,6 +70,10 @@ class User < ApplicationRecord
         class_name: :Message,
         dependent: :destroy
       
+      has_many :senders,
+        through: :received_messages,
+        source: :sender
+      
       has_one_attached :headshot,
       dependent: :destroy
 

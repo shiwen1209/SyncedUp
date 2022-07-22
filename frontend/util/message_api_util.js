@@ -1,35 +1,28 @@
-import apiFetch from './custom_fetch';
+export const fetchSenders = ()=>{
+    return $.ajax({
+        method: 'GET',
+        url: 'api/messages'
+    })
+}
 
-// rooms
+export const fetchMessages = (senderId) => {
+    return $.ajax({
+        method: 'GET',
+        url: `api/messages/${senderId}`
+    })
+}
 
-export const fetchRooms = () => apiFetch('rooms');
-
-export const fetchRoom = id => apiFetch(`rooms/${id}`);
-
-export const createRoom = room => (
-    apiFetch('rooms', {
+export const createMessage = (message) => (
+    $.ajax({
         method: 'POST',
-        data: { room }
+        url: 'api/messages',
+        data: {message}
     })
 );
 
-export const destroyRoom = id => (
-    apiFetch(`rooms/${id}`, {
-        method: 'DELETE'
+export const deleteMessage = id => {
+    return $.ajax({
+        method: 'DELETE',
+        url: `api/messages/${id}`
     })
-);
-
-// messages
-
-export const createMessage = message => (
-    apiFetch('messages', {
-        method: 'POST',
-        data: { message }
-    })
-);
-
-export const destroyMessage = id => (
-    apiFetch(`messages/${id}`, {
-        method: 'DELETE'
-    })
-);
+}

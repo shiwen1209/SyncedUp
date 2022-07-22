@@ -8,7 +8,4 @@
 #
 class Room < ApplicationRecord
 
-    has_many :messages,
-        foreign_key: :room_id,
-        class_name: :Message
 end

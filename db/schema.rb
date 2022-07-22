@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_21_193229) do
+ActiveRecord::Schema.define(version: 2022_07_22_032951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,9 +88,8 @@ ActiveRecord::Schema.define(version: 2022_07_21_193229) do
     t.string "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "room_id"
+    t.boolean "read_status", null: false
     t.index ["recipient_id"], name: "index_messages_on_recipient_id"
-    t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
