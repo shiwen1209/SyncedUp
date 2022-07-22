@@ -19,7 +19,6 @@ require 'date'
 
 class Experience < ApplicationRecord
     validates :user_id, :title, :company_name, presence: true
-    validates :employment_type, inclusion: { in: %w(Full-time Part-time Self-employed)}, allow_nil: true
     validates :start_date, :end_date, presence: true
     validate :start_end_dates
 
