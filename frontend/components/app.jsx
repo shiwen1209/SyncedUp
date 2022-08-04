@@ -41,7 +41,7 @@ const App = (props) => {
                         }
                     </section>
                 )} />
-                <Redirect to='/messaging' />
+                <Redirect to='/' />
                 <AuthRoute exact path="/" component={Homepage} />
             </Switch>
         </div>
