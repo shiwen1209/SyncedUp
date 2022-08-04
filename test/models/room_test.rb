@@ -5,6 +5,8 @@
 #  id         :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  owner_id   :integer
+#  name       :string
 #
 require 'test_helper'
 

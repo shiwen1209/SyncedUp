@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Message.delete_all
+Room.delete_all
 Like.delete_all
 Comment.delete_all
 Post.delete_all
@@ -14,109 +15,109 @@ Experience.delete_all
 Connection.delete_all
 User.delete_all
 
-user1 = User.create!(
-                    "email": "banana", 
-                    "password": "123456", 
-                    "first_name": "Banana", 
-                    "last_name": "Nana", 
-                    "pronouns": "She/her",
-                    "headline": "I'm a banana entrepreneur",
-                    "about": "I produce and sell the best bananas",
-                    "industry": "Agriculture",
-                    "location_country": "United States",
-                    "location_state": "CA",
-                    "location_city": "Bakersfield"
-                    )
+    user1 = User.create!(
+                        "email": "banana", 
+                        "password": "123456", 
+                        "first_name": "Banana", 
+                        "last_name": "Nana", 
+                        "pronouns": "She/her",
+                        "headline": "I'm a banana entrepreneur",
+                        "about": "I produce and sell the best bananas",
+                        "industry": "Agriculture",
+                        "location_country": "United States",
+                        "location_state": "CA",
+                        "location_city": "Bakersfield"
+                        )
 
-user2 = User.create!(
-                    "email": "bill_gates@gmail.com", 
-                    "password": "123456", 
-                    "first_name": "Bill", 
-                    "last_name": "Gates",
-                    "headline": "Co-chair, Bill & Melinda Gates Foundation",
-                    "about": "Co-chair of the Bill & Melinda Gates Foundation. Founder of Breakthrough Energy. Co-founder of Microsoft. Voracious reader. Avid traveler. Active blogger.",
-                    "industry": "Technology",
-                    "location_country": "United States",
-                    "location_state": "WA",
-                    "location_city": "Seattle")
+    user2 = User.create!(
+                        "email": "bill_gates@gmail.com", 
+                        "password": "123456", 
+                        "first_name": "Bill", 
+                        "last_name": "Gates",
+                        "headline": "Co-chair, Bill & Melinda Gates Foundation",
+                        "about": "Co-chair of the Bill & Melinda Gates Foundation. Founder of Breakthrough Energy. Co-founder of Microsoft. Voracious reader. Avid traveler. Active blogger.",
+                        "industry": "Technology",
+                        "location_country": "United States",
+                        "location_state": "WA",
+                        "location_city": "Seattle")
 
-user3 = User.create!(
-                    "email": "steve_jobs@gmail.com", 
-                    "password": "123456", 
-                    "first_name": "Steve", 
-                    "last_name": "Jobs", 
-                    "headline": "American entrepreneur",
-                    "about": "Steven Jobs was an American entrepreneur, industrial designer, business magnate, media proprietor, and investor",
-                    "industry": "Technology",
-                    "location_country": "United States",
-                    "location_state": "CA",
-                    "location_city": "Palo Alto"
-                    )
+    user3 = User.create!(
+                        "email": "steve_jobs@gmail.com", 
+                        "password": "123456", 
+                        "first_name": "Steve", 
+                        "last_name": "Jobs", 
+                        "headline": "American entrepreneur",
+                        "about": "Steven Jobs was an American entrepreneur, industrial designer, business magnate, media proprietor, and investor",
+                        "industry": "Technology",
+                        "location_country": "United States",
+                        "location_state": "CA",
+                        "location_city": "Palo Alto"
+                        )
 
 
-user4 = User.create!(
-                    "email": "warren_buffett@gmail.com", 
-                    "password": "123456", 
-                    "first_name": "Warren", 
-                    "last_name": "Buffett", 
-                    "headline": "American business magnate, investor, and philanthropist",
-                    "about": "Currently the chairman and CEO of Berkshire Hathaway. One of the most successful investors in the world and world's eighth-wealthiest person",
-                    "industry": "Investment",
-                    "location_country": "United States",
-                    "location_state": "NE",
-                    "location_city": "Omaha"
-                    )
+    user4 = User.create!(
+                        "email": "warren_buffett@gmail.com", 
+                        "password": "123456", 
+                        "first_name": "Warren", 
+                        "last_name": "Buffett", 
+                        "headline": "American business magnate, investor, and philanthropist",
+                        "about": "Currently the chairman and CEO of Berkshire Hathaway. One of the most successful investors in the world and world's eighth-wealthiest person",
+                        "industry": "Investment",
+                        "location_country": "United States",
+                        "location_state": "NE",
+                        "location_city": "Omaha"
+                        )
 
-user5 = User.create!(
-                    "email": "jack_ma@gmail.com", 
-                    "password": "123456", 
-                    "first_name": "Jack", 
-                    "last_name": "Ma", 
-                    "headline": "Chinese business magnate, investor and philanthropist",
-                    "about": "Co-founder and former executive chairman of Alibaba Group, a multinational technology conglomerate",
-                    "industry": "Investment",
-                    "location_country": "China",
-                    "location_state": "Zhejiang",
-                    "location_city": "Hangzhou")
+    user5 = User.create!(
+                        "email": "jack_ma@gmail.com", 
+                        "password": "123456", 
+                        "first_name": "Jack", 
+                        "last_name": "Ma", 
+                        "headline": "Chinese business magnate, investor and philanthropist",
+                        "about": "Co-founder and former executive chairman of Alibaba Group, a multinational technology conglomerate",
+                        "industry": "Investment",
+                        "location_country": "China",
+                        "location_state": "Zhejiang",
+                        "location_city": "Hangzhou")
 
-user6 = User.create!(
-                    "email": "elon_musk@gmail.com", 
-                    "password": "123456", 
-                    "first_name": "Elon", 
-                    "last_name": "Musk", 
-                    "headline": "Founder, CEO, and Chief Engineer at SpaceX",
-                    "about": "A business magnate and investor. Founder, CEO, and Chief Engineer at SpaceX; angel investor, CEO, and Product Architect of Tesla, Inc",
-                    "industry": "Investment",
-                    "location_country": "United States",
-                    "location_state": "TX",
-                    "location_city": "Austin"
-                    )
+# user6 = User.create!(
+#                     "email": "elon_musk@gmail.com", 
+#                     "password": "123456", 
+#                     "first_name": "Elon", 
+#                     "last_name": "Musk", 
+#                     "headline": "Founder, CEO, and Chief Engineer at SpaceX",
+#                     "about": "A business magnate and investor. Founder, CEO, and Chief Engineer at SpaceX; angel investor, CEO, and Product Architect of Tesla, Inc",
+#                     "industry": "Investment",
+#                     "location_country": "United States",
+#                     "location_state": "TX",
+#                     "location_city": "Austin"
+#                     )
 
-user7 = User.create!(
-                    "email": "barak_obama@gmail.com", 
-                    "password": "123456", 
-                    "first_name": "Barak", 
-                    "last_name": "Obama", 
-                    "headline": "Former Potus",
-                    "about": "Served as the 44th president of the United States from 2009 to 2017. A member of the Democratic Party, the first African-American president of the United States",
-                    "industry": "politics",
-                    "location_country": "United States",
-                    "location_state": "DC",
-                    "location_city": "Washington"
-                    )
+# user7 = User.create!(
+#                     "email": "barak_obama@gmail.com", 
+#                     "password": "123456", 
+#                     "first_name": "Barak", 
+#                     "last_name": "Obama", 
+#                     "headline": "Former Potus",
+#                     "about": "Served as the 44th president of the United States from 2009 to 2017. A member of the Democratic Party, the first African-American president of the United States",
+#                     "industry": "politics",
+#                     "location_country": "United States",
+#                     "location_state": "DC",
+#                     "location_city": "Washington"
+#                     )
 
-user8 = User.create!(
-                    "email": "queen_elizabeth@gmail.com", 
-                    "password": "123456", 
-                    "first_name": "Elizabeth", 
-                    "last_name": "Windsor", 
-                    "headline": "Queen of the United Kingdom",
-                    "about": "Queen of the United Kingdom and 14 other Commonwealth realms.",
-                    "industry": "Monachy",
-                    "location_country": "United Kingdom",
-                    "location_state": "London",
-                    "location_city": "England"
-                    )
+# user8 = User.create!(
+#                     "email": "queen_elizabeth@gmail.com", 
+#                     "password": "123456", 
+#                     "first_name": "Elizabeth", 
+#                     "last_name": "Windsor", 
+#                     "headline": "Queen of the United Kingdom",
+#                     "about": "Queen of the United Kingdom and 14 other Commonwealth realms.",
+#                     "industry": "Monachy",
+#                     "location_country": "United Kingdom",
+#                     "location_state": "London",
+#                     "location_city": "England"
+#                     )
 
 # user9 = User.create!(
 #                     "email": "Angela_Merkel@gmail.com", 
@@ -240,10 +241,19 @@ user8 = User.create!(
 # Experience.create!("user_id": user2.id, "title": "Bachelor of Science", "company_name": "Harvard University",
 #                         "start_date": "1973-09-01", "end_date": "1975-06-01", "exp_type": "school")
 
+room1 = Room.create!("owner_id": user1.id, "name": "#{user1.first_name.capitalize}'s First Room")
+room2 = Room.create!("owner_id": user2.id, "name": "#{user2.first_name.capitalize}'s First Room")
+room3 = Room.create!("owner_id": user3.id, "name": "#{user3.first_name.capitalize}'s First Room")
+room4 = Room.create!("owner_id": user4.id, "name": "#{user4.first_name.capitalize}'s First Room")
+room5 = Room.create!("owner_id": user5.id, "name": "#{user5.first_name.capitalize}'s First Room")
 
-Message.create!("sender_id": user2.id, "recipient_id": user1.id, "content": "Hello", "read_status": false)
-Message.create!("sender_id": user3.id, "recipient_id": user1.id, "content": "Hello",  "read_status": false)
-Message.create!("sender_id": user4.id, "recipient_id": user1.id, "content": "Hello",  "read_status": false)
-Message.create!("sender_id": user5.id, "recipient_id": user1.id, "content": "Hello",  "read_status": false)
-Message.create!("sender_id": user1.id, "recipient_id": user2.id, "content": "Hello",  "read_status": false)
-Message.create!("sender_id": user1.id, "recipient_id": user2.id, "content": "Hello",  "read_status": false)
+Message.create!("sender_id": user2.id, "recipient_id": user1.id, "content": "Hi Banana", "read_status": false, "room_id": room2.id)
+Message.create!("sender_id": user3.id, "recipient_id": user1.id, "content": "Hello, banana",  "read_status": false, "room_id": room3.id)
+Message.create!("sender_id": user4.id, "recipient_id": user1.id, "content": "Hello, banana",  "read_status": false, "room_id": room4.id)
+Message.create!("sender_id": user5.id, "recipient_id": user1.id, "content": "Hello, banana",  "read_status": false, "room_id": room5.id)
+Message.create!("sender_id": user1.id, "recipient_id": user2.id, "content": "Hello",  "read_status": false, "room_id": room2.id)
+Message.create!("sender_id": user1.id, "recipient_id": user2.id, "content": "Hello",  "read_status": false, "room_id": room2.id)
+
+
+
+

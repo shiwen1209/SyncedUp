@@ -8,6 +8,7 @@
 #  content      :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  read_status  :boolean          not null
 #  room_id      :integer
 #
 class Message < ApplicationRecord
@@ -20,6 +21,10 @@ class Message < ApplicationRecord
     belongs_to :recipient, 
         foreign_key: :recipient_id,
         class_name: :User
+
+    belongs_to :room,
+        foreign_key: :room_id,
+        class_name: :Room
 
 
 

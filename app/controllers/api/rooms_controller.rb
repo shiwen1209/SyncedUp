@@ -7,7 +7,7 @@ class Api::RoomsController < ApplicationController
 
     def show
         @room = Room.find(params[:id])
-        # Your code here
+        @online_users = RoomsChannel.online_users(@room) << current_user
     end
 
     def create
@@ -29,6 +29,6 @@ class Api::RoomsController < ApplicationController
     private
 
     def room_params
-        params.require(:room).permit()
+        params.require(:room).permit(:name, :owner_id)
     end
 end

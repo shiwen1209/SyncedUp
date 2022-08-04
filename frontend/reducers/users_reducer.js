@@ -1,7 +1,7 @@
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
-import { RECEIVE_USER, RECEIVE_PEOPLE} from "../actions/user_action";
+import { RECEIVE_USER, RECEIVE_PEOPLE, RECEIVE_MSG_USER } from "../actions/user_action";
 import { RECEIVE_CONNECTIONS, RECEIVE_CONNECTION, REMOVE_CONNECTION} from "../actions/connection_actions";
-import { RECEIVE_SENDERS } from "../actions/message_actions";
+// import { RECEIVE_SENDERS } from "../actions/message_actions";
 
 const usersReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -14,6 +14,9 @@ const usersReducer = (state = {}, action) => {
             const user = Object.values(action.user)[0]
             nextState[user.id] = user
             return nextState;
+        case RECEIVE_MSG_USER:
+            nextState[action.user.id] = action.user
+            return nextState
         case RECEIVE_CONNECTIONS:
             return action.user
         case RECEIVE_CONNECTION:
@@ -35,8 +38,8 @@ const usersReducer = (state = {}, action) => {
         case RECEIVE_PEOPLE:
             nextState[action.user.id] = action.user
             return nextState;
-        case RECEIVE_SENDERS:
-            return action.users
+        // case RECEIVE_SENDERS:
+        //     return action.users
         default:
             return state;
     }

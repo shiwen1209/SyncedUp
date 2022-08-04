@@ -1,39 +1,38 @@
 class Api::MessagesController < ApplicationController
-    before_action :require_logged_in
+  before_action :require_logged_in
 
-    def index
-        render :index
+  def create
+    @message = Message.new(message_params)
+  
+    if @message.save
+      RoomsChannel.broadcast_to @message.room,
+        type: 'RECEIVE_MESSAGE',
+        **from_template('api/messages/show', message: @message)
+
+    #   @message.mentions.includes(:user, message: [:room]).each do |mention| 
+    #     MentionsChannel.broadcast_to mention.user,
+    #       type: 'RECEIVE_MENTION',
+    #       **from_template('api/mentions/show', mention: mention)
+    #   end
+
+      render json: nil, status: :ok
+    else
+      render json: @message.errors.full_messages, status: 422
     end
+  end
 
-    def show
-        id1 = current_user.id
-        id2 = params[:id].to_i # pass the opposit user id to param
-        @messages = Message.all.to_a.select{|m| (m.sender_id == id1 && m.recipient_id == id2) || (m.sender_id == id2 && m.recipient_id = id1)}
-        render :show
-    end
+  def destroy
+    @message = Message.find(params[:id])
+    @message.destroy
+    RoomsChannel.broadcast_to @message.room,
+      type: 'DESTROY_MESSAGE',
+      id: @message.id
+    render json: nil, status: :ok
+  end
 
-    def create
-        @message = Message.new(message_params)
-    
-        if @message.save
-            # RoomsChannel.broadcast_to(@message.room, @message)
-            render :show
-            # , locals: { message: @message }
-        else
-            render json: @message.errors.full_messages, status: 422
-        end
-    end
+  private
 
-    def destroy
-        @message = Message.find(params[:id])
-        @message.destroy
-        # Your code here
-        render json: nil, status: :ok
-    end
-
-    private
-
-    def message_params
-        params.require(:message).permit(:sender_id, :recipient_id, :content)
-    end
+  def message_params
+    params.require(:message).permit(:content, :room_id, :sender_id, :recipient_id, :read_status)
+  end
 end

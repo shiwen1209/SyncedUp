@@ -108,7 +108,7 @@ class Nav extends React.Component {
 
                         <Link className="icon" to={`/messaging`}>
                             <i className="fa-solid fa-comment-dots"></i>
-                            <span>messaging</span>
+                            <span>Messaging</span>
                         </Link> 
                         <div className="icon" onClick={this.handleClick}>
                             <i className="fa-solid fa-right-from-bracket"></i>

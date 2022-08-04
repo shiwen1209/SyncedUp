@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy, :show]
     resources :connections, only: [:create, :destroy, :show]
     resources :messages, only: [:index, :show, :create, :destroy]
+    resources :rooms, only: [:index, :show, :create, :destroy]
   end
 
 

@@ -73,6 +73,8 @@ class User < ApplicationRecord
       has_many :senders,
         through: :received_messages,
         source: :sender
+
+      has_many :owned_rooms, foreign_key: :owner_id, class_name: :Room
       
       has_one_attached :headshot,
       dependent: :destroy

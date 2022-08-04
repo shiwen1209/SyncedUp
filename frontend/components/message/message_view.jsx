@@ -44,8 +44,7 @@ class MessageView extends React.Component {
                     <div>
                         <div className="connection-title">
                             <h3>{message.senderFirstname} {message.senderLastname}</h3>
-                            {/* <p>{message.content}</p> */}
-                            <p>faskfjdsljfldskajfsjfklsdjflksdjflskjf asfjsldfjds afjlsdjfldksaj afjsdklj fajfdjslkfjs dafjskdljfsd afjsdkjfdas afdsklfj</p>
+                            <p>{message.content}</p>
                         </div>
                     </div>
                 </li>

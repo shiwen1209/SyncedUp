@@ -31,4 +31,8 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
     @current_user = nil
   end
+  
+  def from_template(template, locals = {})
+    JSON.parse(self.class.render(:json, template: template, locals: locals))
+  end
 end

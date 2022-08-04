@@ -6,7 +6,8 @@ import expReducer from './exp_reducer';
 import likesReducer from './likes_reducer';
 import connectionsReducer from './connections_reducer';
 import peopleReducer from './people_reducer';
-import messagesReducer from './messages_reducer';
+import {messagesReducer} from './messages_reducer';
+import { roomsReducer } from './room_reducer';
 
 const entitiesReducer = combineReducers({
     users: usersReducer,
@@ -16,7 +17,8 @@ const entitiesReducer = combineReducers({
     likes: likesReducer,
     connections: connectionsReducer,
     people: peopleReducer,
-    messages: messagesReducer
+    messages: messagesReducer,
+    rooms: roomsReducer,
 });
 
 export default entitiesReducer;

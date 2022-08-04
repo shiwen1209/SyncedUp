@@ -1,6 +1,6 @@
-import * as API from '../util/api_util';
-import { receiveMessages } from './messages';
-import { receiveUsers } from './users';
+import * as API from '../util/room_api_util';
+import { receiveMessages } from './message_actions';
+import { receiveUsers } from './user_action';
 
 export const RECEIVE_ROOM = 'RECEIVE_ROOM';
 export const RECEIVE_ROOMS = 'RECEIVE_ROOMS';
@@ -44,20 +44,3 @@ export const destroyRoom = roomId => dispatch => {
     );
 };
 
-export const roomsReducer = (state = {}, action) => {
-    Object.freeze(state);
-
-    switch (action.type) {
-        case RECEIVE_ROOM:
-            const { room } = action;
-            return { ...state, [room.id]: room };
-        case RECEIVE_ROOMS:
-            return { ...state, ...action.rooms };
-        case REMOVE_ROOM:
-            const newState = { ...state };
-            delete newState[action.roomId];
-            return newState;
-        default:
-            return state;
-    }
-};
