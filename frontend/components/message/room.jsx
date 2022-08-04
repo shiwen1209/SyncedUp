@@ -44,7 +44,8 @@ class Room extends React.Component {
             { channel: 'RoomsChannel', id: roomId },
             {
                 received: ({ type, message, user, id, reaction }) => {
-                    console.log('Received message: ', message);
+                    console.log('Room action type: ', type);
+                    // debugger
                     const { usersInRoom } = this.state;
                     switch (type) {
                         case 'RECEIVE_MESSAGE':
@@ -54,12 +55,16 @@ class Room extends React.Component {
                         case 'DESTROY_MESSAGE':
                             this.props.removeMessage(id);
                             break;
-                        case 'RECEIVE_USER':
+                        case 'RECEIVE_ROOM_USER':
+                            // debugger
                             this.setState({ usersInRoom: { ...usersInRoom, [user.id]: user } });
+                            console.log("Room state is", this.state)
                             break;
-                        case 'REMOVE_USER':
+                        case 'REMOVE_ROOM_USER':
+                            // debugger
                             const { [id]: _removed, ...remainingUsers } = usersInRoom;
                             this.setState({ usersInRoom: remainingUsers });
+                            console.log("Left room state is", this.state)
                             break;
                         case 'RECEIVE_REACTION':
                             window.clearTimeout(this.reactionTimeouts[id]);

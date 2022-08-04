@@ -11,15 +11,15 @@ class RoomsChannel < ApplicationCable::Channel
     stream_for @room
 
     self.class.broadcast_to @room, 
-      type: 'RECEIVE_USER',
-      user: current_user.slice(:id, :email) #need to update
+      type: 'RECEIVE_ROOM_USER',
+      user: current_user.slice(:id, :email, :first_name, :last_name) #need to update
   end
 
   def unsubscribed
     rooms.delete(@room)
 
     self.class.broadcast_to @room, 
-      type: 'REMOVE_USER',
+      type: 'REMOVE_ROOM_USER',
       id: current_user.id
   end
 
