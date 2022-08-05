@@ -115,7 +115,9 @@ class Room extends React.Component {
     }
 
     scrollToBottom() {
-        this.messageUl.current.scrollTop = this.messageUl.current.scrollHeight;
+        if (this.messageUl.current){
+            this.messageUl.current.scrollTop = this.messageUl.current.scrollHeight;
+        }
     }
 
     handleSubmit(e) {
@@ -162,14 +164,21 @@ class Room extends React.Component {
 
         let user;
         const otherOwners = room.owners.filter((ownerId) => (parseInt(ownerId) !== currentUserId))
+        const otherUsers = otherOwners.map((owner_id) => {
+            if (users[parseInt(owner_id)]) {
+                return users[parseInt(owner_id)].firstName;
+            } else {
+                return "";
+            }
+        }).join(", ");
+
         if (otherOwners.length === 1 && users[parseInt(otherOwners[0])]) {
             user = users[parseInt(otherOwners[0])]
         } else {
             user = {
                 headshotUrl: "https://thumbs.dreamstime.com/b/teamwork-group-friends-logo-image-holding-each-other-39918563.jpg",
-                firstName: "Group",
-                lastName: "chat",
-                headline: "will think of something later"
+                firstName: `Group chat with ${otherUsers}`,
+                headline: `You're in a group chart with ${otherUsers}`
             }
         }
 
