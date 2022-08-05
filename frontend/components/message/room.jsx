@@ -178,22 +178,15 @@ class Room extends React.Component {
             if (message.senderId === currentUserId) {
                 return (
                     <li key={idx} 
-                        className="message-item-right"
                         ref={activeMessageId === message.id && this.activeMessage}
                         tabIndex={-1}>
-                            <Message {...message} />
-                            <button
-                                className='btn-delete'
-                                onClick={() => this.handleDelete(message.id)}
-                            >
-                                x
-                            </button>
+                            <Message m={message}  side="right"/>
                     </li>
                 )
             } else {
                 return (
-                    <li key={idx} className="message-item-left">
-                        <Message {...message} />
+                    <li key={idx} >
+                        <Message m={message}  side="left" />
                     </li>
                 )
             }
@@ -212,27 +205,10 @@ class Room extends React.Component {
                     </div>
                     <div>
                         <ul ref={this.messageUl}>
-                            {messages.map(message => (
-                                <li
-                                    key={message.id}
-                                    ref={activeMessageId === message.id && this.activeMessage}
-                                    tabIndex={-1}
-                                >
-                                    <Message {...message} />
-                                    {message.senderId === currentUserId && (
-                                        <button
-                                            className='btn-delete'
-                                            onClick={() => this.handleDelete(message.id)}
-                                        >
-                                            x
-                                        </button>
-                                    )}
-                                </li>
-                            ))}
+                            {msgList}
                         </ul>
                     </div>
                     <div id="message-form">
-                        <form onSubmit={this.handleSubmit}>
                             <textarea
                                 rows={this.state.content.split('\n').length}
                                 onChange={e => this.setState({ content: e.target.value })}
@@ -244,14 +220,11 @@ class Room extends React.Component {
                                 value={this.state.content}
                             />
                             <div className='message-controls'>
-                                <div>
-                                    {this.generateReactions('👍', '❤️', '🔥', '😡')}
-                                </div>
-                                <button className='btn-primary' disabled={!this.state.content}>
-                                    Send Message
+                                <button className='btn-primary' disabled={!this.state.content}
+                                onClick={this.handleSubmit}>
+                                    Send
                                 </button>
                             </div>
-                        </form>
                     </div>
 
                 </div>
