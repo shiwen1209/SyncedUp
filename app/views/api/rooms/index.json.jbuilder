@@ -4,10 +4,12 @@
       json.partial! 'api/rooms/room', room: room
     end
   end
+end
 
-  json.users do
-    json.set! room.owner.id do
-      json.partial! 'api/users/user', user: room.owner
+json.users do
+  @users.each do |user|
+    json.set! user.id do
+      json.partial! 'api/users/user', user: user
     end
   end
 end

@@ -65,11 +65,7 @@ class User < ApplicationRecord
         class_name: :Message,
         dependent: :destroy
 
-      has_many :received_messages, 
-        foreign_key: :recipient_id,
-        class_name: :Message,
-        dependent: :destroy
-      
+
       has_many :senders,
         through: :received_messages,
         source: :sender

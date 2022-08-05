@@ -22,41 +22,68 @@ class RoomsIndex extends React.Component {
     }
 
     render() {
-        const { rooms, currentUserId, destroyRoom } = this.props;
+        const { rooms, currentUserId, destroyRoom, users } = this.props;
+        const msgList =  rooms.map(({id, owners}, idx) => {
+            const otherOwners = owners.filter((ownerId) => (parseInt(ownerId) !== currentUserId))
+            let user;
+            if (otherOwners.length === 1 && users[parseInt(otherOwners[0])]){
+                user = users[parseInt(otherOwners[0])]
+            } else {
+                user = {
+                    headshotUrl: "https://thumbs.dreamstime.com/b/teamwork-group-friends-logo-image-holding-each-other-39918563.jpg",
+                    firstName: "Group",
+                    lastName: "chat",
+                    headline: "will think of something later"
+                }
+            }
+            return(
+                <NavLink key={idx} to={currentUserId ? `/messaging/${id}` : '/login'}>
+                    <li key={idx} className="headline-tag">
+                        <div className="img">
+                            <img src={user.headshotUrl} alt="" />
+                        </div>
+                        <div className="connection-title">
+
+                            <h3>{user.firstName} {user.lastName}</h3>
+
+                            <h4>{user.headline}</h4>
+
+                        </div>
+                    </li>
+                </NavLink>
+                    
+                )})
 
         return (
-            <section className='rooms-index-home-section'>
-                <h1>Rooms</h1>
-                <ul>
-                    {rooms.map(({ id, name, ownerId }) => (
-                        <li key={id}>
-                            <NavLink to={currentUserId ? `/messaging/${id}` : '/login'}>
-                                {name}
-                            </NavLink>
-                            {ownerId === currentUserId && (
-                                <button
-                                    className='btn-delete'
-                                    onClick={() => destroyRoom(id)}
-                                >
-                                    x
-                                </button>
-                            )}
-                        </li>
-                    ))}
-                </ul>
-                {!!currentUserId &&
-                    <form onSubmit={this.createRoom}>
-                        <input
-                            type="text"
-                            value={this.state.name}
-                            onChange={e => this.setState({ name: e.target.value })}
-                        />
-                        <button className='btn-primary' disabled={!this.state.name}>
-                            Create Room
-                        </button>
-                    </form>
-                }
-            </section >
+
+                <div id="sender-list" className="component" >
+                    <div>
+                        <h3>Messaging</h3>
+                    </div>
+                    <ul>
+                        {msgList}
+                    </ul>
+                </div>
+    
+
+            // <section className='rooms-index-home-section'>
+            //     <h1>Messaging</h1>
+            //     <ul>
+            //         {msgList}
+            //     </ul>
+            //     {!!currentUserId &&
+            //         <form onSubmit={this.createRoom}>
+            //             <input
+            //                 type="text"
+            //                 value={this.state.name}
+            //                 onChange={e => this.setState({ name: e.target.value })}
+            //             />
+            //             <button className='btn-primary' disabled={!this.state.name}>
+            //                 Create Room
+            //             </button>
+            //         </form>
+            //     }
+            // </section >
         );
     }
 }
@@ -64,7 +91,8 @@ class RoomsIndex extends React.Component {
 const mapState = state => {
     return {
         currentUserId: state.session.id,
-        rooms: Object.values(state.entities.rooms)
+        rooms: Object.values(state.entities.rooms),
+        users: state.entities.users
     };
 };
 

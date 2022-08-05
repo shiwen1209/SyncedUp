@@ -19,6 +19,8 @@ class Room extends React.Component {
         this.messageUl = React.createRef();
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.scrollToMessage = this.scrollToMessage.bind(this);
+        this.scrollToBottom = this.scrollToBottom.bind(this)
 
         this.reactionTimeouts = {};
     }
@@ -123,7 +125,6 @@ class Room extends React.Component {
         const newMsg = { content, 
                         room_id: roomId, 
                         sender_id: senderId,
-                        recipient_id: 228,
                         read_status: false }
         createMessage(newMsg).then(() => {
             this.setState({ content: '' });
@@ -153,67 +154,108 @@ class Room extends React.Component {
     }
 
     render() {
-        const { room, currentUserId, messages, location } = this.props;
+        const { room, currentUserId, messages, location, users } = this.props;
         const activeMessageId = parseInt(location.hash.slice(1));
         const usersInRoom = Object.values(this.state.usersInRoom);
-        // debugger
-        return (
-            <>
-                <section className='room home-section'>
-                    <h1>{room?.name}</h1>
 
-                    <ul ref={this.messageUl}>
-                        {messages.map(message => (
-                            <li
-                                key={message.id}
-                                ref={activeMessageId === message.id && this.activeMessage}
-                                tabIndex={-1}
+        if(!room){return}
+
+        let user;
+        const otherOwners = room.owners.filter((ownerId) => (parseInt(ownerId) !== currentUserId))
+        if (otherOwners.length === 1 && users[parseInt(otherOwners[0])]) {
+            user = users[parseInt(otherOwners[0])]
+        } else {
+            user = {
+                headshotUrl: "https://thumbs.dreamstime.com/b/teamwork-group-friends-logo-image-holding-each-other-39918563.jpg",
+                firstName: "Group",
+                lastName: "chat",
+                headline: "will think of something later"
+            }
+        }
+
+
+        const msgList = messages.map((message, idx) => {
+            if (message.senderId === currentUserId) {
+                return (
+                    <li key={idx} 
+                        className="message-item-right"
+                        ref={activeMessageId === message.id && this.activeMessage}
+                        tabIndex={-1}>
+                            <Message {...message} />
+                            <button
+                                className='btn-delete'
+                                onClick={() => this.handleDelete(message.id)}
                             >
-                                <Message {...message} />
-                                {message.senderId === currentUserId && (
-                                    <button
-                                        className='btn-delete'
-                                        onClick={() => this.handleDelete(message.id)}
-                                    >
-                                        x
-                                    </button>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                    <form onSubmit={this.handleSubmit}>
-                        <textarea
-                            rows={this.state.content.split('\n').length}
-                            onChange={e => this.setState({ content: e.target.value })}
-                            onKeyDown={e => {
-                                if (e.code === 'Enter' && !e.shiftKey) {
-                                    this.handleSubmit(e);
-                                }
-                            }}
-                            value={this.state.content}
-                        />
-                        <div className='message-controls'>
-                            <div>
-                                {this.generateReactions('👍', '❤️', '🔥', '😡')}
-                            </div>
-                            <button className='btn-primary' disabled={!this.state.content}>
-                                Send Message
+                                x
                             </button>
+                    </li>
+                )
+            } else {
+                return (
+                    <li key={idx} className="message-item-left">
+                        <Message {...message} />
+                    </li>
+                )
+            }
+        })
+
+        return (
+                <div id="message-view" className="component">
+                    <div className="headline-tag">
+                        <div className="img">
+                            <img src={user.headshotUrl} alt="" />
                         </div>
-                    </form>
-                </section>
-                <section className='online-users home-section'>
-                    <h2>In Room</h2>
-                    <ul >
-                        {usersInRoom.map(({ id, email, reaction }) => (
-                            <li key={id} className={currentUserId === id ? 'current' : ''}>
-                                <span className='reaction'>{reaction}</span>
-                                <span>{email}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-            </>
+                        <div className="connection-title">
+                            <h3>{user.firstName} {user.lastName}</h3>
+                            <h4>{user.headline}</h4>
+                        </div>
+                    </div>
+                    <div>
+                        <ul ref={this.messageUl}>
+                            {messages.map(message => (
+                                <li
+                                    key={message.id}
+                                    ref={activeMessageId === message.id && this.activeMessage}
+                                    tabIndex={-1}
+                                >
+                                    <Message {...message} />
+                                    {message.senderId === currentUserId && (
+                                        <button
+                                            className='btn-delete'
+                                            onClick={() => this.handleDelete(message.id)}
+                                        >
+                                            x
+                                        </button>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div id="message-form">
+                        <form onSubmit={this.handleSubmit}>
+                            <textarea
+                                rows={this.state.content.split('\n').length}
+                                onChange={e => this.setState({ content: e.target.value })}
+                                onKeyDown={e => {
+                                    if (e.code === 'Enter' && !e.shiftKey) {
+                                        this.handleSubmit(e);
+                                    }
+                                }}
+                                value={this.state.content}
+                            />
+                            <div className='message-controls'>
+                                <div>
+                                    {this.generateReactions('👍', '❤️', '🔥', '😡')}
+                                </div>
+                                <button className='btn-primary' disabled={!this.state.content}>
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+        
         );
     }
 };
@@ -235,7 +277,8 @@ const mapState = (state, ownProps) => {
         currentUserId: state.session.id,
         messages,
         roomId,
-        room: state.entities.rooms[parseInt(roomId)]
+        room: state.entities.rooms[parseInt(roomId)],
+        users: state.entities.users
     };
 };
 

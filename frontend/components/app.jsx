@@ -34,12 +34,12 @@ const App = (props) => {
                 <ProtectedRoute path="/mynetwork" component={MyNetworkContainer} />
                 {/* <ProtectedRoute path="/messaging" component={MessageIndexContainer} /> */}
                 <Route path='/messaging' render={routeProps => (
-                    <section className='home'>
+                    <div id="message-index">
                         <RoomsIndex {...routeProps} />
                         {props.currentUser &&
                             <Route path='/messaging/:id' component={Room} />
                         }
-                    </section>
+                    </div>
                 )} />
                 <Redirect to='/' />
                 <AuthRoute exact path="/" component={Homepage} />

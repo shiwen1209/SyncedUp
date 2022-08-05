@@ -1,21 +1,28 @@
 import React from 'react';
 
-const Message = ({ content, senderFirstName, senderLastName, createdAt }) => {
+const Message = ({ content, senderFirstName, senderLastName, createdAt, senderHeadshotUrl}) => {
     const formattedTime = getFormattedTime(createdAt);
     return (
         <div className='message'>
-            <span className='message__sender'>{senderFirstName} {senderLastName}</span>
-            <span className='message__timestamp'>{formattedTime}</span>
-            <p>
-                {getFormattedBody(content)}
-            </p>
+            <div className="img">
+                <img src={senderHeadshotUrl} alt="" />
+            </div>
+            <div className="connection-title">
+                <h3>{senderFirstName} {senderLastName}</h3>
+                <p>{content}</p>
+                <span className='message__timestamp'>{formattedTime}</span>
+            </div>
+             
+
         </div>
     );
 };
 
-function getFormattedBody(content) {
-    return content;
-}
+
+
+// function getFormattedBody(content) {
+//     return content;
+// }
 
 function getFormattedTime(dateString) {
     const date = new Date(dateString);

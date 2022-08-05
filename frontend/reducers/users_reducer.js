@@ -1,5 +1,5 @@
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
-import { RECEIVE_USER, RECEIVE_PEOPLE, RECEIVE_MSG_USER } from "../actions/user_action";
+import { RECEIVE_USER, RECEIVE_PEOPLE, RECEIVE_MSG_USER, RECEIVE_USERS } from "../actions/user_action";
 import { RECEIVE_CONNECTIONS, RECEIVE_CONNECTION, REMOVE_CONNECTION} from "../actions/connection_actions";
 // import { RECEIVE_SENDERS } from "../actions/message_actions";
 
@@ -20,26 +20,22 @@ const usersReducer = (state = {}, action) => {
         case RECEIVE_CONNECTIONS:
             return action.user
         case RECEIVE_CONNECTION:
-            // debugger
             const connectIds = [action.connect.user1Id, action.connect.user2Id]
             Object.keys(nextState).forEach((key)=>{
                 if (connectIds.includes(nextState[key].id)){
                     nextState[key].numConnections += 0.5
                 }
             })
-            // debugger
             return nextState
         case REMOVE_CONNECTION:
-            // debugger
             Object.keys(nextState).forEach((key) =>
                 nextState[key].numConnections -= 0.5)
-            // debugger
             return nextState
         case RECEIVE_PEOPLE:
             nextState[action.user.id] = action.user
             return nextState;
-        // case RECEIVE_SENDERS:
-        //     return action.users
+        case RECEIVE_USERS:
+            return {...state, ...action.users}
         default:
             return state;
     }

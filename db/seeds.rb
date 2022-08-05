@@ -241,16 +241,16 @@ User.delete_all
 # Experience.create!("user_id": user2.id, "title": "Bachelor of Science", "company_name": "Harvard University",
 #                         "start_date": "1973-09-01", "end_date": "1975-06-01", "exp_type": "school")
 
-room1 = Room.create!("owner_id": user1.id, "name": "#{user1.first_name.capitalize}'s First Room")
-room2 = Room.create!("owner_id": user2.id, "name": "#{user2.first_name.capitalize}'s First Room")
-room3 = Room.create!("owner_id": user3.id, "name": "#{user3.first_name.capitalize}'s First Room")
-room4 = Room.create!("owner_id": user4.id, "name": "#{user4.first_name.capitalize}'s First Room")
-room5 = Room.create!("owner_id": user5.id, "name": "#{user5.first_name.capitalize}'s First Room")
+room1 = Room.create!("owner_id": user1.id, "owners": [user1.id], "name": "#{user1.first_name.capitalize}'s First Room")
+room2 = Room.create!("owner_id": user2.id, "owners": [user1.id, user2.id], "name": "#{user2.first_name.capitalize}'s First Room")
+room3 = Room.create!("owner_id": user3.id, "owners": [user1.id, user3.id], "name": "#{user3.first_name.capitalize}'s First Room")
+room4 = Room.create!("owner_id": user4.id, "owners": [user1.id, user4.id], "name": "#{user4.first_name.capitalize}'s First Room")
+room5 = Room.create!("owner_id": user5.id, "owners": [user2.id, user5.id], "name": "#{user5.first_name.capitalize}'s First Room")
 
 Message.create!("sender_id": user2.id, "recipient_id": user1.id, "content": "Hi Banana", "read_status": false, "room_id": room2.id)
 Message.create!("sender_id": user3.id, "recipient_id": user1.id, "content": "Hello, banana",  "read_status": false, "room_id": room3.id)
 Message.create!("sender_id": user4.id, "recipient_id": user1.id, "content": "Hello, banana",  "read_status": false, "room_id": room4.id)
-Message.create!("sender_id": user5.id, "recipient_id": user1.id, "content": "Hello, banana",  "read_status": false, "room_id": room5.id)
+Message.create!("sender_id": user5.id, "recipient_id": user2.id, "content": "Hello, banana",  "read_status": false, "room_id": room5.id)
 Message.create!("sender_id": user1.id, "recipient_id": user2.id, "content": "Hello",  "read_status": false, "room_id": room2.id)
 Message.create!("sender_id": user1.id, "recipient_id": user2.id, "content": "Hello",  "read_status": false, "room_id": room2.id)
 
