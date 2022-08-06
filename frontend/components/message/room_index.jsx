@@ -12,7 +12,7 @@ class RoomsIndex extends React.Component {
     componentDidMount() {
         const {fetchRooms, rooms, history} = this.props
         fetchRooms();
-        if(rooms.length > 0){
+        if (rooms.length > 0 && this.props.location.pathname === '/messaging'){
             history.push(`/messaging/${rooms[0].id}`);
         }
     }
