@@ -10,9 +10,21 @@ class RoomsIndex extends React.Component {
     }
 
     componentDidMount() {
-        const {fetchRooms, rooms, history} = this.props
-        fetchRooms();
-        if (rooms.length > 0 && this.props.location.pathname === '/messaging'){
+        this.props.fetchRooms()
+        .then(()=>{
+            const {rooms, history, location } = this.props
+            if (rooms.length > 0 && location.pathname === '/messaging') {
+                history.push(`/messaging/${rooms[0].id}`);
+            }
+        })
+    }
+
+    componentDidUpdate(prevProp){
+        const{location, rooms, history} = this.props
+        if (location.pathname !== prevProp.location.pathname &&
+            location.pathname === '/messaging'
+            && rooms.length > 0 
+            ){
             history.push(`/messaging/${rooms[0].id}`);
         }
     }
