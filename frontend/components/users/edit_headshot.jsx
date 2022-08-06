@@ -23,7 +23,6 @@ class EditHeadshot extends React.Component{
     }
 
     handleSubmit(e){
-        // debugger
         e.preventDefault();
         const {user, closeModal, updateUserPhoto} = this.props
         const formData = new FormData();

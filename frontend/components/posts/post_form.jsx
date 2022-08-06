@@ -16,13 +16,11 @@ class PostForm extends React.Component{
         e.preventDefault();
         const {processForm, closeModal, post} = this.props
         const formData = new FormData();
-        // debugger
         if (this.state.photoFile){
             formData.append('post[image]', this.state.photoFile);
         }
         formData.append('post[body]', this.state.body);
         formData.append('post[author_id]', this.state.authorId);
-        // debugger
         processForm(formData, post.id)
         closeModal();
     }

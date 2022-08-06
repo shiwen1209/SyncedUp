@@ -43,7 +43,6 @@ class Room extends React.Component {
             {
                 received: ({ type, message, user, id, reaction }) => {
                     console.log('Room action type: ', type);
-                    // debugger
                     const { usersInRoom } = this.state;
                     switch (type) {
                         case 'RECEIVE_MESSAGE':
@@ -54,12 +53,10 @@ class Room extends React.Component {
                             this.props.removeMessage(id);
                             break;
                         case 'RECEIVE_ROOM_USER':
-                            // debugger
                             this.setState({ usersInRoom: { ...usersInRoom, [user.id]: user } });
                             console.log("Room state is", this.state)
                             break;
                         case 'REMOVE_ROOM_USER':
-                            // debugger
                             const { [id]: _removed, ...remainingUsers } = usersInRoom;
                             this.setState({ usersInRoom: remainingUsers });
                             console.log("Left room state is", this.state)

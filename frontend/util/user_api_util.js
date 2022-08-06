@@ -14,7 +14,6 @@ export const updateUser = (user) => {
 }
 
 export const updateUserPhoto = (userId, formData) => {
-    // debugger
     return $.ajax({
         url: `/api/users/${userId}`,
         method: "PATCH",
