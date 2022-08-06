@@ -11,7 +11,8 @@ class CreateRoom extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchConnections(this.props.currentUserId)
+        this.props.fetchRooms();
+        this.props.fetchConnections(this.props.currentUserId);
     }
 
     handleSubmit(){

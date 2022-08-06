@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { receiveMessage, removeMessage } from '../../actions/message_actions';
-import { fetchRoom } from '../../actions/room_actions';
+import { fetchRoom, fetchRooms } from '../../actions/room_actions';
 import { receiveMsgUser } from '../../actions/user_action';
 import CreateRoom from './create_room';
 import { fetchConnections} from "../../actions/connection_actions";
@@ -17,6 +17,7 @@ const mapState = (state, ownProps) => {
 export default connect(mapState, {
     fetchConnections,
     fetchRoom,
+    fetchRooms,
     receiveMessage,
     removeMessage,
     receiveMsgUser

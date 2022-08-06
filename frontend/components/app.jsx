@@ -33,15 +33,14 @@ const App = (props) => {
                 <Route path='/messaging' render={routeProps => (
                     <div id="message-index">
                         <RoomsIndexContainer {...routeProps} />
-                        {props.currentUser &&
+                        {props.currentUser ? 
                             <Switch>
                                 <Route exact path='/messaging/new' component={CreateRoomContainer} />
                                 <Route path='/messaging/:id' component={RoomContainer} />
-                            </Switch>
+                            </Switch> : <Redirect to='/login' />
                         }
                     </div>
                 )} />
-                <Redirect to='/' />
                 <AuthRoute exact path="/" component={Homepage} />
             </Switch>
         </div>

@@ -80,9 +80,9 @@ class RoomsIndex extends React.Component {
                     <div>
                         <h3>Messaging</h3>
                         <div className='icon'>
-                            <NavLink to={currentUserId ? `/messaging/new` : '/login'}>
+                            {/* <NavLink to={currentUserId ? `/messaging/new` : '/login'}> */}
                                 <i className="fa-solid fa-pen-to-square"></i>
-                            </NavLink>
+                            {/* </NavLink> */}
                         </div>
                     </div>
                     <ul>
