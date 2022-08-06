@@ -6,6 +6,7 @@ import ExpForm from "./exp_form";
 const mstp = (state)=>{
     const exp1 = state.ui.modal.payload
     return{
+        errors: state.errors.experience,
         formType: "Edit",
         create_exp_type: exp1.expType,
         exp: {

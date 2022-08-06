@@ -117,6 +117,17 @@
     // border: 1px solid red;
 }
 
+#post-title .headline-tag div:nth-child(2) {
+    // border: 1px solid red;
+    width: 380px;
+
+}
+
+#post-title .headline-tag p {
+    width: 100%;
+    // border: 1px solid red;
+}
+
 .dropdown-container .icon{
     &:hover{
         background-color: rgba(125, 120, 120, 0.157);

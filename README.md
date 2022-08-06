@@ -1,24 +1,38 @@
-# README
+# SyncedUp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+SyncedUp is a clone of LinkedIn, a social media application that allows profesionals to connect with other to branch out their network, showcase their profile and experiences, share updates on their profesional lives and follow other's updates. 
 
-Things you may want to cover:
+Live site: https://syncedup1.herokuapp.com/#/
 
-* Ruby version
+# Functionality and MVPs
 
-* System dependencies
+* User authentication and sign up
 
-* Configuration
+* User profile including general intro, profesional experiences and education
 
-* Database creation
+* Feed, including posts, comments and likes 
+    * User can see posts from all of their connections
+    * User can comment on the posts
+    * User can like a post or a comment 
+* Connections 
+    * User can connect with other users
+* Search
+    * User can search other users by their name
 
-* Database initialization
+# Technologies Used
 
-* How to run the test suite
+ ## Hosting & Server
+  * Heroku
+  * AWS
+ ## Backend
+ * Ruby on Rails
+ * PostgreSQL
+ * jBuilder
+ ## Frontend
+ * React
+ * Redux
+ * Node.js
+ * jQuery
 
-* Services (job queues, cache servers, search engines, etc.)
+ # Features
 
-* Deployment instructions
-
-* ...
