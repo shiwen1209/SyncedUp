@@ -1,7 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
-import { createRoom, destroyRoom, fetchRooms } from '../../actions/room_actions';
+import { withRouter } from 'react-router-dom';
 
 class RoomsIndex extends React.Component {
     constructor(props) {
@@ -11,7 +10,11 @@ class RoomsIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchRooms();
+        const {fetchRooms, rooms, history} = this.props
+        fetchRooms();
+        if(rooms.length > 0){
+            history.push(`/messaging/${rooms[0].id}`);
+        }
     }
 
     createRoom(e) {
@@ -24,9 +27,8 @@ class RoomsIndex extends React.Component {
     render() {
         const { rooms, currentUserId, destroyRoom, users } = this.props;
         const msgList =  rooms.map(({id, owners}, idx) => {
-            const otherOwners = owners.filter((ownerId) => (parseInt(ownerId) !== currentUserId))
             let user;
-
+            const otherOwners = owners.filter((ownerId) => (parseInt(ownerId) !== currentUserId))
             const otherUsers = otherOwners.map((owner_id) =>{
                 if (users[parseInt(owner_id)]){
                     return users[parseInt(owner_id)].firstName;
@@ -44,6 +46,7 @@ class RoomsIndex extends React.Component {
                     headline: `You're in a group chart with ${otherUsers}`
                 }
             }
+
             return(
                 <NavLink key={idx} to={currentUserId ? `/messaging/${id}` : '/login'}>
                     <li key={idx} className="headline-tag">
@@ -51,11 +54,8 @@ class RoomsIndex extends React.Component {
                             <img src={user.headshotUrl} alt="" />
                         </div>
                         <div className="connection-title">
-
                             <h3>{user.firstName} {user.lastName}</h3>
-
                             <h4>{user.headline}</h4>
-
                         </div>
                     </li>
                 </NavLink>
@@ -77,17 +77,4 @@ class RoomsIndex extends React.Component {
     }
 }
 
-const mapState = state => {
-    return {
-        currentUserId: state.session.id,
-        rooms: Object.values(state.entities.rooms),
-        users: state.entities.users
-    };
-};
-
-
-export default connect(mapState, {
-    createRoom,
-    destroyRoom,
-    fetchRooms
-})(RoomsIndex);
+export default withRouter(RoomsIndex);

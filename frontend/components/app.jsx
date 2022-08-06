@@ -10,9 +10,7 @@ import UserProfileContainer from "./users/user_profile_container";
 import MyNetworkContainer from "./users/my_network_container";
 import PeopleContainer from "./users/people_container";
 import Modal from "./modal/modal";
-import People from "./users/people";
-import MessageIndexContainer from "./message/message_index_container";
-import RoomsIndex from './message/room_index';
+import RoomsIndexContainer from './message/room_index_container';
 import Room from './message/room';
 import { connect } from "react-redux";
 
@@ -35,7 +33,7 @@ const App = (props) => {
                 {/* <ProtectedRoute path="/messaging" component={MessageIndexContainer} /> */}
                 <Route path='/messaging' render={routeProps => (
                     <div id="message-index">
-                        <RoomsIndex {...routeProps} />
+                        <RoomsIndexContainer {...routeProps} />
                         {props.currentUser &&
                             <Route path='/messaging/:id' component={Room} />
                         }
