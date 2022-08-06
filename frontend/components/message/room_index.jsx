@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
+
 class RoomsIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -75,10 +76,14 @@ class RoomsIndex extends React.Component {
                 )})
 
         return (
-
                 <div id="sender-list" className="component" >
                     <div>
                         <h3>Messaging</h3>
+                        <div className='icon'>
+                            <NavLink to={currentUserId ? `/messaging/new` : '/login'}>
+                                <i className="fa-solid fa-pen-to-square"></i>
+                            </NavLink>
+                        </div>
                     </div>
                     <ul>
                         {msgList}

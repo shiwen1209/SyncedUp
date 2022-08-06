@@ -19,6 +19,21 @@
     height: 640px;
 }
 
+#sender-list > div{
+    display:  flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5px;
+    padding-bottom: 0px;
+}
+
+#sender-list>div:nth-child(1)>h3 {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
 #message-view{
     width: 700px;
     // border: 1px solid red;
@@ -101,13 +116,8 @@
     padding: 0px;
 }
 
-#sender-list>div:nth-child(1){
-    padding: 10px;
-}
-#sender-list>div:nth-child(1)>h3{
-    font-size: 20px;
-    font-weight: bold;
-}
+
+
 
 #sender-list ul{
     margin-top: 10px;

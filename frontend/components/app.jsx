@@ -11,7 +11,8 @@ import MyNetworkContainer from "./users/my_network_container";
 import PeopleContainer from "./users/people_container";
 import Modal from "./modal/modal";
 import RoomsIndexContainer from './message/room_index_container';
-import Room from './message/room';
+import RoomContainer from './message/room_container';
+import CreateRoomContainer from "./message/create_room_container";
 import { connect } from "react-redux";
 
 
@@ -22,7 +23,6 @@ const App = (props) => {
             <header>
                 <NavContainer />
             </header>
-
             <Switch>
                 <AuthRoute path="/signup" component={SignupFormContainer} />
                 <AuthRoute path="/login" component={LoginFormContainer} />
@@ -30,12 +30,14 @@ const App = (props) => {
                 <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
                 <ProtectedRoute path="/mynetwork/people" component={PeopleContainer} />
                 <ProtectedRoute path="/mynetwork" component={MyNetworkContainer} />
-                {/* <ProtectedRoute path="/messaging" component={MessageIndexContainer} /> */}
                 <Route path='/messaging' render={routeProps => (
                     <div id="message-index">
                         <RoomsIndexContainer {...routeProps} />
                         {props.currentUser &&
-                            <Route path='/messaging/:id' component={Room} />
+                            <Switch>
+                                <Route exact path='/messaging/new' component={CreateRoomContainer} />
+                                <Route path='/messaging/:id' component={RoomContainer} />
+                            </Switch>
                         }
                     </div>
                 )} />
