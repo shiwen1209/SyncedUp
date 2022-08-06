@@ -23,6 +23,15 @@ export const fetchRooms = () => dispatch => {
     });
 };
 
+export const fetchRoomsNoUsers = () => dispatch => {
+    return API.fetchRooms().then(({ rooms, users }) => {
+        dispatch({
+            type: RECEIVE_ROOMS,
+            rooms
+        });
+    });
+};
+
 export const fetchRoom = id => dispatch => {
     return API.fetchRoom(id).then(({ room, messages, users }) => {
         dispatch(receiveMessages(messages));

@@ -73,25 +73,6 @@ class RoomsIndex extends React.Component {
                     </ul>
                 </div>
     
-
-            // <section className='rooms-index-home-section'>
-            //     <h1>Messaging</h1>
-            //     <ul>
-            //         {msgList}
-            //     </ul>
-            //     {!!currentUserId &&
-            //         <form onSubmit={this.createRoom}>
-            //             <input
-            //                 type="text"
-            //                 value={this.state.name}
-            //                 onChange={e => this.setState({ name: e.target.value })}
-            //             />
-            //             <button className='btn-primary' disabled={!this.state.name}>
-            //                 Create Room
-            //             </button>
-            //         </form>
-            //     }
-            // </section >
         );
     }
 }

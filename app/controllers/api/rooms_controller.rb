@@ -26,7 +26,6 @@ class Api::RoomsController < ApplicationController
 
     def create
         @room = Room.new(room_params)
-
         if @room.save
         render '_room', locals: { room: @room }
         else
@@ -43,6 +42,6 @@ class Api::RoomsController < ApplicationController
     private
 
     def room_params
-        params.require(:room).permit(:name, :owner_id, :owners)
+        params.require(:room).permit(:name, :owner_id, :owners => [])
     end
 end
