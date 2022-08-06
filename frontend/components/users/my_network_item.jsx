@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 
 class MyNetworkItem extends React.Component {
     constructor(props){
         super(props);
-        this.handleClickDisconnect = this.handleClickDisconnect.bind(this)
+        this.handleClickDisconnect = this.handleClickDisconnect.bind(this);
+        this.createRoom = this.createRoom.bind(this)
     }
 
     handleClickDisconnect(e) {
@@ -13,6 +15,36 @@ class MyNetworkItem extends React.Component {
         const conId2 = connection.mirrorConnectionId;
         deleteConnection(conId1);
         deleteConnection(conId2);
+    }
+
+    createRoom(e) {
+        e.preventDefault();
+        const { createRoom, currentUserId, connection, rooms } = this.props;
+        const userRoom = rooms.filter((room) => {
+            return this.arrayEqual(room.owners, [currentUserId.toString(), connection.id.toString()])
+        })
+        if (userRoom.length === 1) {
+            this.props.history.push(`/messaging/${userRoom[0].id}`);
+        } else if (userRoom.length === 0) {
+            createRoom({ owners: [currentUserId, connection.id] })
+                .then(() => (this.createRoom(e)))
+        } else {
+            alert("error, please contact developer")
+        }
+    }
+
+    arrayEqual(arr1, arr2) {
+        for (let i = 0; i < arr1.length; i++) {
+            if (!arr2.includes(arr1[i])) {
+                return false
+            }
+        }
+        for (let i = 0; i < arr2.length; i++) {
+            if (!arr1.includes(arr2[i])) {
+                return false
+            }
+        }
+        return true
     }
 
     render(){
@@ -45,7 +77,7 @@ class MyNetworkItem extends React.Component {
                         <p>Connected {time} ago</p>
                     </div>
                     <div>
-                        <button>Message</button>
+                        <button onClick={this.createRoom}>Message</button>
                         <button onClick={this.handleClickDisconnect}>Disconnect</button>
                     </div>
                 </div>
@@ -54,4 +86,4 @@ class MyNetworkItem extends React.Component {
     }
 }
 
-export default MyNetworkItem
+export default withRouter(MyNetworkItem);

@@ -1,5 +1,5 @@
 import React from "react";
-import MyNetworkItem from "./my_network_item";
+import MyNetworkItemContainer from "./my_network_item_container";
 import { Link } from "react-router-dom";
 
 class MyNetwork extends React.Component {
@@ -8,13 +8,14 @@ class MyNetwork extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchConnections(this.props.user.id)
+        this.props.fetchConnections(this.props.user.id);
+        this.props.fetchRoomsNoUsers();
     }
 
     render(){
-        const {user, connections, deleteConnection} = this.props
-        const conList = connections.map((connection, idx) => (<MyNetworkItem 
-            key={idx} connection={connection} deleteConnection={deleteConnection}/>))
+        const {user, connections} = this.props
+        const conList = connections.map((connection, idx) => (<MyNetworkItemContainer 
+            key={idx} connection={connection}/>))
 
         if (!user) {return}
         return(
