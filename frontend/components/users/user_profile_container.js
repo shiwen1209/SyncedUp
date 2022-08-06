@@ -3,12 +3,14 @@ import UserProfile from "./user_profile";
 import { fetchUser } from "../../actions/user_action";
 import { openModalPayload, closeModal } from '../../actions/modal_actions';
 import { createConnection, deleteConnection} from "../../actions/connection_actions";
+import { createRoom, fetchRoomsNoUsers} from '../../actions/room_actions';
 
 const mstp = (state, ownProps) => {
     return {
         user: state.entities.users[ownProps.match.params.userId],
         currentUserId: state.session.id,
-        connections: state.entities.connections
+        connections: state.entities.connections,
+        rooms: Object.values(state.entities.rooms)
     }
 }
 
@@ -18,7 +20,9 @@ const mdtp = (dispatch) => {
         openModalPayload: (obj) => dispatch(openModalPayload(obj)),
         closeModal: ()=> dispatch(closeModal()),
         createConnection: (connect) => dispatch(createConnection(connect)),
-        deleteConnection: (connectId)=>dispatch(deleteConnection(connectId))
+        deleteConnection: (connectId)=>dispatch(deleteConnection(connectId)),
+        createRoom: (room) => dispatch(createRoom(room)),
+        fetchRoomsNoUsers: () => dispatch(fetchRoomsNoUsers())
     }
 }
 

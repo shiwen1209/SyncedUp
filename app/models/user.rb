@@ -60,6 +60,18 @@ class User < ApplicationRecord
         through: :connects,
         source: :follower,
         dependent: :destroy
+
+      has_many :sent_messages, 
+        foreign_key: :sender_id,
+        class_name: :Message,
+        dependent: :destroy
+
+
+      has_many :senders,
+        through: :received_messages,
+        source: :sender
+
+      # has_many :owned_rooms, foreign_key: :owner_id, class_name: :Room
       
       has_one_attached :headshot,
       dependent: :destroy

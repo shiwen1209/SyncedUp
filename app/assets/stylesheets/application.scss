@@ -27,6 +27,7 @@
   @import './api/my_network.scss';
   @import './api/search.scss';
   @import './api/experiences.scss';
+  @import './api/messages.scss';
  
 
 
@@ -124,7 +125,6 @@ button, img{
 }
 
 h1, h2, h3, h4, p {
-    width: 100%;
     word-wrap: break-word;
 }
 
@@ -140,8 +140,3 @@ h1, h2, h3, h4, p {
   color: rgb(228, 18, 18);
   font-size: 14px;
 }
-
-// #splash-image{
-//   width: 400px;
-//   height: 400px;
-// }

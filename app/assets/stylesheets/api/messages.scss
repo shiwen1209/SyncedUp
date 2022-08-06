@@ -1,0 +1,236 @@
+// Place all the styles related to the api/messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#message-index {
+    margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    width: 1100px;
+    justify-content: space-between;
+    padding: 0;
+
+}
+
+#sender-list {
+    width: 370px;
+    // border: 1px solid red;
+    height: 640px;
+}
+
+#sender-list > div{
+    display:  flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5px;
+    padding-bottom: 0px;
+}
+
+#sender-list>div:nth-child(1)>h3 {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#message-view{
+    width: 700px;
+    // border: 1px solid red;
+    padding: 0px;
+}
+
+
+.message-item-left, .message-item-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    padding: 10px;
+    // border: 1px solid red;
+    
+}
+
+ .message-item-right{
+        justify-content: flex-end;
+
+ }
+
+
+.message-item-left .connection-title, .message-item-right .connection-title{
+    background-color: rgba(211, 211, 211, 0.514);
+    border-radius: 5px;
+    margin: 0;
+    padding: 5px;
+    max-width: 300px;   
+}
+
+.message-item-right .connection-title{
+    margin-right: 10px;
+}
+
+#message-view ul {
+    // border: 1px solid yellow;
+    height: 400px;
+    overflow-y: scroll;
+    // padding: 10px;
+}
+
+#message-view ul .img {
+    height: 40px;
+    width: 40px;
+
+}
+
+#message-view .headline-tag{
+    // border: 1px solid red;
+    padding: 10px;
+    width: auto;
+    border-bottom: 1px solid lightgray;
+    min-height: 60px;
+
+
+
+}
+
+#message-view .headline-tag, #message-index .headline-tag{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    // border: 1px solid purple;
+    border-bottom: 1px solid lightgray;
+    width: auto;
+}
+
+#sender-list .connection-title{
+    width: 270px;
+    
+}
+
+#message-view > .headline-tag > .connection-title {
+    width: 85%;
+}
+
+#sender-list{
+    padding: 0px;
+}
+
+
+
+
+#sender-list ul{
+    margin-top: 10px;
+    border-top: 1px solid lightgray;
+}
+
+
+#sender-list li{
+    padding: 10px;
+
+}
+
+#message-form{
+    height: 150px;
+    // border: 1px solid purple;
+    width: 100%;
+}
+
+.msg-sub-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.msg-sub-title h3{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.message__timestamp{
+    font-size: 12px;
+}
+
+.msg-title{
+        display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 5px;
+
+}
+
+.msg-title button{
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 20px;
+    border: none;
+    border-radius: 50%;
+    &:hover{
+        background-color: rgb(169, 167, 167);
+    }
+
+}
+
+.msg-title i{
+    font-size: 13px;
+    color: rgb(77, 76, 76);
+    
+}
+
+
+#message-form textarea{
+    margin: 0px;
+    padding: 10px;
+    
+    width: 97%;
+    background-color: transparent;
+        resize: none;
+        outline: none;
+        border: none;
+        // border: 1px solid red;
+        height: 80px;
+        border-top: 1px solid lightgray;
+        border-bottom: 1px solid lightgray;
+        &:focus{
+            border-top: 1.5px solid blue;
+            border-bottom: 1.5px solid blue;
+        }
+
+}
+
+.message-controls{
+    // border: 1px solid green;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 97%;
+    padding-top: 10px;
+}
+
+.btn-primary{
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+
+}
+
+.btn-primary:enabled{
+        color: white;
+            background-color: $theme-color1 ;
+
+}
+
+.btn-primary:hover:enabled{
+    background-color: #953222;
+
+}

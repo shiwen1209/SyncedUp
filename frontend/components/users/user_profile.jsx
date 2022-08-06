@@ -4,6 +4,7 @@ import EduIndexContainer from "../experiences/edu_index_container";
 import PeopleContainer from "./people_container";
 import { Link } from "react-router-dom";
 import PeopleListContainer from "./people_list_container";
+import { withRouter } from 'react-router-dom';
 
 
 class UserProfile extends React.Component {
@@ -14,11 +15,13 @@ class UserProfile extends React.Component {
         this.toggleDisplayDropdown = this.toggleDisplayDropdown.bind(this);
         this.state ={
             displayDropdown: false
-        }
+        };
+        this.createRoom = this.createRoom.bind(this);
     }
 
     componentDidMount(){
         this.props.fetchUser(this.props.match.params.userId)
+        this.props.fetchRoomsNoUsers();
     }
 
     componentDidUpdate(prevProp) {
@@ -49,6 +52,39 @@ class UserProfile extends React.Component {
         }
         console.log(this.state)
 
+    }
+
+    createRoom(e) {
+        e.preventDefault();
+        const { createRoom, currentUserId, user, rooms} = this.props;
+        const userRoom = rooms.filter((room)=>{
+            const a = room.owners;
+            const b = [currentUserId.toString(), user.id.toString()];
+            const c = this.arrayEqual(room.owners, [currentUserId.toString(), user.id.toString()])
+            return this.arrayEqual(room.owners, [currentUserId.toString(), user.id.toString()] )   
+        })
+        if(userRoom.length === 1){
+            this.props.history.push(`/messaging/${userRoom[0].id}`);
+        } else if (userRoom.length === 0) {
+            createRoom({owners: [currentUserId, user.id]})
+            .then(() => (this.createRoom(e)))
+        } else {
+            alert("error, please contact developer")
+        } 
+    }
+
+    arrayEqual(arr1, arr2){
+        for(let i=0; i< arr1.length; i++){
+            if(!arr2.includes(arr1[i])){
+                return false 
+            }
+        }
+        for (let i = 0; i < arr2.length; i++) {
+            if (!arr1.includes(arr2[i])) {
+                return false
+            }
+        }
+        return true
     }
 
     render(){
@@ -113,7 +149,7 @@ class UserProfile extends React.Component {
                                         <button onClick={this.handleClickDisconnect} className="session-button">Disconnect</button>
                                         : <button onClick={this.handleClickConnect} className="session-button">Connect</button>}
                                         
-                                        <button className="session-button">Message</button>
+                                        <button className="session-button" onClick={this.createRoom}>Message</button>
                                     </div>
                                     }
 
@@ -169,4 +205,4 @@ class UserProfile extends React.Component {
 
 }
 
-export default UserProfile;
+export default withRouter(UserProfile);
