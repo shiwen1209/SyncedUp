@@ -13,7 +13,7 @@ const sessionReducer = (state = _nullSession, action) => {
     let nextState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return Object.assign({}, {id: currentUser.id, user: action.user});
+            return Object.assign({}, {id: action.user.id, user: action.user});
         case LOGOUT_CURRENT_USER:
             return _nullSession;
         case ADD_CONNECTION:

@@ -42,7 +42,7 @@ const receivePeople = (payload) => {
 
 
 export const fetchProfileUser = (userId)=> dispatch =>{
-    return UserApiUtil.fetchUser(userId)
+    return UserApiUtil.fetchProfileUser(userId)
         .then((payload)=>dispatch(receiveProfileUser(payload)))
 }
 

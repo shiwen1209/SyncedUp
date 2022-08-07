@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { closeModal } from '../../actions/modal_actions';
-import {createExp} from '../../actions/exp_actions';
+import { createExp, deleteExp, clearExpErrors} from '../../actions/exp_actions';
 import ExpForm from "./exp_form";
 
 const mstp = (state)=>{
@@ -24,7 +24,10 @@ const mstp = (state)=>{
 const mdtp =dispatch => {
     return{
         processForm: (exp) => dispatch(createExp(exp)),
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        deleteExp: (expId) => dispatch(deleteExp(expId)),
+        clearExpErrors: () => dispatch(clearExpErrors())
+
     }
 }
 

@@ -25,7 +25,7 @@ class Api::UsersController < ApplicationController
     def update
         @user = User.find_by(id: params[:id])
         if @user.update(user_params)
-            render :show
+            render :profile
         else 
             render json: @user.errors.full_messages, status: 422
         end
@@ -34,6 +34,11 @@ class Api::UsersController < ApplicationController
     def show
         @user = User.find_by(id: params[:id])
         render :show
+    end
+
+    def profile
+        @user = User.find_by(id: params[:id])
+        render :profile
     end
 
     def user_params 

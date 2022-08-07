@@ -5,19 +5,27 @@ class ExpForm extends React.Component {
         super(props);
         this.state = this.props.exp;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this)
     }
 
     handleSubmit(e){
         e.preventDefault();
-        const {processForm, closeModal, errors} = this.props
+        debugger
+        const { processForm, closeModal, errors, clearExpErrors} = this.props
+        clearExpErrors(),
         processForm(this.state).then(()=>{
             if (errors.length === 0) { closeModal() }
         })
-        
     }
 
     handleUpdate(field) {
         return (e) => this.setState({ [field]: e.currentTarget.value })
+    }
+
+    handleDelete(e) {
+        e.preventDefault();
+        const { exp, deleteExp, closeModal} = this.props;
+        deleteExp(exp.id).then(closeModal());
     }
 
     render(){
@@ -100,10 +108,15 @@ class ExpForm extends React.Component {
                         </label >
                     </div>
                 </form> 
-                <div className="button-container">
-                    <button type="submit" form={formType} className="session-button">Save</button>
+                <div className={formType === "Edit" ? "update-button-container":"button-container"}>
+                    {formType === "Edit" ?
+                    <button type="submit" className="session-button" onClick={this.handleDelete}>Delete</button>
+                    : <div></div>
+                    }
+                    <button type="submit" form={formType} className="session-button">Save</button> 
+                    
                 </div>
-            </div>
+            </div>  
         )
     }
 }

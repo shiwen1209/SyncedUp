@@ -13,7 +13,10 @@ Rails.application.routes.draw do
     resources :connections, only: [:create, :destroy, :show]
     resources :messages, only: [:index, :show, :create, :destroy]
     resources :rooms, only: [:index, :show, :create, :destroy]
+    get '/profile/:id', :to => 'users#profile'
   end
+
+  
 
 
 end

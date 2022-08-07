@@ -26,6 +26,14 @@
     border-top: 1px solid lightgray;
   }
 
+  .update-button-container{
+        display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          border-top: 1px solid lightgray;
+
+  }
+
   .modal-child .component-title {
     border: none;
     border-bottom: 1px solid lightgray;

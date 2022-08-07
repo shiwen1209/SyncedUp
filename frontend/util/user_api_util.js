@@ -5,6 +5,20 @@ export const fetchUser = (id)=>{
     })
 }
 
+export const fetchPeople = () => {
+    return $.ajax({
+        url: `/api/users`,
+        method: "GET",
+    })
+}
+
+export const fetchProfileUser = (id) => {
+    return $.ajax({
+        url: `/api/profile/${id}`,
+        method: "GET",
+    })
+}
+
 export const updateUser = (user) => {
     return $.ajax({
         url: `/api/users/${user.id}`,
@@ -23,9 +37,3 @@ export const updateUserPhoto = (userId, formData) => {
     })
 }
 
-export const fetchPeople = () => {
-    return $.ajax({
-        url: `/api/users`,
-        method: "GET",
-    })
-}
