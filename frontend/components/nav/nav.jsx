@@ -65,7 +65,7 @@ class Nav extends React.Component {
         if(currentUser){
             return (
                 <nav onClick={this.closeSearch}>
-                    <div>
+                    <div className="search-container">
                         <Link id="logo" to="/"><span className="logo" id="up">up</span></Link>
                         <div className="search-bar" id={this.state.searchBarId}>
                             <div className="search-bar-icon">
@@ -76,16 +76,22 @@ class Nav extends React.Component {
                                 className="comment-button" type="text" value={this.state.searchValue} />
                         </div>
 
-                        {this.state.displaySearch ? 
-                            <div id="search-parent" className="modal-background" onClick={this.closeSearch} >
+                        {
+                            this.state.displaySearch ? 
                                 <div id="search-child" className="component" onClick={e => e.stopPropagation()}>
-                                    {searchResult.length > 0 ? 
+                                    {searchResult.length > 0 ?
                                         <ul onClick={this.closeSearch}>
                                             {searchResult}
                                         </ul> :
                                         <h3>No result found</h3>
                                     }
-                            </div>
+                                </div> : <div></div>
+
+                        }
+
+                        {this.state.displaySearch ? 
+                            <div id="search-parent" className="modal-background" onClick={this.closeSearch} >
+
                         </div> : <div></div>} 
                     </div>
 
