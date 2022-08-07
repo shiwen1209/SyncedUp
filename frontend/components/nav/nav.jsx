@@ -86,13 +86,11 @@ class Nav extends React.Component {
                                         <h3>No result found</h3>
                                     }
                                 </div> : <div></div>
-
                         }
 
                         {this.state.displaySearch ? 
                             <div id="search-parent" className="modal-background" onClick={this.closeSearch} >
-
-                        </div> : <div></div>} 
+                            </div> : <div></div>} 
                     </div>
 
                     <div >

@@ -22,7 +22,7 @@ class PeopleItem extends React.Component {
     render(){
         const {person, type} = this.props
         return(
-            <li>
+            <li className="profile-li">
                 <Link to={`/users/${person.id}`}>
                     <div className="img">
                         <img src={person.headshotUrl} alt="" />

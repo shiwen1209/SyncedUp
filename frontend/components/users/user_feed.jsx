@@ -61,10 +61,47 @@ class UserFeed extends React.Component{
          
                 <div id="user-feed-other">
                     <div className="component">
-                        SyncedUp News
+                        <div className="header">
+                            <h3>About the developer</h3>
+                        </div>
+                        <div className="img">
+                            <img src={window.wendyUrl} alt="headshot" />
+                        </div>
+                        <p>
+                            Wendy Shi is a full stack software engineer who's proficient in Javascript, Python, React.js, Redux.js, Ruby and Ruby on Rails. She's currently looking for  opportunities to work as a full-stack, front-end or back-end software engineer
+                        </p>
+                        <h3>Connect with the developer</h3>
+                        <div className="icons">
+                            <a href="https://www.linkedin.com/in/wendy-shi/" target="_blank">
+                                <div className="icon">
+                                    <i className="fa-brands fa-linkedin"></i>
+                                
+                                </div>
+                            </a>
+                            <a href="https://github.com/shiwen1209" target="_blank">
+                                <div className="icon">    
+                                    <i className="fa-brands fa-github"></i>
+                                </div>
+                            </a>
+                            <a href="https://angel.co/u/wendy-shi" target="_blank">
+                                <div className="icon">
+                                    <i className="fa-brands fa-angellist"></i>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                     <div className="component">
-                        Promotions
+                        <div className="header">
+                            <h3>About the project</h3>
+                        </div>
+
+                        <p>
+                           SyncedUp is a fullstack clone of a profesional social medial web platform LinkedIn
+                        </p>
+                        <div>
+                            <h3>Technologies Used</h3>
+                            <p>JavaScript, React, Redux, Python, Ruby, Rails, SQL, AWS S3, MongoDB, WebSockets, HTML, CSS3</p>
+                        </div>
                     </div>
                 </div>
 

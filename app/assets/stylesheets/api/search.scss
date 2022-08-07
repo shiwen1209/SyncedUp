@@ -16,10 +16,7 @@
  }
 
 
- #search-result-display{
 
-
- }
 
  #search-child{
       z-index: 20;
@@ -36,8 +33,38 @@
          padding-right: 0;
          overflow: hidden;
          overflow-y: scroll;
+         animation-name: my-animation;
+         animation-duration: 0.3s;
+ }
 
+ @keyframes my-animation {
+    from {
+                  display: flex;
+                     flex-direction: row;
+                     justify-content: center;
+                     align-items: center;
+                     width: 500px;
+                     margin-top: 460px;
+                     margin-left: -403px;
+                     min-height: 100px;
+                     max-height: 400px;
+                     padding-left: 0;
+                     padding-right: 0;
+    }
 
+    to {
+            display: flex;
+               flex-direction: row;
+               justify-content: center;
+               align-items: center;
+               width: 500px;
+               margin-top: 660px;
+               margin-left: -403px;
+               min-height: 100px;
+               max-height: 600px;
+               padding-left: 0;
+               padding-right: 0;
+    }
 
  }
 
