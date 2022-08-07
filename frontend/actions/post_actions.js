@@ -2,6 +2,7 @@ import * as PostApiUtil from '../util/post_api_util';
 
 export const RECEIVE_POST = "RECEIVE_POST";
 export const DELETE_POST = "DELETE_POST";
+export const REMOVE_POSTS = "REMOVE_POSTS"
 
 
 export const receivePost = (post)=>{
@@ -15,6 +16,12 @@ export const removePost = (postId)=>{
     type: DELETE_POST,
     postId
 }}
+
+export const removePosts = ()=>{
+    return{
+        type: REMOVE_POSTS
+    }
+}
 
 export const createPost = (postForm)=> dispatch => (
     PostApiUtil.createPost(postForm).then((payload)=>dispatch(receivePost(payload.post)))

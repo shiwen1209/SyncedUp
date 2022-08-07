@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER} from "../actions/session_actions";
 import { RECEIVE_PROFILE_USER } from "../actions/user_action";
-import { RECEIVE_EXP, DELETE_EXP } from "../actions/exp_actions";
+import { RECEIVE_EXP, DELETE_EXP, REMOVE_EXPS } from "../actions/exp_actions";
 
 const expReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -17,7 +17,9 @@ const expReducer = (state = {}, action) => {
             return nextState;
         case DELETE_EXP:
             delete nextState[action.expId]
-            return nextState
+            return nextState;
+        case REMOVE_EXPS:
+            return {}
         default:
             return state;
     }

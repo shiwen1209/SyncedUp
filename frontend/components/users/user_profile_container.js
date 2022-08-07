@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import UserProfile from "./user_profile";
-import { fetchProfileUser } from "../../actions/user_action";
+import { fetchProfileUser, removeProfileUser } from "../../actions/user_action";
 import { openModalPayload, closeModal } from '../../actions/modal_actions';
 import { createConnection, deleteConnection, addConnection, minusConnection} from "../../actions/connection_actions";
 import { createRoom, fetchRoomsNoUsers} from '../../actions/room_actions';
+import { removeExps } from "../../actions/exp_actions";
 
 const mstp = (state, ownProps) => {
     // debugger
@@ -22,10 +23,12 @@ const mdtp = (dispatch) => {
         closeModal: ()=> dispatch(closeModal()),
         createConnection: (connect) => dispatch(createConnection(connect)),
         deleteConnection: (connectId)=>dispatch(deleteConnection(connectId)),
-        addConnection: () => dispatch(addConnection()),
-        minusConnection: () => dispatch(minusConnection()),
+        addConnection: (currentUserId, otherUserId) => dispatch(addConnection(currentUserId, otherUserId)),
+        minusConnection: (currentUserId, otherUserId) => dispatch(minusConnection(currentUserId, otherUserId)),
         createRoom: (room) => dispatch(createRoom(room)),
-        fetchRoomsNoUsers: () => dispatch(fetchRoomsNoUsers())
+        fetchRoomsNoUsers: () => dispatch(fetchRoomsNoUsers()),
+        removeProfileUser: () => dispatch(removeProfileUser()),
+        removeExps: () => dispatch(removeExps())
         
     }
 }

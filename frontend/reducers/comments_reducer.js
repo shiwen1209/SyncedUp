@@ -1,5 +1,5 @@
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER} from "../actions/session_actions";
-import { RECEIVE_COMMENT, DELETE_COMMENT } from "../actions/comment_actions";
+import { RECEIVE_COMMENT, DELETE_COMMENT, REMOVE_COMMENTS } from "../actions/comment_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
 
 const commentsReducer = (state = {}, action) => {
@@ -16,6 +16,8 @@ const commentsReducer = (state = {}, action) => {
         case DELETE_COMMENT:
             delete nextState[action.commentId]
             return nextState;
+        case REMOVE_COMMENTS:
+            return {}
         case RECEIVE_LIKE:
             if (action.like.likableType === "Comment") {
                 const comment1 = Object.assign({}, nextState[action.like.likableId]);

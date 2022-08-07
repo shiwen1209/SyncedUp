@@ -32,15 +32,20 @@ const removeConnection = (connectedUserId) => {
     }
 }
 
-export const addConnection = ()=>{
+export const addConnection = (currentUserId, otherUserId)=>{
     return {
-        type: ADD_CONNECTION
+        type: ADD_CONNECTION,
+        currentUserId,
+        otherUserId
+
     }
 }
 
-export const minusConnection = () => {
+export const minusConnection = (currentUserId, otherUserId) => {
     return {
-        type: MINUS_CONNECTION
+        type: MINUS_CONNECTION,
+        currentUserId,
+        otherUserId
     }
 }
 

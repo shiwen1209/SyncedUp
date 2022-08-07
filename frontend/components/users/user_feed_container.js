@@ -1,6 +1,9 @@
 import { connect} from "react-redux";
 import UserFeed from "./user_feed";
 import {fetchUser} from "../../actions/session_actions";
+import { removePosts } from "../../actions/post_actions";
+import { removeLikes } from "../../actions/like_actions";
+import { removeComments } from "../../actions/comment_actions";
 
 
 
@@ -13,7 +16,10 @@ const mstp = (state, ownProps)=>{
 
 const mdtp = (dispatch)=>{
     return {
-        fetchUser: (id)=>dispatch(fetchUser(id))
+        fetchUser: (id)=>dispatch(fetchUser(id)),
+        removePosts: () => dispatch(removePosts()),
+        removeComments: () => dispatch(removeComments()),
+        removeLikes: () => dispatch(removeLikes())
     }
 }
 

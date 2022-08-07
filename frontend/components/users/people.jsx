@@ -12,10 +12,15 @@ class People extends React.Component {
     }
 
     render(){
-        const { people, currentUserId, createConnection } = this.props
+        const { people, currentUserId, createConnection, addConnection } = this.props
         const peopleList = people.map((person, idx) => (<PeopleItem 
-            key={idx} person={person} currentUserId={currentUserId}
-            createConnection={createConnection}/>))
+            key={idx} 
+            person={person} 
+            currentUserId={currentUserId}
+            createConnection={createConnection}
+            addConnection={addConnection}
+            type="profile-page"
+            />))
 
         if (!people) {return}
         return(

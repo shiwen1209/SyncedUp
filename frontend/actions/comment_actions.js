@@ -2,6 +2,7 @@ import * as CommentApiUtil from '../util/comment_api_util';
 
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
+export const REMOVE_COMMENTS = "REMOVE_COMMENTS";
 
 export const receiveComment = (comment) => {
     return {
@@ -15,6 +16,12 @@ export const removeComment = (payload) => {
         type: DELETE_COMMENT,
         commentId: payload.comment.id,
         postId: payload.comment.postId
+    }
+}
+
+export const removeComments = () => {
+    return {
+        type: REMOVE_COMMENTS
     }
 }
 

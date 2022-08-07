@@ -19,8 +19,8 @@
           'lastName': "<%= current_user.last_name %>",
           'pronouns': "<%= current_user.pronouns %>",
           'headline': "<%= current_user.headline %>",
-          'numConnections': "<%= current_user.connections.count %>",
-          'connectionIds': "<%= current_user.connections.pluck(:id) %>",
+          'numConnections': <%= current_user.connections.count %>,
+          'connectionIds': <%= current_user.connections.pluck(:id) %>,
           'headshotUrl': "<%=  url_for(current_user.headshot) %>"
         }
 

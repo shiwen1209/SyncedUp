@@ -10,18 +10,19 @@ const _nullSession = {
 
 const sessionReducer = (state = _nullSession, action) => {
     Object.freeze(state);
+    let nextState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return Object.assign({}, {id: currentUser.id, user: action.user});
         case LOGOUT_CURRENT_USER:
             return _nullSession;
         case ADD_CONNECTION:
-            nextState.numConnections += 1
+            nextState.user.numConnections += 1
+            nextState.user.connectionIds.push(action.otherUserId)
             return nextState
         case MINUS_CONNECTION:
-            console.log(nextState)
-            nextState.numConnections -= 1
-            console.log(nextState)
+            nextState.user.numConnections -= 1
+            nextState.user.connectionIds = nextState.user.connectionIds.filter((id) => (id !== action.otherUserId))
             return nextState
         default:
             return state;

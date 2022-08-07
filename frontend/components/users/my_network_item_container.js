@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import MyNetworkItem from "./my_network_item";
 import { createRoom, fetchRoomsNoUsers } from '../../actions/room_actions';
-import {deleteConnection } from "../../actions/connection_actions";
+import { deleteConnection, minusConnection } from "../../actions/connection_actions";
 
 
 const mstp = (state) => {
@@ -15,7 +15,8 @@ const mdtp = (dispatch) => {
     return {
         createRoom: (room) => dispatch(createRoom(room)),
         fetchRoomsNoUsers: () => dispatch(fetchRoomsNoUsers()),
-        deleteConnection: (connectId) => dispatch(deleteConnection(connectId))
+        deleteConnection: (connectId) => dispatch(deleteConnection(connectId)),
+        minusConnection: (currentUserId, otherUserId) => dispatch(minusConnection(currentUserId, otherUserId))
     }
 }
 

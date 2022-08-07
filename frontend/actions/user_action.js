@@ -1,9 +1,11 @@
 import * as UserApiUtil from "../util/user_api_util";
 
 export const RECEIVE_PROFILE_USER = "RECEIVE_PROFILE_USER";
+export const REMOVE_PROFILE_USER = "REMOVE_PROFILE_USER"
 export const RECEIVE_PEOPLE = "RECEIVE_PEOPLE";
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_MSG_USER ="RECEIVE_MSG_USER";
+
 
 export const receiveProfileUser = (payload)=>{
     let experiences = {};
@@ -16,6 +18,13 @@ export const receiveProfileUser = (payload)=>{
         user: payload.user,
         experiences,
         connections
+    }
+}
+
+export const removeProfileUser = ()=>{
+    return {
+        type: REMOVE_PROFILE_USER
+
     }
 }
 

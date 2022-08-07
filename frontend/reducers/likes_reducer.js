@@ -1,5 +1,5 @@
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER} from "../actions/session_actions";
-import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
+import { RECEIVE_LIKE, REMOVE_LIKE, REMOVE_LIKES } from "../actions/like_actions";
 
 const likesReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -19,6 +19,8 @@ const likesReducer = (state = {}, action) => {
         case REMOVE_LIKE:
             delete nextState[JSON.stringify(action.like)]
             return nextState
+        case REMOVE_LIKES:
+            return {};
         default:
             return state;
     }

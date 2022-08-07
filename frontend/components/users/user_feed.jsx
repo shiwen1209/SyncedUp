@@ -11,6 +11,12 @@ class UserFeed extends React.Component{
         this.props.fetchUser(this.props.user.id)
     }
 
+    componentWillUnmount(){
+        this.props.removeLikes();
+        this.props.removeComments();
+        this.props.removePosts();
+    }
+
     render(){
         const {user, posts} = this.props
         return(

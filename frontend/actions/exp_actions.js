@@ -4,6 +4,7 @@ export const RECEIVE_EXP = "RECEIVE_EXP";
 export const DELETE_EXP = "DELETE_EXP";
 export const RECEIVE_EXP_ERRORS = "RECEIVE_EXP_ERRORS";
 export const CLEAR_EXP_ERRORS = "CLEAR_EXP_ERRORS";
+export const REMOVE_EXPS = "REMOVE_EXPS";
 
 const receiveExp = (exp) => {
     return {
@@ -18,6 +19,13 @@ export const removeExp = (expId) => {
         expId
     }
 }
+
+export const removeExps = () => {
+    return {
+        type: REMOVE_EXPS
+    }
+}
+
 
 export const receiveExpErrors = (errors) => {
     return {

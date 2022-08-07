@@ -1,5 +1,5 @@
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER} from "../actions/session_actions";
-import { RECEIVE_POST, DELETE_POST} from "../actions/post_actions";
+import { RECEIVE_POST, DELETE_POST, REMOVE_POSTS } from "../actions/post_actions";
 import { RECEIVE_COMMENT, DELETE_COMMENT } from "../actions/comment_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
 
@@ -16,7 +16,9 @@ const postsReducer = (state = {}, action) => {
             return nextState;
         case DELETE_POST:
             delete nextState[action.postId]
-            return nextState
+            return nextState;
+        case REMOVE_POSTS:
+            return {};
         case RECEIVE_COMMENT:
             const post = Object.assign({}, nextState[action.comment.postId]);
             post.numComments += 1;

@@ -4,24 +4,23 @@ import { Link } from "react-router-dom";
 class PeopleItem extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            connect: false
-        }
+        // this.state = {
+        //     connect: false
+        // }
         this.handleClickConnect = this.handleClickConnect.bind(this)
     }
 
 
     handleClickConnect(e) {
-        this.setState({ connect: true })
-        const { currentUserId, person, createConnection } = this.props;
+        // this.setState({ connect: true})
+        const { currentUserId, person, createConnection, addConnection} = this.props;
         const con1 = {"user1_id": currentUserId, "user2_id": person.id};
         const con2 = {"user1_id": person.id, "user2_id": currentUserId};
-        createConnection(con1);
-        createConnection(con2);
+        createConnection(con1).then(createConnection(con2)).then(addConnection(currentUserId, person.id));
     }
 
     render(){
-        const {person} = this.props
+        const {person, type} = this.props
         return(
             <li>
                 <Link to={`/users/${person.id}`}>
@@ -39,11 +38,12 @@ class PeopleItem extends React.Component {
                         </Link>
                     </div>
                     <div>
-                        {this.state.connect ? 
-                            <button disabled>Connected</button>:
-                            <button onClick={this.handleClickConnect}>Connect</button>
+                        {type === "profile-page" ? 
+                            <button onClick={this.handleClickConnect}>Connect</button> :
+                            <Link to={`/users/${person.id}`}>
+                                <button>See profile</button> 
+                            </Link>
                         }
-                        
                     </div>
                 </div>
             </li>

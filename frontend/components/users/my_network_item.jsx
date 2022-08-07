@@ -10,11 +10,10 @@ class MyNetworkItem extends React.Component {
     }
 
     handleClickDisconnect(e) {
-        const {connection, deleteConnection } = this.props;
+        const { connection, deleteConnection, minusConnection, currentUserId} = this.props;
         const conId1 = connection.connectionId;
         const conId2 = connection.mirrorConnectionId;
-        deleteConnection(conId1);
-        deleteConnection(conId2);
+        deleteConnection(conId1).then(deleteConnection(conId2)).then(minusConnection(currentUserId, connection.id));
     }
 
     createRoom(e) {
