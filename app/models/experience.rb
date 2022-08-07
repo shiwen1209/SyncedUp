@@ -32,9 +32,9 @@ class Experience < ApplicationRecord
     def start_end_dates
         current_time = DateTime.now
         if end_date > current_time || start_date > current_time
-            errors.add :end_date, "start or end date cannot be in the future"
+            errors.add :start_date, "or end date cannot be in the future"
         elsif end_date < start_date
-            errors.add :end_date, "end date must be after start date"
+            errors.add :end_date, "must be after start date"
         end
     end
 

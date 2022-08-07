@@ -8,14 +8,11 @@ class ExpForm extends React.Component {
         this.handleDelete = this.handleDelete.bind(this)
     }
 
-    handleSubmit(e){
+    async handleSubmit(e){
         e.preventDefault();
-        debugger
-        const { processForm, closeModal, errors, clearExpErrors} = this.props
-        clearExpErrors(),
-        processForm(this.state).then(()=>{
-            if (errors.length === 0) { closeModal() }
-        })
+        const { processForm, closeModal} = this.props
+        await processForm(this.state);
+        closeModal()
     }
 
     handleUpdate(field) {
