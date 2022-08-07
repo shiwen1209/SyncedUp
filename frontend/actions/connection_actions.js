@@ -4,13 +4,15 @@ import * as ConnectionApiUtil from "../util/connection_api_util";
 export const RECEIVE_CONNECTIONS = "RECEIVE_CONNECTIONS"
 export const RECEIVE_CONNECTION = "RECEIVE_CONNECTION"
 export const REMOVE_CONNECTION = "REMOVE_CONNECTION"
+export const ADD_CONNECTION = "ADD_CONNECTION"
+export const MINUS_CONNECTION = "MINUS_CONNECTION"
 
 const receiveConnections = (payload) => {
     let connections = {};
     if (payload.connections) {connections = payload.connections }
     return {
         type: RECEIVE_CONNECTIONS,
-        user: payload.users,
+        // user: payload.users,
         connections
     }
 }
@@ -29,6 +31,19 @@ const removeConnection = (connectedUserId) => {
         connectedUserId
     }
 }
+
+export const addConnection = ()=>{
+    return {
+        type: ADD_CONNECTION
+    }
+}
+
+export const minusConnection = () => {
+    return {
+        type: MINUS_CONNECTION
+    }
+}
+
 
 
 export const fetchConnections = (userId) => dispatch => {

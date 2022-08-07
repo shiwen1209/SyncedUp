@@ -48,7 +48,7 @@ const App = (props) => {
 }
 
 const mapState = (state) => ({
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.session.user
 });
 
 export default connect(mapState)(App);

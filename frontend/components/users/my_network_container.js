@@ -10,7 +10,7 @@ const mstp = (state)=>{
             .filter((obj)=>obj.id !== state.session.id), 
             // temporary solution, need to figure out how to remove session user 
             //self from connection state when creating a pair of connections
-        user: state.entities.users[state.session.id] // need to get current user
+        user: state.session.user // need to get current user
     }
 }
 

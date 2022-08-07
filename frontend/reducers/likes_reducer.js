@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER} from "../actions/session_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
 
 const likesReducer = (state = {}, action) => {
@@ -11,6 +11,8 @@ const likesReducer = (state = {}, action) => {
                 nextState[JSON.stringify(action.likes[likeId])] = parseInt(likeId);
             })
             return nextState;
+        case LOGOUT_CURRENT_USER:
+            return {};
         case RECEIVE_LIKE:
             nextState[JSON.stringify(action.like)] = parseInt(action.likeId);
             return nextState;

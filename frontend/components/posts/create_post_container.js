@@ -7,7 +7,7 @@ import {closeModal } from '../../actions/modal_actions';
 const mstp = (state)=>{
     return{
         formType: "Create a post",
-        currentUser: state.entities.users[state.session.id],
+        currentUser: state.session.user,
         post: {
             body: "",
             authorId: state.session.id

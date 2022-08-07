@@ -17,10 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let preloadedState;
     if (window.currentUser) {
         preloadedState = {
-            session: { id: window.currentUser.id },
-            entities: {
-                users: { [window.currentUser.id]: window.currentUser }
-            }
+            session: { id: window.currentUser.id,
+            user: window.currentUser}
         }
     };
 
@@ -28,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.store = store;
 
 
-    // ReactDOM.render(<Root store={store} />, root);
     ReactDOM.render(<Root store={store}/>, root);
 
     window.signup = signup;

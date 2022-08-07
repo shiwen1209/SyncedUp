@@ -1,5 +1,4 @@
-json.users do
-    json.set! @user.id do 
+json.user do
         json.extract! @user, :id, :email, :first_name, :last_name, :pronouns, 
         :headline, :about, :industry, :location_country, :location_state, :location_city
         json.num_connections @user.connections.count
@@ -7,7 +6,6 @@ json.users do
         if @user.headshot.attached?
             json.headshot_url url_for(@user.headshot)
         end
-    end 
 end
 
 json.posts do 

@@ -20,28 +20,29 @@ class UserProfile extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchUser(this.props.match.params.userId)
+        this.props.fetchProfileUser(this.props.match.params.userId)
         this.props.fetchRoomsNoUsers();
     }
 
     componentDidUpdate(prevProp) {
         if (prevProp.user !== undefined && (prevProp.user.id !== parseInt(this.props.match.params.userId))){
-            this.props.fetchUser(this.props.match.params.userId)
+            this.props.fetchProfileUser(this.props.match.params.userId)
         } 
     }
 
     handleClickConnect(e){
-        const {currentUserId, user, createConnection, fetchUser} = this.props;
+        const { currentUserId, user, createConnection, addConnection} = this.props;
         const con1 = {"user1_id": currentUserId, "user2_id": user.id};
         const con2 = {"user1_id": user.id, "user2_id": currentUserId};
-        createConnection(con1).then(createConnection(con2))
+        createConnection(con1).then(createConnection(con2)).then(addConnection())
+
     }
 
     handleClickDisconnect(e){
-        const {currentUserId, connections, deleteConnection, fetchUser} = this.props;
+        const { currentUserId, connections, deleteConnection, minusConnection} = this.props;
         const conId1 = connections[currentUserId].connectionId;
         const conId2 = connections[currentUserId].mirrorConnectionId;
-        deleteConnection(conId1).then(deleteConnection(conId2))
+        deleteConnection(conId1).then(deleteConnection(conId2)).then(minusConnection())
     }
 
     toggleDisplayDropdown(e){
@@ -89,7 +90,6 @@ class UserProfile extends React.Component {
 
     render(){
         const { user, currentUserId, connections, openModalPayload, closeModal} = this.props
-
         if(!user){return}
         return(
             <div id="user-profile">

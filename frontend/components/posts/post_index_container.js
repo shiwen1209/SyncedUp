@@ -6,7 +6,7 @@ import React from 'react';
 
 const mstp = (state) => {
     return{
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.session.user
     }
 }
 

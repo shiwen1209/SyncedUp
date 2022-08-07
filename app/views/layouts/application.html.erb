@@ -15,8 +15,13 @@
         window.currentUser = {
           'id': <%= current_user.id %>,
           'email': "<%= current_user.email %>",
-          'first_name': "<%= current_user.first_name %>",
-          'last_name': "<%= current_user.last_name %>"
+          'firstName': "<%= current_user.first_name %>",
+          'lastName': "<%= current_user.last_name %>",
+          'pronouns': "<%= current_user.pronouns %>",
+          'headline': "<%= current_user.headline %>",
+          'numConnections': "<%= current_user.connections.count %>",
+          'connectionIds': "<%= current_user.connections.pluck(:id) %>",
+          'headshotUrl': "<%=  url_for(current_user.headshot) %>"
         }
 
         window.userbgUrl = "<%= image_url('userbg5.jpg') %>"

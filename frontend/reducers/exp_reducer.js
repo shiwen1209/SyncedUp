@@ -1,5 +1,5 @@
-import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
-import { RECEIVE_USER } from "../actions/user_action";
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER} from "../actions/session_actions";
+import { RECEIVE_PROFILE_USER } from "../actions/user_action";
 import { RECEIVE_EXP, DELETE_EXP } from "../actions/exp_actions";
 
 const expReducer = (state = {}, action) => {
@@ -8,7 +8,9 @@ const expReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return action.experiences;
-        case RECEIVE_USER:
+        case LOGOUT_CURRENT_USER:
+            return {};
+        case RECEIVE_PROFILE_USER:
             return action.experiences; //double check if need to merge with current state
         case RECEIVE_EXP:
             nextState[action.exp.id] = action.exp;

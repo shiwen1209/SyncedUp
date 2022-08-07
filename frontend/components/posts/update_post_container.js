@@ -7,7 +7,7 @@ import {closeModal} from '../../actions/modal_actions';
 const mstp = (state) => {
     return {
         formType: "Edit post",
-        currentUser: state.entities.users[state.session.id],
+        currentUser: state.session.user,
         post: state.ui.modal.payload
     
     }

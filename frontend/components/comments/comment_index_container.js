@@ -6,7 +6,7 @@ import {selectPostComments} from "../../selectors/comments_selector"
 const mstp = (state, ownProps) => {
     return {
         comments: selectPostComments(state, ownProps.post.id),
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.session.user
     }
 }
 

@@ -7,7 +7,6 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS"
 
 const receiveCurrentUser = (payload) => {
-
     let posts = {};
     let comments = {};
     let experiences = {};
@@ -21,7 +20,7 @@ const receiveCurrentUser = (payload) => {
     
     return {
         type: RECEIVE_CURRENT_USER,
-        users: payload.users,
+        user: payload.user,
         posts: posts,
         comments,
         experiences,

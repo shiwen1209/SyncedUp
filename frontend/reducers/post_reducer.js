@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER} from "../actions/session_actions";
 import { RECEIVE_POST, DELETE_POST} from "../actions/post_actions";
 import { RECEIVE_COMMENT, DELETE_COMMENT } from "../actions/comment_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
@@ -9,6 +9,8 @@ const postsReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return action.posts;
+        case LOGOUT_CURRENT_USER:
+            return {};
         case RECEIVE_POST:
             nextState[action.post.id] = action.post;
             return nextState;
