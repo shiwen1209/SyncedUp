@@ -27,13 +27,13 @@ class MyNetwork extends React.Component {
                     <div id="highlight" className="component-subtitle">
                         <Link className="link" to="/mynetwork">
                             <i className="fa-solid fa-user-group"></i>
-                            <h3>Your connections</h3>
+                            <h3>My connections</h3>
                         </Link>
                     </div>
                     <div className="component-subtitle">
                         <Link className="link" to="/mynetwork/people">
                             <i className="fa-solid fa-user-pen"></i>
-                            <h3>People you may know</h3>
+                            <h3>People on Syncedup</h3>
                         </Link>
                     </div>
                     <div className="component-subtitle">

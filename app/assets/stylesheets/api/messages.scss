@@ -82,8 +82,8 @@
 #message-view ul .img {
     height: 40px;
     width: 40px;
-
 }
+
 
 #message-view .headline-tag{
     // border: 1px solid red;
@@ -238,4 +238,9 @@
 .btn-primary:hover:enabled{
     background-color: #953222;
 
+}
+
+#msg-highlight{
+    background-color: rgba(203, 213, 228, 0.451);
+    border-left: 4px solid blue;
 }

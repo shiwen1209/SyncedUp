@@ -8,7 +8,7 @@ class PostIndexItem extends React.Component {
         super(props);
         this.state = {
             displayComments: false,
-            displayButtons: false
+            displayButtons: false,
         }
         this.toggleComments = this.toggleComments.bind(this);
         this.toggleButtons = this.toggleButtons.bind(this);
@@ -24,6 +24,14 @@ class PostIndexItem extends React.Component {
         }
     }
 
+    toggleLikes(e){
+        if (this.state.like) {
+            this.setState({ like: false })
+        } else {
+            this.setState({ like: true })
+        }
+    }
+
     toggleButtons(e) {
         if (this.state.displayButtons) {
             this.setState({ displayButtons: false })
@@ -35,6 +43,7 @@ class PostIndexItem extends React.Component {
     handleLike(e){
         const {post, likes, currentUserId, createLike, deleteLike} = this.props
         const currentLike = { userId: currentUserId, likableId: post.id, likableType: 'Post'}
+        this.toggleLikes();
         if (JSON.stringify(currentLike) in likes){
             const likeId = likes[JSON.stringify(currentLike)]
             deleteLike(likeId)
@@ -42,6 +51,7 @@ class PostIndexItem extends React.Component {
             const likeForm = { user_id: currentUserId, likable_id: post.id, likable_type: 'Post' }
             createLike(likeForm)
         }
+        
     }
 
     render(){
@@ -106,7 +116,11 @@ class PostIndexItem extends React.Component {
                     < div className="post-like-comment">
                         {post.numLikes > 0 ?
                             < div >
+                                {post.currentUserLike ? 
+                                <i className="fa-solid fa-thumbs-up"></i> :
                                 <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                }
+
                                 <p>{post.numLikes}</p>
                             </div> : <div>{" "}</div>
                         }
@@ -122,9 +136,9 @@ class PostIndexItem extends React.Component {
                 }
 
                 <div className="like-comment-button">
-                    <div onClick={this.handleLike}>
+                    <div onClick={this.handleLike} className={post.currentUserLike ? "already-liked":""}>
                         <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                        <p>Like</p>
+                        <p>{post.currentUserLike ? "Unlike" : "Like"}</p>
                     </div>
                     <div onClick={this.toggleComments}>
                         <i className="fa fa-commenting-o" aria-hidden="true"></i>

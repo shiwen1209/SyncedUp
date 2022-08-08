@@ -22,6 +22,7 @@ const commentsReducer = (state = {}, action) => {
             if (action.like.likableType === "Comment") {
                 const comment1 = Object.assign({}, nextState[action.like.likableId]);
                 comment1.numLikes += 1;
+                comment1.currentUserLike = true;
                 nextState[action.like.likableId] = comment1;
                 return nextState
             } else {
@@ -31,6 +32,7 @@ const commentsReducer = (state = {}, action) => {
             if (action.like.likableType === "Comment") {
                 const comment2 = Object.assign({}, nextState[action.like.likableId]);
                 comment2.numLikes -= 1;
+                comment2.currentUserLike = false;
                 nextState[action.like.likableId] = comment2;
                 return nextState
             } else {

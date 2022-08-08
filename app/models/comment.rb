@@ -28,11 +28,13 @@ class Comment < ApplicationRecord
 
     has_many :replies,
         foreign_key: :parent_comment_id,
-        class_name: :Comment
+        class_name: :Comment,
+        dependent: :destroy
     
     # has_one :parent_commenter,
     #     through: :parent_comment,
     #     source: :commenter
 
-    has_many :likes, as: :likable
+    has_many :likes, as: :likable,
+    dependent: :destroy
 end

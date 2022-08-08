@@ -133,10 +133,13 @@ class CommentIndexItem extends React.Component{
                     </div>
                     <div id="like-reply">
                         <div>   
-                            <button onClick={this.handleLike}>Like</button>&nbsp;&nbsp;
+                            <button onClick={this.handleLike} className={comment.currentUserLike ? "already-liked" : ""}>{comment.currentUserLike ? "Unlike" : "Like"}</button>&nbsp;&nbsp;
                             {comment.numLikes > 0 ?
                                 < div className="post-like-comment">
+                                    {comment.currentUserLike ? 
+                                    <i className="fa-solid fa-thumbs-up"></i>:
                                     <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                    }
                                     <p>{comment.numLikes}</p>
                                 </div> : <div></div>
                              }

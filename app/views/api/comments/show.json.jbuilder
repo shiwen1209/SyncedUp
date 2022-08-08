@@ -8,4 +8,7 @@ json.comment do
         json.author_headshot_url url_for(@comment.commenter.headshot)
     end
     json.num_likes @comment.likes.count
+    if current_user
+        json.current_user_like current_user.likes.to_a.any?{|like| like.likable_type == "Comment" && like.likable_id == @comment.id}
+    end
 end

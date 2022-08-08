@@ -12,6 +12,9 @@ json.post do
     end
     json.num_comments @post.comments.count
     json.num_likes @post.likes.count
+    if current_user
+        json.current_user_like current_user.likes.to_a.any?{|like| like.likable_type == "Post" && like.likable_id == @post.id}
+    end
 end
 
 json.comments do 
@@ -26,6 +29,9 @@ json.comments do
                 json.author_headshot_url url_for(comment.commenter.headshot)
             end
             json.num_likes comment.likes.count
+            if current_user
+                json.current_user_like current_user.likes.to_a.any?{|like| like.likable_type == "Comment" && like.likable_id == comment.id}
+            end
         end
     end
 end

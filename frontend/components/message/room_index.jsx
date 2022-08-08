@@ -54,7 +54,7 @@ class RoomsIndex extends React.Component {
                 user = users[parseInt(otherOwners[0])]
             } else {
                 user = {
-                    headshotUrl: "https://thumbs.dreamstime.com/b/teamwork-group-friends-logo-image-holding-each-other-39918563.jpg",
+                    // headshotUrl: "https://thumbs.dreamstime.com/b/teamwork-group-friends-logo-image-holding-each-other-39918563.jpg",
                     firstName: `Group chat with ${otherUsers}`,
                     headline: `You're in a group chart with ${otherUsers}`
                 }
@@ -62,9 +62,9 @@ class RoomsIndex extends React.Component {
 
             return(
                 <NavLink key={idx} to={currentUserId ? `/messaging/${id}` : '/login'}>
-                    <li key={idx} className="headline-tag">
-                        <div className="img">
-                            <img src={user.headshotUrl} alt="" />
+                    <li key={idx} className="headline-tag" id={this.props.location.pathname.includes(id) ? "msg-highlight" : ""}>
+                        <div className="img" id="img-border">
+                            <img src={user.headshotUrl ? user.headshotUrl : window.groupUrl} alt="" />
                         </div>
                         <div className="connection-title">
                             <h3>{user.firstName} {user.lastName}</h3>

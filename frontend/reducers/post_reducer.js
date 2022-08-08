@@ -33,6 +33,7 @@ const postsReducer = (state = {}, action) => {
             if (action.like.likableType === "Post") {
                 const post3 = Object.assign({}, nextState[action.like.likableId]);
                 post3.numLikes += 1;
+                post3.currentUserLike = true;
                 nextState[action.like.likableId] = post3;
                 return nextState
             } else {
@@ -42,6 +43,7 @@ const postsReducer = (state = {}, action) => {
             if (action.like.likableType === "Post") {
                 const post4 = Object.assign({}, nextState[action.like.likableId]);
                 post4.numLikes -= 1;
+                post4.currentUserLike = false;
                 nextState[action.like.likableId] = post4;
                 return nextState
             } else {
