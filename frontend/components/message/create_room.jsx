@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchResultItem from "../search/search_result_item";
+import { createMessage, destroyMessage } from '../../util/message_api_util';
 
 
 class CreateRoom extends React.Component {
@@ -40,7 +40,7 @@ class CreateRoom extends React.Component {
     addNames(person){
         // const name = fname + " " + lname
         if(!this.state.names.includes(person)){
-            return (e) => this.setState({ names: [...this.state.names, person], filteredResult: [] })
+            return (e) => this.setState({ names: [...this.state.names, person], filteredResult: [], searchValue: "" })
         }
     }
 
@@ -52,8 +52,45 @@ class CreateRoom extends React.Component {
     }
 
 
-    handleSubmit(){
+    async handleSubmit(e){
+        e.preventDefault();
+        const { createRoom, currentUserId, rooms, receiveMsgUser } = this.props;
+        const newRoomOwners = this.state.names.map((person)=> person.id.toString());
+        newRoomOwners.push(currentUserId.toString());
+        const userRoom = rooms.filter((room) => {
+            return this.arrayEqual(room.owners, newRoomOwners)
+        })
 
+        if (userRoom.length === 1) {
+            const newMsg = {
+                content: this.state.content,
+                room_id: userRoom[0].id,
+                sender_id: currentUserId,
+                read_status: false
+            }
+            await createMessage(newMsg);
+            this.props.history.push(`/messaging/${userRoom[0].id}`);
+        } else if (userRoom.length === 0) {
+            await this.state.names.forEach((user) => receiveMsgUser(user));
+            await createRoom({ owners: newRoomOwners});
+            this.handleSubmit(e);
+        } else {
+            alert("error, please contact developer")
+        } 
+    }
+
+    arrayEqual(arr1, arr2) {
+        for (let i = 0; i < arr1.length; i++) {
+            if (!arr2.includes(arr1[i])) {
+                return false
+            }
+        }
+        for (let i = 0; i < arr2.length; i++) {
+            if (!arr1.includes(arr2[i])) {
+                return false
+            }
+        }
+        return true
     }
 
     render() {
@@ -71,11 +108,9 @@ class CreateRoom extends React.Component {
         ))
 
         const namesList = this.state.names.map((person, idx)=>(
-            <div className='msg-name' key={idx}>
+            <div className='msg-name' key={idx} onClick={this.deleteName(person)}>
                 <p>{person.firstName} {person.lastName}</p>
-                <i className="fa-solid fa-x"
-                    onClick={this.deleteName(person)}
-                ></i>
+                <i className="fa-solid fa-x"></i>
             </div>
         ))
 

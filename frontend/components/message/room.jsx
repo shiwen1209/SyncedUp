@@ -7,8 +7,7 @@ class Room extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            content: '',
-            // usersInRoom: {}
+            content: ''
         };
 
         this.activeMessage = React.createRef();
@@ -29,8 +28,6 @@ class Room extends React.Component {
         const { fetchRoom, roomId } = this.props;
 
         fetchRoom(roomId).then((usersInRoom = {}) => {
-            // this.setState({ usersInRoom });
-
             if (this.activeMessage.current) {
                 this.scrollToMessage();
             } else {
@@ -42,8 +39,7 @@ class Room extends React.Component {
             { channel: 'RoomsChannel', id: roomId },
             {
                 received: ({ type, message, user, id, reaction }) => {
-                    console.log('Room action type: ', type);
-                    // const { usersInRoom } = this.state;
+                    // console.log('Room action type: ', type);
                     switch (type) {
                         case 'RECEIVE_MESSAGE':
                             this.props.receiveMessage(message);
@@ -52,22 +48,6 @@ class Room extends React.Component {
                         case 'DESTROY_MESSAGE':
                             this.props.removeMessage(id);
                             break;
-                        // case 'RECEIVE_ROOM_USER':
-                        //     this.setState({ usersInRoom: { ...usersInRoom, [user.id]: user } });
-                        //     console.log("Room state is", this.state)
-                        //     break;
-                        // case 'REMOVE_ROOM_USER':
-                        //     const { [id]: _removed, ...remainingUsers } = usersInRoom;
-                        //     this.setState({ usersInRoom: remainingUsers });
-                        //     console.log("Left room state is", this.state)
-                        //     break;
-                        // case 'RECEIVE_REACTION':
-                        //     window.clearTimeout(this.reactionTimeouts[id]);
-                        //     this.setReaction(id, reaction);
-                        //     this.reactionTimeouts[id] = window.setTimeout(() => {
-                        //         this.setReaction(id, null);
-                        //     }, 4000);
-                        //     break;
                         default:
                             console.log('Unhandled broadcast: ', type);
                             break;
@@ -134,7 +114,6 @@ class Room extends React.Component {
     render() {
         const { room, currentUserId, messages, location, users } = this.props;
         const activeMessageId = parseInt(location.hash.slice(1));
-        // const usersInRoom = Object.values(this.state.usersInRoom);
 
         if(!room){return}
 

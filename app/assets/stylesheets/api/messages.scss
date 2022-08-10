@@ -125,13 +125,14 @@
 #sender-list ul{
     margin-top: 10px;
     border-top: 1px solid lightgray;
+    overflow-y: scroll;
 }
 
 
 #sender-list li{
     padding: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 16.3px;
+    padding-bottom: 16.3px;
 
 }
 
@@ -346,6 +347,7 @@
     border-radius: 20px;
     margin-right: 5px;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .msg-name i {

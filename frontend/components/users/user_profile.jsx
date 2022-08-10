@@ -1,7 +1,6 @@
 import React from "react";
 import ExpIndexContainer from "../experiences/exp_index_container";
 import EduIndexContainer from "../experiences/edu_index_container";
-import PeopleContainer from "./people_container";
 import { Link } from "react-router-dom";
 import PeopleListContainer from "./people_list_container";
 import { withRouter } from 'react-router-dom';
@@ -63,9 +62,6 @@ class UserProfile extends React.Component {
         e.preventDefault();
         const { createRoom, currentUserId, user, rooms} = this.props;
         const userRoom = rooms.filter((room)=>{
-            const a = room.owners;
-            const b = [currentUserId.toString(), user.id.toString()];
-            const c = this.arrayEqual(room.owners, [currentUserId.toString(), user.id.toString()])
             return this.arrayEqual(room.owners, [currentUserId.toString(), user.id.toString()] )   
         })
         if(userRoom.length === 1){
