@@ -15,9 +15,11 @@ class SearchResultItem extends React.Component{
                     <i className="fa-solid fa-magnifying-glass"></i>
                     <p>{person.firstName} {person.lastName}</p>
                 </div>
-                <div className="img">
-                    <img src={person.headshotUrl} alt="" />
-                </div>
+                    <div className="img">
+                        <img src={person.headshotUrl} alt="" />
+                    </div>
+                    
+
             </li>
             </Link>
         )

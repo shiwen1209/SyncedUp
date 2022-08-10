@@ -130,23 +130,6 @@ class Room extends React.Component {
         destroyMessage(messageId);
     }
 
-    // setReaction(id, reaction) {
-    //     const { usersInRoom } = this.state;
-    //     const newUser = { ...usersInRoom[id], reaction };
-    //     this.setState({ usersInRoom: { ...usersInRoom, [id]: newUser } });
-    // }
-
-    // generateReactions(...reactions) {
-    //     return reactions.map(reaction => (
-    //         <span
-    //             key={reaction}
-    //             className='reaction'
-    //             onClick={() => this.subscription.perform('react', { reaction })}
-    //         >
-    //             {reaction}
-    //         </ span>
-    //     ));
-    // }
 
     render() {
         const { room, currentUserId, messages, location, users } = this.props;
@@ -204,7 +187,7 @@ class Room extends React.Component {
                             <h4>{user.headline}</h4>
                         </div>
                     </div>
-                    <div>
+                    <div id="message-view-list" >
                         <ul ref={this.messageUl}>
                             {msgList}
                         </ul>

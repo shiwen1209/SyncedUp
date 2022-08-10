@@ -2,12 +2,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 1280px;
+    width: $body-width;
     height: 600px;
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
     margin-top: 90px;
-    // border: 1px solid red;
 }
 
 #user-profile i{
@@ -25,14 +24,14 @@
 }
 
 #user-profile-main {
-    width: 850px;
+    width: 65%;
     // border: 1px solid yellow;
 }
 
 #user-profile-other {
     position: fixed;
-    margin-left: 870px;
-    width: 380px;
+    margin-left: 50%;
+    width: 23.3%;
     height: 420px;
     // border: 1px solid green;
 }
@@ -303,7 +302,6 @@
 }
 
 #user-profile-other li {
-    // border: 1px solid red;
     width: 95%;
     margin: 0px;
     padding: 0px;

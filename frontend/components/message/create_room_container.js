@@ -5,6 +5,7 @@ import { receiveMsgUser } from '../../actions/user_action';
 import CreateRoom from './create_room';
 import { fetchConnections} from "../../actions/connection_actions";
 
+
 const mapState = (state, ownProps) => {
 
     return {

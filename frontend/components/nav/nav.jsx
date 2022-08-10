@@ -72,7 +72,7 @@ class Nav extends React.Component {
                                 <i className="fa-solid fa-magnifying-glass"></i>
                             </div>
                             <input onFocus={this.handleSearch} id="search-box"
-                            onChange={this.handleUpdate} placeholder="Search"
+                                onChange={this.handleUpdate} placeholder="Search"
                                 className="comment-button" type="text" value={this.state.searchValue} />
                         </div>
 
