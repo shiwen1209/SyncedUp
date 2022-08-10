@@ -4,22 +4,24 @@
     justify-content: space-between;
     width: $body-width;
     margin-top: 90px;
+    // border: 1px solid red;
 }
 
 #user-feed-profile {
-    width: 15%;
+    width: 240px;
     position: fixed;
 }
 
 #user-feed-posts {
-    width: 50.3%;
-    margin-left: 21.6%;
+    width: 605px;
+    margin-left: 260px;
+
 }
 
 #user-feed-other {
     position: fixed;
-    margin-left: 55.2%;
-    width: 20%;
+    margin-left: 885px;
+    width: 315px;
 }
 
 

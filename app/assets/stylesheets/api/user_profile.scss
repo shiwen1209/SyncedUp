@@ -7,6 +7,7 @@
     padding: 0px;
     margin: 0px;
     margin-top: 90px;
+    // border: 1px solid red;
 }
 
 #user-profile i{
@@ -24,14 +25,14 @@
 }
 
 #user-profile-main {
-    width: 65%;
+    width: 780px;
     // border: 1px solid yellow;
 }
 
 #user-profile-other {
     position: fixed;
-    margin-left: 50%;
-    width: 23.3%;
+    margin-left: 800px;
+    width: 370px;
     height: 420px;
     // border: 1px solid green;
 }
