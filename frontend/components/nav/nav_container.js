@@ -7,7 +7,7 @@ import { fetchPeople } from "../../actions/user_action";
 const mapStateToProps = (state) => {
     return {
         currentUser: state.session.user,
-        people: Object.values(state.entities.people)
+        people: Object.values(state.entities.people).filter((user)=>(user.id !== state.session.id))
     }
 }
 
