@@ -2,7 +2,7 @@
 
 SyncedUp is a clone of LinkedIn, a social media application that allows profesionals to connect with other to branch out their network, showcase their profile and experiences, share updates on their profesional lives and follow other's updates. 
 
-[Live site] (https://syncedup1.herokuapp.com/#/)
+[Live site](https://syncedup1.herokuapp.com/#/)
 
 # Functionality and MVPs
 
