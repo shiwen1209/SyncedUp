@@ -36,7 +36,4 @@ SyncedUp is a clone of LinkedIn, a social media application that allows profesio
 
  # Features
  ## Posts, comments, replies and likes
-https://user-images.githubusercontent.com/39010644/184061996-09d05549-46b9-415c-bdce-469388d15985.mov
-
-
-
+![syncedup_post_part1_AdobeExpress (1)](https://user-images.githubusercontent.com/39010644/184062647-c27e1f6f-5ab7-49f0-9ad8-f08f947b56c5.gif)
