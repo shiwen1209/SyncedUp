@@ -60,8 +60,9 @@ SyncedUp is a clone of LinkedIn, a social media application that allows profesio
 ```
 
  ## Live chat
- * User can have one-one-one live chat with another user or live group chat with other users
-https://user-images.githubusercontent.com/39010644/184063189-f3ce8ed5-af10-4b7d-850a-10d6f4850dea.mov
+ * User can have one-one-one live chat with another user or live group chat with other users <br />
+
+https://user-images.githubusercontent.com/39010644/184272218-a51552d4-778a-4dad-a97e-d8f8db83c7f6.mov
 
 ```js
 class RoomsChannel < ApplicationCable::Channel
