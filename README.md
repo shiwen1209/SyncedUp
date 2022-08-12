@@ -37,8 +37,39 @@ SyncedUp is a clone of LinkedIn, a social media application that allows profesio
  # Features
  ## Posts, comments, replies and likes
 ![syncedup_post_part1_AdobeExpress (1)](https://user-images.githubusercontent.com/39010644/184062647-c27e1f6f-5ab7-49f0-9ad8-f08f947b56c5.gif)
+* User can create a post and upload an image with the post
+```js
+    handleUpdate(field){
+        return (e)=> this.setState({[field]: e.currentTarget.value})
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+        const {processForm, closeModal, post} = this.props
+        const formData = new FormData();
+        if (this.state.photoFile){
+            formData.append('post[image]', this.state.photoFile);
+        }
+        formData.append('post[body]', this.state.body);
+        formData.append('post[author_id]', this.state.authorId);
+        processForm(formData, post.id)
+        closeModal();
+    }
+
+    handleFile(e) {
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({ photoFile: file, imageUrl: fileReader.result })
+        }
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
+    }
+```
 
  ## Live chat
+ * User can have one-one-one live chat with another user or live group chat with other users
 https://user-images.githubusercontent.com/39010644/184063189-f3ce8ed5-af10-4b7d-850a-10d6f4850dea.mov
 
 ```js
