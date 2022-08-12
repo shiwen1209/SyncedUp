@@ -29,6 +29,7 @@ SyncedUp is a clone of LinkedIn, a social media application that allows profesio
 ![syncedup_post_part1_AdobeExpress (1)](https://user-images.githubusercontent.com/39010644/184062647-c27e1f6f-5ab7-49f0-9ad8-f08f947b56c5.gif)
 
 ```js
+//post_form.jsx
     handleUpdate(field){
         return (e)=> this.setState({[field]: e.currentTarget.value})
     }
@@ -64,6 +65,7 @@ SyncedUp is a clone of LinkedIn, a social media application that allows profesio
 https://user-images.githubusercontent.com/39010644/184272218-a51552d4-778a-4dad-a97e-d8f8db83c7f6.mov
 
 ```js
+//rooms_channel.rb
 class RoomsChannel < ApplicationCable::Channel
   def self.online_users(room)
     ActionCable.server.connections.filter_map do |conn| 
