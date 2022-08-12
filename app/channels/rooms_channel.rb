@@ -22,11 +22,4 @@ class RoomsChannel < ApplicationCable::Channel
       type: 'REMOVE_ROOM_USER',
       id: current_user.id
   end
-
-  def react(reaction)
-    self.class.broadcast_to @room, 
-      type: 'RECEIVE_REACTION',
-      id: current_user.id,
-      **reaction
-  end
 end

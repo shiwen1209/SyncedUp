@@ -1,6 +1,5 @@
 import React from "react";
 import PostIndexItemContainer from "./post_index_item_container";
-// import CreatePostContainer from "./create_post_container"
 
 class PostIndex extends React.Component{
     render(){

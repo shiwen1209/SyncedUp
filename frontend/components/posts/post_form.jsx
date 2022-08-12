@@ -37,7 +37,6 @@ class PostForm extends React.Component{
     }
 
     render(){
-        console.log(this.state)
         const {formType, closeModal, currentUser} = this.props
         return (
             <div id="post-form" className="component">
@@ -73,7 +72,6 @@ class PostForm extends React.Component{
                         </div>
                         : <div></div>
                     }
-                    
                 </form>
                 
                 <div>
