@@ -21,18 +21,9 @@ SyncedUp is a clone of LinkedIn, a social media application that allows profesio
 
 # Technologies Used
 
- ## Hosting & Server
-  * Heroku
-  * AWS
- ## Backend
- * Ruby on Rails
- * PostgreSQL
- * jBuilder
- ## Frontend
- * React
- * Redux
- * Node.js
- * jQuery
+* Hosting & Server: Heroku, AWS S3, Redis
+* Backend: Ruby on Rails, PostgreSQL, Action Cable, Active Storage
+* Frontend: Javascript, React, Redux
 
  # Features
  ## Posts, comments, replies and likes
