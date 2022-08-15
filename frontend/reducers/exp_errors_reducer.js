@@ -9,7 +9,6 @@ const expErrorsReducer = (state = [], action) => {
         case RECEIVE_EXP:
             return [];
         case CLEAR_EXP_ERRORS:
-            debugger
             return [];
         default:
             return state;

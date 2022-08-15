@@ -54,7 +54,7 @@ class UserProfile extends React.Component {
         } else {
             this.setState({ displayDropdown: true}) 
         }
-        console.log(this.state)
+        // console.log(this.state)
 
     }
 
