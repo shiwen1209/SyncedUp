@@ -4,15 +4,11 @@ import { Link } from "react-router-dom";
 class PeopleItem extends React.Component {
     constructor(props){
         super(props);
-        // this.state = {
-        //     connect: false
-        // }
         this.handleClickConnect = this.handleClickConnect.bind(this)
     }
 
 
     handleClickConnect(e) {
-        // this.setState({ connect: true})
         const { currentUserId, person, createConnection, addConnection} = this.props;
         const con1 = {"user1_id": currentUserId, "user2_id": person.id};
         const con2 = {"user1_id": person.id, "user2_id": currentUserId};

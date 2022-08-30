@@ -54,8 +54,6 @@ class UserProfile extends React.Component {
         } else {
             this.setState({ displayDropdown: true}) 
         }
-        // console.log(this.state)
-
     }
 
     createRoom(e) {

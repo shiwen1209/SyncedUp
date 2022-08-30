@@ -7,7 +7,6 @@ import { createRoom, fetchRoomsNoUsers} from '../../actions/room_actions';
 import { removeExps } from "../../actions/exp_actions";
 
 const mstp = (state, ownProps) => {
-    // debugger
     return {
         user: state.entities.profileUser,
         currentUserId: state.session.id,

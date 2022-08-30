@@ -10,9 +10,6 @@ const usersReducer = (state = {}, action) => {
         case RECEIVE_MSG_USER:
             nextState[action.user.id] = action.user
             return nextState
-        // case RECEIVE_PEOPLE:
-        //     nextState[action.user.id] = action.user
-        //     return nextState;
         case RECEIVE_USERS:
             return {...state, ...action.users};
         case LOGOUT_CURRENT_USER:
